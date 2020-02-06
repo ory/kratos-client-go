@@ -12,22 +12,23 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// LoginRequestMethod login request method
-// swagger:model loginRequestMethod
-type LoginRequestMethod struct {
+// ErrorContainer error container
+// swagger:model errorContainer
+type ErrorContainer struct {
 
-	// config
-	Config *LoginRequestMethodConfig `json:"config,omitempty"`
+	// errors
+	Errors interface{} `json:"errors,omitempty"`
 
-	// method
-	Method CredentialsType `json:"method,omitempty"`
+	// id
+	// Format: uuid4
+	ID UUID `json:"id,omitempty"`
 }
 
-// Validate validates this login request method
-func (m *LoginRequestMethod) Validate(formats strfmt.Registry) error {
+// Validate validates this error container
+func (m *ErrorContainer) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateMethod(formats); err != nil {
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -37,15 +38,15 @@ func (m *LoginRequestMethod) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *LoginRequestMethod) validateMethod(formats strfmt.Registry) error {
+func (m *ErrorContainer) validateID(formats strfmt.Registry) error {
 
-	if swag.IsZero(m.Method) { // not required
+	if swag.IsZero(m.ID) { // not required
 		return nil
 	}
 
-	if err := m.Method.Validate(formats); err != nil {
+	if err := m.ID.Validate(formats); err != nil {
 		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("method")
+			return ve.ValidateName("id")
 		}
 		return err
 	}
@@ -54,7 +55,7 @@ func (m *LoginRequestMethod) validateMethod(formats strfmt.Registry) error {
 }
 
 // MarshalBinary interface implementation
-func (m *LoginRequestMethod) MarshalBinary() ([]byte, error) {
+func (m *ErrorContainer) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -62,8 +63,8 @@ func (m *LoginRequestMethod) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *LoginRequestMethod) UnmarshalBinary(b []byte) error {
-	var res LoginRequestMethod
+func (m *ErrorContainer) UnmarshalBinary(b []byte) error {
+	var res ErrorContainer
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
