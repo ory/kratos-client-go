@@ -6,11 +6,13 @@ package client
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
 
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/runtime"
+	"github.com/go-openapi/strfmt"
 
+	"github.com/ory/kratos-client-go/client/admin"
+	"github.com/ory/kratos-client-go/client/common"
 	"github.com/ory/kratos-client-go/client/health"
 	"github.com/ory/kratos-client-go/client/public"
 	"github.com/ory/kratos-client-go/client/version"
@@ -58,13 +60,11 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *OryKratos 
 
 	cli := new(OryKratos)
 	cli.Transport = transport
-
+	cli.Admin = admin.New(transport, formats)
+	cli.Common = common.New(transport, formats)
 	cli.Health = health.New(transport, formats)
-
 	cli.Public = public.New(transport, formats)
-
 	cli.Version = version.New(transport, formats)
-
 	return cli
 }
 
@@ -109,11 +109,15 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // OryKratos is a client for ory kratos
 type OryKratos struct {
-	Health *health.Client
+	Admin admin.ClientService
 
-	Public *public.Client
+	Common common.ClientService
 
-	Version *version.Client
+	Health health.ClientService
+
+	Public public.ClientService
+
+	Version version.ClientService
 
 	Transport runtime.ClientTransport
 }
@@ -121,11 +125,9 @@ type OryKratos struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *OryKratos) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
-
+	c.Admin.SetTransport(transport)
+	c.Common.SetTransport(transport)
 	c.Health.SetTransport(transport)
-
 	c.Public.SetTransport(transport)
-
 	c.Version.SetTransport(transport)
-
 }
