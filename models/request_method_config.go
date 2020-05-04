@@ -14,9 +14,9 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// Form HTMLForm represents a HTML Form. The container can work with both HTTP Form and JSON requests
-// swagger:model form
-type Form struct {
+// RequestMethodConfig request method config
+// swagger:model RequestMethodConfig
+type RequestMethodConfig struct {
 
 	// Action should be used as the form action URL `<form action="{{ .Action }}" method="post">`.
 	// Required: true
@@ -34,8 +34,8 @@ type Form struct {
 	Method *string `json:"method"`
 }
 
-// Validate validates this form
-func (m *Form) Validate(formats strfmt.Registry) error {
+// Validate validates this request method config
+func (m *RequestMethodConfig) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateAction(formats); err != nil {
@@ -60,7 +60,7 @@ func (m *Form) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Form) validateAction(formats strfmt.Registry) error {
+func (m *RequestMethodConfig) validateAction(formats strfmt.Registry) error {
 
 	if err := validate.Required("action", "body", m.Action); err != nil {
 		return err
@@ -69,7 +69,7 @@ func (m *Form) validateAction(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Form) validateErrors(formats strfmt.Registry) error {
+func (m *RequestMethodConfig) validateErrors(formats strfmt.Registry) error {
 
 	if swag.IsZero(m.Errors) { // not required
 		return nil
@@ -94,7 +94,7 @@ func (m *Form) validateErrors(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Form) validateFields(formats strfmt.Registry) error {
+func (m *RequestMethodConfig) validateFields(formats strfmt.Registry) error {
 
 	if err := validate.Required("fields", "body", m.Fields); err != nil {
 		return err
@@ -110,7 +110,7 @@ func (m *Form) validateFields(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Form) validateMethod(formats strfmt.Registry) error {
+func (m *RequestMethodConfig) validateMethod(formats strfmt.Registry) error {
 
 	if err := validate.Required("method", "body", m.Method); err != nil {
 		return err
@@ -120,7 +120,7 @@ func (m *Form) validateMethod(formats strfmt.Registry) error {
 }
 
 // MarshalBinary interface implementation
-func (m *Form) MarshalBinary() ([]byte, error) {
+func (m *RequestMethodConfig) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -128,8 +128,8 @@ func (m *Form) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *Form) UnmarshalBinary(b []byte) error {
-	var res Form
+func (m *RequestMethodConfig) UnmarshalBinary(b []byte) error {
+	var res RequestMethodConfig
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}
