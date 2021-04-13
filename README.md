@@ -100,11 +100,6 @@ Class | Method | HTTP request | Description
 *AdminApi* | [**ListIdentities**](docs/AdminApi.md#listidentities) | **Get** /identities | List Identities
 *AdminApi* | [**Prometheus**](docs/AdminApi.md#prometheus) | **Get** /metrics/prometheus | Get snapshot metrics from the Hydra service. If you&#39;re using k8s, you can then add annotations to your deployment like so:
 *AdminApi* | [**UpdateIdentity**](docs/AdminApi.md#updateidentity) | **Put** /identities/{id} | Update an Identity
-*PublicApi* | [**CompleteSelfServiceBrowserSettingsOIDCSettingsFlow**](docs/PublicApi.md#completeselfservicebrowsersettingsoidcsettingsflow) | **Post** /self-service/browser/flows/registration/strategies/oidc/settings/connections | Complete the Browser-Based Settings Flow for the OpenID Connect Strategy
-*PublicApi* | [**CompleteSelfServiceRecoveryFlowWithLinkMethod**](docs/PublicApi.md#completeselfservicerecoveryflowwithlinkmethod) | **Post** /self-service/recovery/methods/link | Complete Recovery Flow with Link Method
-*PublicApi* | [**CompleteSelfServiceSettingsFlowWithPasswordMethod**](docs/PublicApi.md#completeselfservicesettingsflowwithpasswordmethod) | **Post** /self-service/settings/methods/password | Complete Settings Flow with Username/Email Password Method
-*PublicApi* | [**CompleteSelfServiceSettingsFlowWithProfileMethod**](docs/PublicApi.md#completeselfservicesettingsflowwithprofilemethod) | **Post** /self-service/settings/methods/profile | Complete Settings Flow with Profile Method
-*PublicApi* | [**CompleteSelfServiceVerificationFlowWithLinkMethod**](docs/PublicApi.md#completeselfserviceverificationflowwithlinkmethod) | **Post** /self-service/verification/methods/link | Complete Verification Flow with Link Method
 *PublicApi* | [**GetSchema**](docs/PublicApi.md#getschema) | **Get** /schemas/{id} | 
 *PublicApi* | [**GetSelfServiceError**](docs/PublicApi.md#getselfserviceerror) | **Get** /self-service/errors | Get User-Facing Self-Service Errors
 *PublicApi* | [**GetSelfServiceLoginFlow**](docs/PublicApi.md#getselfserviceloginflow) | **Get** /self-service/login/flows | Get Login Flow
@@ -124,21 +119,18 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**InitializeSelfServiceVerificationViaAPIFlow**](docs/PublicApi.md#initializeselfserviceverificationviaapiflow) | **Get** /self-service/verification/api | Initialize Verification Flow for API Clients
 *PublicApi* | [**InitializeSelfServiceVerificationViaBrowserFlow**](docs/PublicApi.md#initializeselfserviceverificationviabrowserflow) | **Get** /self-service/verification/browser | Initialize Verification Flow for Browser Clients
 *PublicApi* | [**RevokeSession**](docs/PublicApi.md#revokesession) | **Delete** /sessions | Initialize Logout Flow for API Clients - Revoke a Session
-*PublicApi* | [**SubmitSelfServiceLoginFlow**](docs/PublicApi.md#submitselfserviceloginflow) | **Post** /self-service/login/flows | Submit a Login Flow
+*PublicApi* | [**SubmitSelfServiceLoginFlow**](docs/PublicApi.md#submitselfserviceloginflow) | **Post** /self-service/login | Submit a Login Flow
+*PublicApi* | [**SubmitSelfServiceRecoveryFlow**](docs/PublicApi.md#submitselfservicerecoveryflow) | **Post** /self-service/recovery | Complete Recovery Flow
+*PublicApi* | [**SubmitSelfServiceRecoveryFlowWithLinkMethod**](docs/PublicApi.md#submitselfservicerecoveryflowwithlinkmethod) | **Post** /self-service/recovery/methods/link | Complete Recovery Flow with Link Method
 *PublicApi* | [**SubmitSelfServiceRegistrationFlow**](docs/PublicApi.md#submitselfserviceregistrationflow) | **Post** /self-service/registration | Submit a Registration Flow
+*PublicApi* | [**SubmitSelfServiceSettingsFlow**](docs/PublicApi.md#submitselfservicesettingsflow) | **Post** /self-service/settings | Complete Settings Flow
+*PublicApi* | [**SubmitSelfServiceVerificationFlow**](docs/PublicApi.md#submitselfserviceverificationflow) | **Post** /self-service/verification/methods/link | Complete Verification Flow
 *PublicApi* | [**Whoami**](docs/PublicApi.md#whoami) | **Get** /sessions/whoami | Check Who the Current HTTP Session Belongs To
 
 
 ## Documentation For Models
 
  - [AuthenticateOKBody](docs/AuthenticateOKBody.md)
- - [CompleteSelfServiceBrowserSettingsOIDCFlowPayload](docs/CompleteSelfServiceBrowserSettingsOIDCFlowPayload.md)
- - [CompleteSelfServiceBrowserSettingsProfileStrategyFlow](docs/CompleteSelfServiceBrowserSettingsProfileStrategyFlow.md)
- - [CompleteSelfServiceLoginFlowWithPasswordMethod](docs/CompleteSelfServiceLoginFlowWithPasswordMethod.md)
- - [CompleteSelfServiceLoginFlowWithPasswordMethodPayload](docs/CompleteSelfServiceLoginFlowWithPasswordMethodPayload.md)
- - [CompleteSelfServiceRecoveryFlowWithLinkMethod](docs/CompleteSelfServiceRecoveryFlowWithLinkMethod.md)
- - [CompleteSelfServiceSettingsFlowWithPasswordMethod](docs/CompleteSelfServiceSettingsFlowWithPasswordMethod.md)
- - [CompleteSelfServiceVerificationFlowWithLinkMethod](docs/CompleteSelfServiceVerificationFlowWithLinkMethod.md)
  - [ContainerChangeResponseItem](docs/ContainerChangeResponseItem.md)
  - [ContainerCreateCreatedBody](docs/ContainerCreateCreatedBody.md)
  - [ContainerTopOKBody](docs/ContainerTopOKBody.md)
@@ -156,6 +148,7 @@ Class | Method | HTTP request | Description
  - [HealthStatus](docs/HealthStatus.md)
  - [IdResponse](docs/IdResponse.md)
  - [Identity](docs/Identity.md)
+ - [IdentityCredentials](docs/IdentityCredentials.md)
  - [ImageDeleteResponseItem](docs/ImageDeleteResponseItem.md)
  - [ImageSummary](docs/ImageSummary.md)
  - [InlineResponse200](docs/InlineResponse200.md)
@@ -163,6 +156,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse503](docs/InlineResponse503.md)
  - [LoginFlow](docs/LoginFlow.md)
  - [LoginViaApiResponse](docs/LoginViaApiResponse.md)
+ - [Meta](docs/Meta.md)
  - [Plugin](docs/Plugin.md)
  - [PluginConfig](docs/PluginConfig.md)
  - [PluginConfigArgs](docs/PluginConfigArgs.md)
@@ -179,9 +173,6 @@ Class | Method | HTTP request | Description
  - [Port](docs/Port.md)
  - [RecoveryAddress](docs/RecoveryAddress.md)
  - [RecoveryFlow](docs/RecoveryFlow.md)
- - [RecoveryFlowMethod](docs/RecoveryFlowMethod.md)
- - [RecoveryFlowMethodConfig](docs/RecoveryFlowMethodConfig.md)
- - [RecoveryFlowMethodConfigPayload](docs/RecoveryFlowMethodConfigPayload.md)
  - [RecoveryLink](docs/RecoveryLink.md)
  - [RegistrationFlow](docs/RegistrationFlow.md)
  - [RegistrationViaApiResponse](docs/RegistrationViaApiResponse.md)
@@ -189,11 +180,18 @@ Class | Method | HTTP request | Description
  - [ServiceUpdateResponse](docs/ServiceUpdateResponse.md)
  - [Session](docs/Session.md)
  - [SettingsFlow](docs/SettingsFlow.md)
- - [SettingsFlowMethod](docs/SettingsFlowMethod.md)
- - [SettingsFlowMethodConfig](docs/SettingsFlowMethodConfig.md)
- - [SettingsFlowMethodConfigPayload](docs/SettingsFlowMethodConfigPayload.md)
  - [SettingsProfileFormConfig](docs/SettingsProfileFormConfig.md)
  - [SettingsViaApiResponse](docs/SettingsViaApiResponse.md)
+ - [SubmitSelfServiceBrowserSettingsOIDCFlowPayload](docs/SubmitSelfServiceBrowserSettingsOIDCFlowPayload.md)
+ - [SubmitSelfServiceLoginFlow](docs/SubmitSelfServiceLoginFlow.md)
+ - [SubmitSelfServiceLoginFlowWithPasswordMethod](docs/SubmitSelfServiceLoginFlowWithPasswordMethod.md)
+ - [SubmitSelfServiceRecoveryFlowWithLinkMethod](docs/SubmitSelfServiceRecoveryFlowWithLinkMethod.md)
+ - [SubmitSelfServiceRegistrationFlow](docs/SubmitSelfServiceRegistrationFlow.md)
+ - [SubmitSelfServiceRegistrationFlowWithPasswordMethod](docs/SubmitSelfServiceRegistrationFlowWithPasswordMethod.md)
+ - [SubmitSelfServiceSettingsFlow](docs/SubmitSelfServiceSettingsFlow.md)
+ - [SubmitSelfServiceSettingsFlowWithPasswordMethod](docs/SubmitSelfServiceSettingsFlowWithPasswordMethod.md)
+ - [SubmitSelfServiceSettingsFlowWithProfileMethod](docs/SubmitSelfServiceSettingsFlowWithProfileMethod.md)
+ - [SubmitSelfServiceVerificationFlowWithLinkMethod](docs/SubmitSelfServiceVerificationFlowWithLinkMethod.md)
  - [UiContainer](docs/UiContainer.md)
  - [UiNode](docs/UiNode.md)
  - [UiNodeAnchorAttributes](docs/UiNodeAnchorAttributes.md)
@@ -206,9 +204,6 @@ Class | Method | HTTP request | Description
  - [UpdateIdentity](docs/UpdateIdentity.md)
  - [VerifiableAddress](docs/VerifiableAddress.md)
  - [VerificationFlow](docs/VerificationFlow.md)
- - [VerificationFlowMethod](docs/VerificationFlowMethod.md)
- - [VerificationFlowMethodConfig](docs/VerificationFlowMethodConfig.md)
- - [VerificationFlowMethodConfigPayload](docs/VerificationFlowMethodConfigPayload.md)
  - [Version](docs/Version.md)
  - [Volume](docs/Volume.md)
  - [VolumeUsageData](docs/VolumeUsageData.md)
