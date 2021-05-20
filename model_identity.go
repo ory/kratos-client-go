@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.6.3-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -20,7 +20,7 @@ import (
 type Identity struct {
 	// CreatedAt is a helper struct field for gobuffalo.pop.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
-	Id string `json:"id"`
+	Id        string     `json:"id"`
 	// RecoveryAddresses contains all the addresses that can be used to recover an identity.
 	RecoveryAddresses []RecoveryAddress `json:"recovery_addresses,omitempty"`
 	// SchemaID is the ID of the JSON Schema to be used for validating the identity's traits.
@@ -101,7 +101,7 @@ func (o *Identity) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *Identity) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -157,7 +157,7 @@ func (o *Identity) GetSchemaId() string {
 // GetSchemaIdOk returns a tuple with the SchemaId field value
 // and a boolean to check if the value has been set.
 func (o *Identity) GetSchemaIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SchemaId, true
@@ -181,7 +181,7 @@ func (o *Identity) GetSchemaUrl() string {
 // GetSchemaUrlOk returns a tuple with the SchemaUrl field value
 // and a boolean to check if the value has been set.
 func (o *Identity) GetSchemaUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SchemaUrl, true
@@ -346,5 +346,3 @@ func (v *NullableIdentity) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

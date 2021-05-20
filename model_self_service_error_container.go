@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.6.3-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -22,7 +22,7 @@ type SelfServiceErrorContainer struct {
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// Errors in the container
 	Errors []map[string]interface{} `json:"errors"`
-	Id string `json:"id"`
+	Id     string                   `json:"id"`
 	// UpdatedAt is a helper struct field for gobuffalo.pop.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
@@ -91,7 +91,7 @@ func (o *SelfServiceErrorContainer) GetErrors() []map[string]interface{} {
 // GetErrorsOk returns a tuple with the Errors field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceErrorContainer) GetErrorsOk() ([]map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Errors, true
@@ -115,7 +115,7 @@ func (o *SelfServiceErrorContainer) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceErrorContainer) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -210,5 +210,3 @@ func (v *NullableSelfServiceErrorContainer) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

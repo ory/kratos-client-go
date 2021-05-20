@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.6.3-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -70,7 +70,7 @@ func (o *PluginMount) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
 func (o *PluginMount) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Description, true
@@ -94,7 +94,7 @@ func (o *PluginMount) GetDestination() string {
 // GetDestinationOk returns a tuple with the Destination field value
 // and a boolean to check if the value has been set.
 func (o *PluginMount) GetDestinationOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Destination, true
@@ -118,7 +118,7 @@ func (o *PluginMount) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *PluginMount) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -142,7 +142,7 @@ func (o *PluginMount) GetOptions() []string {
 // GetOptionsOk returns a tuple with the Options field value
 // and a boolean to check if the value has been set.
 func (o *PluginMount) GetOptionsOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Options, true
@@ -166,7 +166,7 @@ func (o *PluginMount) GetSettable() []string {
 // GetSettableOk returns a tuple with the Settable field value
 // and a boolean to check if the value has been set.
 func (o *PluginMount) GetSettableOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Settable, true
@@ -190,7 +190,7 @@ func (o *PluginMount) GetSource() string {
 // GetSourceOk returns a tuple with the Source field value
 // and a boolean to check if the value has been set.
 func (o *PluginMount) GetSourceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Source, true
@@ -214,7 +214,7 @@ func (o *PluginMount) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *PluginMount) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -286,5 +286,3 @@ func (v *NullablePluginMount) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

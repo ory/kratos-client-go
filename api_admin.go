@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.6.3-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -29,8 +29,8 @@ var (
 type AdminApiService service
 
 type AdminApiApiCreateIdentityRequest struct {
-	ctx context.Context
-	ApiService *AdminApiService
+	ctx            context.Context
+	ApiService     *AdminApiService
 	createIdentity *CreateIdentity
 }
 
@@ -51,11 +51,11 @@ using this method! A way to achieve that will be introduced in the future.
 Learn how identities work in [Ory Kratos' User And Identity Model Documentation](https://www.ory.sh/docs/next/kratos/concepts/identity-user-model).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiCreateIdentityRequest
- */
+*/
 func (a *AdminApiService) CreateIdentity(ctx context.Context) AdminApiApiCreateIdentityRequest {
 	return AdminApiApiCreateIdentityRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -170,8 +170,8 @@ func (a *AdminApiService) CreateIdentityExecute(r AdminApiApiCreateIdentityReque
 }
 
 type AdminApiApiCreateRecoveryLinkRequest struct {
-	ctx context.Context
-	ApiService *AdminApiService
+	ctx                context.Context
+	ApiService         *AdminApiService
 	createRecoveryLink *CreateRecoveryLink
 }
 
@@ -190,11 +190,11 @@ func (r AdminApiApiCreateRecoveryLinkRequest) Execute() (*RecoveryLink, *http.Re
 (or activate) their account.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiCreateRecoveryLinkRequest
- */
+*/
 func (a *AdminApiService) CreateRecoveryLink(ctx context.Context) AdminApiApiCreateRecoveryLinkRequest {
 	return AdminApiApiCreateRecoveryLinkRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -309,11 +309,10 @@ func (a *AdminApiService) CreateRecoveryLinkExecute(r AdminApiApiCreateRecoveryL
 }
 
 type AdminApiApiDeleteIdentityRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	id string
+	id         string
 }
-
 
 func (r AdminApiApiDeleteIdentityRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteIdentityExecute(r)
@@ -329,12 +328,12 @@ Learn how identities work in [Ory Kratos' User And Identity Model Documentation]
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID is the identity's ID.
  * @return AdminApiApiDeleteIdentityRequest
- */
+*/
 func (a *AdminApiService) DeleteIdentity(ctx context.Context, id string) AdminApiApiDeleteIdentityRequest {
 	return AdminApiApiDeleteIdentityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -427,11 +426,10 @@ func (a *AdminApiService) DeleteIdentityExecute(r AdminApiApiDeleteIdentityReque
 }
 
 type AdminApiApiGetIdentityRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	id string
+	id         string
 }
-
 
 func (r AdminApiApiGetIdentityRequest) Execute() (*Identity, *http.Response, error) {
 	return r.ApiService.GetIdentityExecute(r)
@@ -447,8 +445,8 @@ func (r AdminApiApiGetIdentityRequest) Execute() (*Identity, *http.Response, err
 func (a *AdminApiService) GetIdentity(ctx context.Context, id string) AdminApiApiGetIdentityRequest {
 	return AdminApiApiGetIdentityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -552,11 +550,10 @@ func (a *AdminApiService) GetIdentityExecute(r AdminApiApiGetIdentityRequest) (*
 }
 
 type AdminApiApiGetSchemaRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	id string
+	id         string
 }
-
 
 func (r AdminApiApiGetSchemaRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.GetSchemaExecute(r)
@@ -572,8 +569,8 @@ func (r AdminApiApiGetSchemaRequest) Execute() (map[string]interface{}, *http.Re
 func (a *AdminApiService) GetSchema(ctx context.Context, id string) AdminApiApiGetSchemaRequest {
 	return AdminApiApiGetSchemaRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
@@ -677,9 +674,9 @@ func (a *AdminApiService) GetSchemaExecute(r AdminApiApiGetSchemaRequest) (map[s
 }
 
 type AdminApiApiGetSelfServiceErrorRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	error_ *string
+	error_     *string
 }
 
 func (r AdminApiApiGetSelfServiceErrorRequest) Error_(error_ string) AdminApiApiGetSelfServiceErrorRequest {
@@ -702,11 +699,11 @@ This endpoint supports stub values to help you implement the error UI:
 More information can be found at [Ory Kratos User User Facing Error Documentation](https://www.ory.sh/docs/kratos/self-service/flows/user-facing-errors).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiGetSelfServiceErrorRequest
- */
+*/
 func (a *AdminApiService) GetSelfServiceError(ctx context.Context) AdminApiApiGetSelfServiceErrorRequest {
 	return AdminApiApiGetSelfServiceErrorRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -823,9 +820,9 @@ func (a *AdminApiService) GetSelfServiceErrorExecute(r AdminApiApiGetSelfService
 }
 
 type AdminApiApiGetSelfServiceLoginFlowRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	id *string
+	id         *string
 }
 
 func (r AdminApiApiGetSelfServiceLoginFlowRequest) Id(id string) AdminApiApiGetSelfServiceLoginFlowRequest {
@@ -841,14 +838,20 @@ func (r AdminApiApiGetSelfServiceLoginFlowRequest) Execute() (*LoginFlow, *http.
  * GetSelfServiceLoginFlow Get Login Flow
  * This endpoint returns a login flow's context with, for example, error details and other information.
 
+:::info
+
+This endpoint is EXPERIMENTAL and subject to potential breaking changes in the future.
+
+:::
+
 More information can be found at [Ory Kratos User Login and User Registration Documentation](https://www.ory.sh/docs/next/kratos/self-service/flows/user-login-user-registration).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiGetSelfServiceLoginFlowRequest
- */
+*/
 func (a *AdminApiService) GetSelfServiceLoginFlow(ctx context.Context) AdminApiApiGetSelfServiceLoginFlowRequest {
 	return AdminApiApiGetSelfServiceLoginFlowRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -975,9 +978,9 @@ func (a *AdminApiService) GetSelfServiceLoginFlowExecute(r AdminApiApiGetSelfSer
 }
 
 type AdminApiApiGetSelfServiceRecoveryFlowRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	id *string
+	id         *string
 }
 
 func (r AdminApiApiGetSelfServiceRecoveryFlowRequest) Id(id string) AdminApiApiGetSelfServiceRecoveryFlowRequest {
@@ -996,11 +999,11 @@ func (r AdminApiApiGetSelfServiceRecoveryFlowRequest) Execute() (*RecoveryFlow, 
 More information can be found at [Ory Kratos Account Recovery Documentation](../self-service/flows/account-recovery.mdx).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiGetSelfServiceRecoveryFlowRequest
- */
+*/
 func (a *AdminApiService) GetSelfServiceRecoveryFlow(ctx context.Context) AdminApiApiGetSelfServiceRecoveryFlowRequest {
 	return AdminApiApiGetSelfServiceRecoveryFlowRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1117,9 +1120,9 @@ func (a *AdminApiService) GetSelfServiceRecoveryFlowExecute(r AdminApiApiGetSelf
 }
 
 type AdminApiApiGetSelfServiceRegistrationFlowRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	id *string
+	id         *string
 }
 
 func (r AdminApiApiGetSelfServiceRegistrationFlowRequest) Id(id string) AdminApiApiGetSelfServiceRegistrationFlowRequest {
@@ -1138,11 +1141,11 @@ func (r AdminApiApiGetSelfServiceRegistrationFlowRequest) Execute() (*Registrati
 More information can be found at [Ory Kratos User Login and User Registration Documentation](https://www.ory.sh/docs/next/kratos/self-service/flows/user-login-user-registration).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiGetSelfServiceRegistrationFlowRequest
- */
+*/
 func (a *AdminApiService) GetSelfServiceRegistrationFlow(ctx context.Context) AdminApiApiGetSelfServiceRegistrationFlowRequest {
 	return AdminApiApiGetSelfServiceRegistrationFlowRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1269,9 +1272,9 @@ func (a *AdminApiService) GetSelfServiceRegistrationFlowExecute(r AdminApiApiGet
 }
 
 type AdminApiApiGetSelfServiceSettingsFlowRequest struct {
-	ctx context.Context
-	ApiService *AdminApiService
-	id *string
+	ctx           context.Context
+	ApiService    *AdminApiService
+	id            *string
 	xSessionToken *string
 }
 
@@ -1299,11 +1302,11 @@ You can access this endpoint without credentials when using Ory Kratos' Admin AP
 More information can be found at [Ory Kratos User Settings & Profile Management Documentation](../self-service/flows/user-settings).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiGetSelfServiceSettingsFlowRequest
- */
+*/
 func (a *AdminApiService) GetSelfServiceSettingsFlow(ctx context.Context) AdminApiApiGetSelfServiceSettingsFlowRequest {
 	return AdminApiApiGetSelfServiceSettingsFlowRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1433,9 +1436,9 @@ func (a *AdminApiService) GetSelfServiceSettingsFlowExecute(r AdminApiApiGetSelf
 }
 
 type AdminApiApiGetSelfServiceVerificationFlowRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	id *string
+	id         *string
 }
 
 func (r AdminApiApiGetSelfServiceVerificationFlowRequest) Id(id string) AdminApiApiGetSelfServiceVerificationFlowRequest {
@@ -1454,11 +1457,11 @@ func (r AdminApiApiGetSelfServiceVerificationFlowRequest) Execute() (*Verificati
 More information can be found at [Ory Kratos Email and Phone Verification Documentation](https://www.ory.sh/docs/kratos/selfservice/flows/verify-email-account-activation).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiGetSelfServiceVerificationFlowRequest
- */
+*/
 func (a *AdminApiService) GetSelfServiceVerificationFlow(ctx context.Context) AdminApiApiGetSelfServiceVerificationFlowRequest {
 	return AdminApiApiGetSelfServiceVerificationFlowRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1575,10 +1578,9 @@ func (a *AdminApiService) GetSelfServiceVerificationFlowExecute(r AdminApiApiGet
 }
 
 type AdminApiApiGetVersionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
 }
-
 
 func (r AdminApiApiGetVersionRequest) Execute() (*InlineResponse2001, *http.Response, error) {
 	return r.ApiService.GetVersionExecute(r)
@@ -1595,11 +1597,11 @@ Be aware that if you are running multiple nodes of this service, the version wil
 refer to the cluster state, only to a single instance.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiGetVersionRequest
- */
+*/
 func (a *AdminApiService) GetVersion(ctx context.Context) AdminApiApiGetVersionRequest {
 	return AdminApiApiGetVersionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1683,10 +1685,9 @@ func (a *AdminApiService) GetVersionExecute(r AdminApiApiGetVersionRequest) (*In
 }
 
 type AdminApiApiIsAliveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
 }
-
 
 func (r AdminApiApiIsAliveRequest) Execute() (*InlineResponse200, *http.Response, error) {
 	return r.ApiService.IsAliveExecute(r)
@@ -1704,11 +1705,11 @@ Be aware that if you are running multiple nodes of this service, the health stat
 refer to the cluster state, only to a single instance.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiIsAliveRequest
- */
+*/
 func (a *AdminApiService) IsAlive(ctx context.Context) AdminApiApiIsAliveRequest {
 	return AdminApiApiIsAliveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1801,10 +1802,9 @@ func (a *AdminApiService) IsAliveExecute(r AdminApiApiIsAliveRequest) (*InlineRe
 }
 
 type AdminApiApiIsReadyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
 }
-
 
 func (r AdminApiApiIsReadyRequest) Execute() (*InlineResponse200, *http.Response, error) {
 	return r.ApiService.IsReadyExecute(r)
@@ -1822,11 +1822,11 @@ Be aware that if you are running multiple nodes of Ory Kratos, the health status
 refer to the cluster state, only to a single instance.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiIsReadyRequest
- */
+*/
 func (a *AdminApiService) IsReady(ctx context.Context) AdminApiApiIsReadyRequest {
 	return AdminApiApiIsReadyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -1919,10 +1919,10 @@ func (a *AdminApiService) IsReadyExecute(r AdminApiApiIsReadyRequest) (*InlineRe
 }
 
 type AdminApiApiListIdentitiesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
-	perPage *int64
-	page *int64
+	perPage    *int64
+	page       *int64
 }
 
 func (r AdminApiApiListIdentitiesRequest) PerPage(perPage int64) AdminApiApiListIdentitiesRequest {
@@ -1945,11 +1945,11 @@ func (r AdminApiApiListIdentitiesRequest) Execute() ([]Identity, *http.Response,
 Learn how identities work in [Ory Kratos' User And Identity Model Documentation](https://www.ory.sh/docs/next/kratos/concepts/identity-user-model).
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiListIdentitiesRequest
- */
+*/
 func (a *AdminApiService) ListIdentities(ctx context.Context) AdminApiApiListIdentitiesRequest {
 	return AdminApiApiListIdentitiesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -2048,10 +2048,9 @@ func (a *AdminApiService) ListIdentitiesExecute(r AdminApiApiListIdentitiesReque
 }
 
 type AdminApiApiPrometheusRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AdminApiService
 }
-
 
 func (r AdminApiApiPrometheusRequest) Execute() (*http.Response, error) {
 	return r.ApiService.PrometheusExecute(r)
@@ -2067,11 +2066,11 @@ prometheus.io/path: "/metrics/prometheus"
 ```
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return AdminApiApiPrometheusRequest
- */
+*/
 func (a *AdminApiService) Prometheus(ctx context.Context) AdminApiApiPrometheusRequest {
 	return AdminApiApiPrometheusRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -2144,9 +2143,9 @@ func (a *AdminApiService) PrometheusExecute(r AdminApiApiPrometheusRequest) (*ht
 }
 
 type AdminApiApiUpdateIdentityRequest struct {
-	ctx context.Context
-	ApiService *AdminApiService
-	id string
+	ctx            context.Context
+	ApiService     *AdminApiService
+	id             string
 	updateIdentity *UpdateIdentity
 }
 
@@ -2170,12 +2169,12 @@ Learn how identities work in [Ory Kratos' User And Identity Model Documentation]
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID must be set to the ID of identity you want to update
  * @return AdminApiApiUpdateIdentityRequest
- */
+*/
 func (a *AdminApiService) UpdateIdentity(ctx context.Context, id string) AdminApiApiUpdateIdentityRequest {
 	return AdminApiApiUpdateIdentityRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 

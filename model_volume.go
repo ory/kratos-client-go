@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.6.3-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -32,8 +32,8 @@ type Volume struct {
 	// The level at which the volume exists. Either `global` for cluster-wide, or `local` for machine level.
 	Scope string `json:"Scope"`
 	// Low-level details about the volume, provided by the volume driver. Details are returned as a map with key/value pairs: `{\"key\":\"value\",\"key2\":\"value2\"}`.  The `Status` field is optional, and is omitted if the volume driver does not support this feature.
-	Status map[string]map[string]interface{} `json:"Status,omitempty"`
-	UsageData *VolumeUsageData `json:"UsageData,omitempty"`
+	Status    map[string]map[string]interface{} `json:"Status,omitempty"`
+	UsageData *VolumeUsageData                  `json:"UsageData,omitempty"`
 }
 
 // NewVolume instantiates a new Volume object
@@ -104,7 +104,7 @@ func (o *Volume) GetDriver() string {
 // GetDriverOk returns a tuple with the Driver field value
 // and a boolean to check if the value has been set.
 func (o *Volume) GetDriverOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Driver, true
@@ -128,7 +128,7 @@ func (o *Volume) GetLabels() map[string]string {
 // GetLabelsOk returns a tuple with the Labels field value
 // and a boolean to check if the value has been set.
 func (o *Volume) GetLabelsOk() (*map[string]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Labels, true
@@ -152,7 +152,7 @@ func (o *Volume) GetMountpoint() string {
 // GetMountpointOk returns a tuple with the Mountpoint field value
 // and a boolean to check if the value has been set.
 func (o *Volume) GetMountpointOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Mountpoint, true
@@ -176,7 +176,7 @@ func (o *Volume) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *Volume) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -200,7 +200,7 @@ func (o *Volume) GetOptions() map[string]string {
 // GetOptionsOk returns a tuple with the Options field value
 // and a boolean to check if the value has been set.
 func (o *Volume) GetOptionsOk() (*map[string]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Options, true
@@ -224,7 +224,7 @@ func (o *Volume) GetScope() string {
 // GetScopeOk returns a tuple with the Scope field value
 // and a boolean to check if the value has been set.
 func (o *Volume) GetScopeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Scope, true
@@ -366,5 +366,3 @@ func (v *NullableVolume) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

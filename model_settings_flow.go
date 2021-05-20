@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.6.3-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -22,16 +22,16 @@ type SettingsFlow struct {
 	Active *string `json:"active,omitempty"`
 	// ExpiresAt is the time (UTC) when the flow expires. If the user still wishes to update the setting, a new flow has to be initiated.
 	ExpiresAt time.Time `json:"expires_at"`
-	Id string `json:"id"`
-	Identity Identity `json:"identity"`
+	Id        string    `json:"id"`
+	Identity  Identity  `json:"identity"`
 	// IssuedAt is the time (UTC) when the flow occurred.
 	IssuedAt time.Time `json:"issued_at"`
 	// RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL's path or query for example.
 	RequestUrl string `json:"request_url"`
-	State string `json:"state"`
+	State      string `json:"state"`
 	// The flow type can either be `api` or `browser`.
-	Type *string `json:"type,omitempty"`
-	Ui UiContainer `json:"ui"`
+	Type *string     `json:"type,omitempty"`
+	Ui   UiContainer `json:"ui"`
 }
 
 // NewSettingsFlow instantiates a new SettingsFlow object
@@ -103,7 +103,7 @@ func (o *SettingsFlow) GetExpiresAt() time.Time {
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value
 // and a boolean to check if the value has been set.
 func (o *SettingsFlow) GetExpiresAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiresAt, true
@@ -127,7 +127,7 @@ func (o *SettingsFlow) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *SettingsFlow) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -151,7 +151,7 @@ func (o *SettingsFlow) GetIdentity() Identity {
 // GetIdentityOk returns a tuple with the Identity field value
 // and a boolean to check if the value has been set.
 func (o *SettingsFlow) GetIdentityOk() (*Identity, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identity, true
@@ -175,7 +175,7 @@ func (o *SettingsFlow) GetIssuedAt() time.Time {
 // GetIssuedAtOk returns a tuple with the IssuedAt field value
 // and a boolean to check if the value has been set.
 func (o *SettingsFlow) GetIssuedAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAt, true
@@ -199,7 +199,7 @@ func (o *SettingsFlow) GetRequestUrl() string {
 // GetRequestUrlOk returns a tuple with the RequestUrl field value
 // and a boolean to check if the value has been set.
 func (o *SettingsFlow) GetRequestUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestUrl, true
@@ -223,7 +223,7 @@ func (o *SettingsFlow) GetState() string {
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
 func (o *SettingsFlow) GetStateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.State, true
@@ -279,7 +279,7 @@ func (o *SettingsFlow) GetUi() UiContainer {
 // GetUiOk returns a tuple with the Ui field value
 // and a boolean to check if the value has been set.
 func (o *SettingsFlow) GetUiOk() (*UiContainer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Ui, true
@@ -357,5 +357,3 @@ func (v *NullableSettingsFlow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
