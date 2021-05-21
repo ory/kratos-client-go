@@ -1,7 +1,7 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
  * API version: v0.6.2-alpha.1
  * Contact: hi@ory.sh
@@ -20,12 +20,12 @@ type GenericErrorPayload struct {
 	// Code represents the error status code (404, 403, 401, ...).
 	Code *int64 `json:"code,omitempty"`
 	// Debug contains debug information. This is usually not available and has to be enabled.
-	Debug *string `json:"debug,omitempty"`
+	Debug   *string                           `json:"debug,omitempty"`
 	Details map[string]map[string]interface{} `json:"details,omitempty"`
-	Message *string `json:"message,omitempty"`
-	Reason *string `json:"reason,omitempty"`
-	Request *string `json:"request,omitempty"`
-	Status *string `json:"status,omitempty"`
+	Message *string                           `json:"message,omitempty"`
+	Reason  *string                           `json:"reason,omitempty"`
+	Request *string                           `json:"request,omitempty"`
+	Status  *string                           `json:"status,omitempty"`
 }
 
 // NewGenericErrorPayload instantiates a new GenericErrorPayload object
@@ -330,5 +330,3 @@ func (v *NullableGenericErrorPayload) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

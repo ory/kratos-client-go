@@ -1,7 +1,7 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
  * API version: v0.6.2-alpha.1
  * Contact: hi@ory.sh
@@ -19,7 +19,7 @@ import (
 type ErrorContainer struct {
 	// Errors in the container
 	Errors []map[string]interface{} `json:"errors"`
-	Id string `json:"id"`
+	Id     string                   `json:"id"`
 }
 
 // NewErrorContainer instantiates a new ErrorContainer object
@@ -54,7 +54,7 @@ func (o *ErrorContainer) GetErrors() []map[string]interface{} {
 // GetErrorsOk returns a tuple with the Errors field value
 // and a boolean to check if the value has been set.
 func (o *ErrorContainer) GetErrorsOk() ([]map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Errors, true
@@ -78,7 +78,7 @@ func (o *ErrorContainer) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ErrorContainer) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -135,5 +135,3 @@ func (v *NullableErrorContainer) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
