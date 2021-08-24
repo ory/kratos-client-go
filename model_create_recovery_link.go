@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.6.3-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,8 +18,8 @@ import (
 // CreateRecoveryLink struct for CreateRecoveryLink
 type CreateRecoveryLink struct {
 	// Link Expires In  The recovery link will expire at that point in time. Defaults to the configuration value of `selfservice.flows.recovery.request_lifespan`.
-	ExpiresIn *string `json:"expires_in,omitempty"`
-	IdentityId string `json:"identity_id"`
+	ExpiresIn  *string `json:"expires_in,omitempty"`
+	IdentityId string  `json:"identity_id"`
 }
 
 // NewCreateRecoveryLink instantiates a new CreateRecoveryLink object
@@ -85,7 +85,7 @@ func (o *CreateRecoveryLink) GetIdentityId() string {
 // GetIdentityIdOk returns a tuple with the IdentityId field value
 // and a boolean to check if the value has been set.
 func (o *CreateRecoveryLink) GetIdentityIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IdentityId, true
@@ -142,5 +142,3 @@ func (v *NullableCreateRecoveryLink) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

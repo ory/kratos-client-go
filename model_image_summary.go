@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -79,7 +79,7 @@ func (o *ImageSummary) GetContainers() int64 {
 // GetContainersOk returns a tuple with the Containers field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetContainersOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Containers, true
@@ -103,7 +103,7 @@ func (o *ImageSummary) GetCreated() int64 {
 // GetCreatedOk returns a tuple with the Created field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetCreatedOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Created, true
@@ -127,7 +127,7 @@ func (o *ImageSummary) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -151,7 +151,7 @@ func (o *ImageSummary) GetLabels() map[string]string {
 // GetLabelsOk returns a tuple with the Labels field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetLabelsOk() (*map[string]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Labels, true
@@ -175,7 +175,7 @@ func (o *ImageSummary) GetParentId() string {
 // GetParentIdOk returns a tuple with the ParentId field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetParentIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ParentId, true
@@ -199,7 +199,7 @@ func (o *ImageSummary) GetRepoDigests() []string {
 // GetRepoDigestsOk returns a tuple with the RepoDigests field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetRepoDigestsOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RepoDigests, true
@@ -223,7 +223,7 @@ func (o *ImageSummary) GetRepoTags() []string {
 // GetRepoTagsOk returns a tuple with the RepoTags field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetRepoTagsOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.RepoTags, true
@@ -247,7 +247,7 @@ func (o *ImageSummary) GetSharedSize() int64 {
 // GetSharedSizeOk returns a tuple with the SharedSize field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetSharedSizeOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SharedSize, true
@@ -271,7 +271,7 @@ func (o *ImageSummary) GetSize() int64 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetSizeOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -295,7 +295,7 @@ func (o *ImageSummary) GetVirtualSize() int64 {
 // GetVirtualSizeOk returns a tuple with the VirtualSize field value
 // and a boolean to check if the value has been set.
 func (o *ImageSummary) GetVirtualSizeOk() (*int64, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VirtualSize, true
@@ -376,5 +376,3 @@ func (v *NullableImageSummary) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

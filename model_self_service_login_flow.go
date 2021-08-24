@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,22 +18,22 @@ import (
 
 // SelfServiceLoginFlow This object represents a login flow. A login flow is initiated at the \"Initiate Login API / Browser Flow\" endpoint by a client.  Once a login flow is completed successfully, a session cookie or session token will be issued.
 type SelfServiceLoginFlow struct {
-	// and so on.
-	Active *string `json:"active,omitempty"`
+	Active *IdentityCredentialsType `json:"active,omitempty"`
 	// CreatedAt is a helper struct field for gobuffalo.pop.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// ExpiresAt is the time (UTC) when the flow expires. If the user still wishes to log in, a new flow has to be initiated.
 	ExpiresAt time.Time `json:"expires_at"`
-	// Forced stores whether this login flow should enforce re-authentication.
-	Forced *bool `json:"forced,omitempty"`
-	Id string `json:"id"`
+	// Refresh stores whether this login flow should enforce re-authentication.
+	Forced *bool  `json:"forced,omitempty"`
+	Id     string `json:"id"`
 	// IssuedAt is the time (UTC) when the flow started.
 	IssuedAt time.Time `json:"issued_at"`
 	// RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL's path or query for example.
-	RequestUrl string `json:"request_url"`
+	RequestUrl   string                       `json:"request_url"`
+	RequestedAal *AuthenticatorAssuranceLevel `json:"requested_aal,omitempty"`
 	// The flow type can either be `api` or `browser`.
-	Type string `json:"type"`
-	Ui UiContainer `json:"ui"`
+	Type string      `json:"type"`
+	Ui   UiContainer `json:"ui"`
 	// UpdatedAt is a helper struct field for gobuffalo.pop.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
@@ -62,9 +62,9 @@ func NewSelfServiceLoginFlowWithDefaults() *SelfServiceLoginFlow {
 }
 
 // GetActive returns the Active field value if set, zero value otherwise.
-func (o *SelfServiceLoginFlow) GetActive() string {
+func (o *SelfServiceLoginFlow) GetActive() IdentityCredentialsType {
 	if o == nil || o.Active == nil {
-		var ret string
+		var ret IdentityCredentialsType
 		return ret
 	}
 	return *o.Active
@@ -72,7 +72,7 @@ func (o *SelfServiceLoginFlow) GetActive() string {
 
 // GetActiveOk returns a tuple with the Active field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SelfServiceLoginFlow) GetActiveOk() (*string, bool) {
+func (o *SelfServiceLoginFlow) GetActiveOk() (*IdentityCredentialsType, bool) {
 	if o == nil || o.Active == nil {
 		return nil, false
 	}
@@ -88,8 +88,8 @@ func (o *SelfServiceLoginFlow) HasActive() bool {
 	return false
 }
 
-// SetActive gets a reference to the given string and assigns it to the Active field.
-func (o *SelfServiceLoginFlow) SetActive(v string) {
+// SetActive gets a reference to the given IdentityCredentialsType and assigns it to the Active field.
+func (o *SelfServiceLoginFlow) SetActive(v IdentityCredentialsType) {
 	o.Active = &v
 }
 
@@ -138,7 +138,7 @@ func (o *SelfServiceLoginFlow) GetExpiresAt() time.Time {
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetExpiresAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiresAt, true
@@ -194,7 +194,7 @@ func (o *SelfServiceLoginFlow) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -218,7 +218,7 @@ func (o *SelfServiceLoginFlow) GetIssuedAt() time.Time {
 // GetIssuedAtOk returns a tuple with the IssuedAt field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetIssuedAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAt, true
@@ -242,7 +242,7 @@ func (o *SelfServiceLoginFlow) GetRequestUrl() string {
 // GetRequestUrlOk returns a tuple with the RequestUrl field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetRequestUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestUrl, true
@@ -251,6 +251,38 @@ func (o *SelfServiceLoginFlow) GetRequestUrlOk() (*string, bool) {
 // SetRequestUrl sets field value
 func (o *SelfServiceLoginFlow) SetRequestUrl(v string) {
 	o.RequestUrl = v
+}
+
+// GetRequestedAal returns the RequestedAal field value if set, zero value otherwise.
+func (o *SelfServiceLoginFlow) GetRequestedAal() AuthenticatorAssuranceLevel {
+	if o == nil || o.RequestedAal == nil {
+		var ret AuthenticatorAssuranceLevel
+		return ret
+	}
+	return *o.RequestedAal
+}
+
+// GetRequestedAalOk returns a tuple with the RequestedAal field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SelfServiceLoginFlow) GetRequestedAalOk() (*AuthenticatorAssuranceLevel, bool) {
+	if o == nil || o.RequestedAal == nil {
+		return nil, false
+	}
+	return o.RequestedAal, true
+}
+
+// HasRequestedAal returns a boolean if a field has been set.
+func (o *SelfServiceLoginFlow) HasRequestedAal() bool {
+	if o != nil && o.RequestedAal != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetRequestedAal gets a reference to the given AuthenticatorAssuranceLevel and assigns it to the RequestedAal field.
+func (o *SelfServiceLoginFlow) SetRequestedAal(v AuthenticatorAssuranceLevel) {
+	o.RequestedAal = &v
 }
 
 // GetType returns the Type field value
@@ -266,7 +298,7 @@ func (o *SelfServiceLoginFlow) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -290,7 +322,7 @@ func (o *SelfServiceLoginFlow) GetUi() UiContainer {
 // GetUiOk returns a tuple with the Ui field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetUiOk() (*UiContainer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Ui, true
@@ -356,6 +388,9 @@ func (o SelfServiceLoginFlow) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["request_url"] = o.RequestUrl
 	}
+	if o.RequestedAal != nil {
+		toSerialize["requested_aal"] = o.RequestedAal
+	}
 	if true {
 		toSerialize["type"] = o.Type
 	}
@@ -403,5 +438,3 @@ func (v *NullableSelfServiceLoginFlow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

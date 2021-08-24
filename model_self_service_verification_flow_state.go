@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -21,16 +21,10 @@ type SelfServiceVerificationFlowState string
 
 // List of selfServiceVerificationFlowState
 const (
-	SELFSERVICEVERIFICATIONFLOWSTATE_CHOOSE_METHOD SelfServiceVerificationFlowState = "choose_method"
-	SELFSERVICEVERIFICATIONFLOWSTATE_SENT_EMAIL SelfServiceVerificationFlowState = "sent_email"
+	SELFSERVICEVERIFICATIONFLOWSTATE_CHOOSE_METHOD    SelfServiceVerificationFlowState = "choose_method"
+	SELFSERVICEVERIFICATIONFLOWSTATE_SENT_EMAIL       SelfServiceVerificationFlowState = "sent_email"
 	SELFSERVICEVERIFICATIONFLOWSTATE_PASSED_CHALLENGE SelfServiceVerificationFlowState = "passed_challenge"
 )
-
-var allowedSelfServiceVerificationFlowStateEnumValues = []SelfServiceVerificationFlowState{
-	"choose_method",
-	"sent_email",
-	"passed_challenge",
-}
 
 func (v *SelfServiceVerificationFlowState) UnmarshalJSON(src []byte) error {
 	var value string
@@ -39,7 +33,7 @@ func (v *SelfServiceVerificationFlowState) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := SelfServiceVerificationFlowState(value)
-	for _, existing := range allowedSelfServiceVerificationFlowStateEnumValues {
+	for _, existing := range []SelfServiceVerificationFlowState{"choose_method", "sent_email", "passed_challenge"} {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -47,27 +41,6 @@ func (v *SelfServiceVerificationFlowState) UnmarshalJSON(src []byte) error {
 	}
 
 	return fmt.Errorf("%+v is not a valid SelfServiceVerificationFlowState", value)
-}
-
-// NewSelfServiceVerificationFlowStateFromValue returns a pointer to a valid SelfServiceVerificationFlowState
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewSelfServiceVerificationFlowStateFromValue(v string) (*SelfServiceVerificationFlowState, error) {
-	ev := SelfServiceVerificationFlowState(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for SelfServiceVerificationFlowState: valid values are %v", v, allowedSelfServiceVerificationFlowStateEnumValues)
-	}
-}
-
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v SelfServiceVerificationFlowState) IsValid() bool {
-	for _, existing := range allowedSelfServiceVerificationFlowStateEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
 }
 
 // Ptr returns reference to selfServiceVerificationFlowState value
@@ -110,4 +83,3 @@ func (v *NullableSelfServiceVerificationFlowState) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

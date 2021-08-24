@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -17,6 +17,8 @@ import (
 
 // UiNodeTextAttributes struct for UiNodeTextAttributes
 type UiNodeTextAttributes struct {
+	// A unique identifier
+	Id   string `json:"id"`
 	Text UiText `json:"text"`
 }
 
@@ -24,8 +26,9 @@ type UiNodeTextAttributes struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUiNodeTextAttributes(text UiText) *UiNodeTextAttributes {
+func NewUiNodeTextAttributes(id string, text UiText) *UiNodeTextAttributes {
 	this := UiNodeTextAttributes{}
+	this.Id = id
 	this.Text = text
 	return &this
 }
@@ -36,6 +39,30 @@ func NewUiNodeTextAttributes(text UiText) *UiNodeTextAttributes {
 func NewUiNodeTextAttributesWithDefaults() *UiNodeTextAttributes {
 	this := UiNodeTextAttributes{}
 	return &this
+}
+
+// GetId returns the Id field value
+func (o *UiNodeTextAttributes) GetId() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value
+// and a boolean to check if the value has been set.
+func (o *UiNodeTextAttributes) GetIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Id, true
+}
+
+// SetId sets field value
+func (o *UiNodeTextAttributes) SetId(v string) {
+	o.Id = v
 }
 
 // GetText returns the Text field value
@@ -51,7 +78,7 @@ func (o *UiNodeTextAttributes) GetText() UiText {
 // GetTextOk returns a tuple with the Text field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeTextAttributes) GetTextOk() (*UiText, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Text, true
@@ -64,6 +91,9 @@ func (o *UiNodeTextAttributes) SetText(v UiText) {
 
 func (o UiNodeTextAttributes) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["id"] = o.Id
+	}
 	if true {
 		toSerialize["text"] = o.Text
 	}
@@ -105,5 +135,3 @@ func (v *NullableUiNodeTextAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

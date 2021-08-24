@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -25,8 +25,8 @@ type Plugin struct {
 	// name
 	Name string `json:"Name"`
 	// plugin remote reference used to push/pull the plugin
-	PluginReference *string `json:"PluginReference,omitempty"`
-	Settings PluginSettings `json:"Settings"`
+	PluginReference *string        `json:"PluginReference,omitempty"`
+	Settings        PluginSettings `json:"Settings"`
 }
 
 // NewPlugin instantiates a new Plugin object
@@ -63,7 +63,7 @@ func (o *Plugin) GetConfig() PluginConfig {
 // GetConfigOk returns a tuple with the Config field value
 // and a boolean to check if the value has been set.
 func (o *Plugin) GetConfigOk() (*PluginConfig, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Config, true
@@ -87,7 +87,7 @@ func (o *Plugin) GetEnabled() bool {
 // GetEnabledOk returns a tuple with the Enabled field value
 // and a boolean to check if the value has been set.
 func (o *Plugin) GetEnabledOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Enabled, true
@@ -143,7 +143,7 @@ func (o *Plugin) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *Plugin) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -199,7 +199,7 @@ func (o *Plugin) GetSettings() PluginSettings {
 // GetSettingsOk returns a tuple with the Settings field value
 // and a boolean to check if the value has been set.
 func (o *Plugin) GetSettingsOk() (*PluginSettings, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Settings, true
@@ -268,5 +268,3 @@ func (v *NullablePlugin) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

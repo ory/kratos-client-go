@@ -11,7 +11,6 @@ info:
   license:
     name: Apache 2.0
   title: Ory Kratos API
-  version: v0.7.1-alpha.1
 servers:
 - url: /
 paths:
@@ -122,7 +121,7 @@ paths:
       - oryAccessToken: []
       summary: List Identities
       tags:
-      - v0alpha1
+      - v0alpha2
     post:
       description: |-
         This endpoint creates an identity. It is NOT possible to set an identity's credentials (password, ...)
@@ -165,7 +164,7 @@ paths:
       - oryAccessToken: []
       summary: Create an Identity
       tags:
-      - v0alpha1
+      - v0alpha2
   /identities/{id}:
     delete:
       description: |-
@@ -204,7 +203,7 @@ paths:
       - oryAccessToken: []
       summary: Delete an Identity
       tags:
-      - v0alpha1
+      - v0alpha2
     get:
       description: Learn how identities work in [Ory Kratos' User And Identity Model
         Documentation](https://www.ory.sh/docs/next/kratos/concepts/identity-user-model).
@@ -241,7 +240,7 @@ paths:
       - oryAccessToken: []
       summary: Get an Identity
       tags:
-      - v0alpha1
+      - v0alpha2
     put:
       description: |-
         This endpoint updates an identity. It is NOT possible to set an identity's credentials (password, ...)
@@ -301,7 +300,7 @@ paths:
       - oryAccessToken: []
       summary: Update an Identity
       tags:
-      - v0alpha1
+      - v0alpha2
   /metrics/prometheus:
     get:
       description: |-
@@ -360,7 +359,7 @@ paths:
           description: jsonError
       summary: Create a Recovery Link
       tags:
-      - v0alpha1
+      - v0alpha2
   /schemas/{id}:
     get:
       description: Get a JSON Schema
@@ -394,7 +393,7 @@ paths:
                 $ref: '#/components/schemas/jsonError'
           description: jsonError
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/errors:
     get:
       description: |-
@@ -442,7 +441,7 @@ paths:
           description: jsonError
       summary: Get Self-Service Errors
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/login:
     post:
       description: |-
@@ -484,6 +483,14 @@ paths:
         schema:
           type: string
         style: form
+      - description: The Session Token of the Identity performing the settings flow.
+        explode: false
+        in: header
+        name: X-Session-Token
+        required: false
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
@@ -517,7 +524,7 @@ paths:
           description: jsonError
       summary: Submit a Login Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/login/api:
     get:
       description: |-
@@ -550,6 +557,28 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: |-
+          Request a Specific AuthenticationMethod Assurance Level
+
+          Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This
+          allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password,
+          the AAL is 1. If you wish to "upgrade" the session's security by asking the user to perform TOTP / WebAuth/ ...
+          you would set this to "aal2".
+        explode: true
+        in: query
+        name: aal
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The Session Token of the Identity performing the settings flow.
+        explode: false
+        in: header
+        name: X-Session-Token
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -571,7 +600,7 @@ paths:
           description: jsonError
       summary: Initialize Login Flow for APIs, Services, Apps, ...
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/login/browser:
     get:
       description: |-
@@ -603,6 +632,28 @@ paths:
         schema:
           type: boolean
         style: form
+      - description: |-
+          Request a Specific AuthenticationMethod Assurance Level
+
+          Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This
+          allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password,
+          the AAL is 1. If you wish to "upgrade" the session's security by asking the user to perform TOTP / WebAuth/ ...
+          you would set this to "aal2".
+        explode: true
+        in: query
+        name: aal
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The Session Token of the Identity performing the settings flow.
+        explode: false
+        in: header
+        name: X-Session-Token
+        required: false
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -621,7 +672,7 @@ paths:
           description: jsonError
       summary: Initialize Login Flow for Browsers
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/login/flows:
     get:
       description: |-
@@ -702,7 +753,7 @@ paths:
           description: jsonError
       summary: Get Login Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/logout:
     get:
       description: |-
@@ -748,7 +799,7 @@ paths:
           description: jsonError
       summary: Complete Self-Service Logout
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/logout/api:
     delete:
       description: |-
@@ -786,7 +837,7 @@ paths:
           description: jsonError
       summary: Perform Logout for APIs, Services, Apps, ...
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/logout/browser:
     get:
       description: |-
@@ -835,7 +886,7 @@ paths:
           description: jsonError
       summary: Create a Logout URL for Browsers
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/recovery:
     post:
       description: |-
@@ -916,7 +967,7 @@ paths:
           description: jsonError
       summary: Complete Recovery Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/recovery/api:
     get:
       description: |-
@@ -956,7 +1007,7 @@ paths:
           description: jsonError
       summary: Initialize Recovery Flow for APIs, Services, Apps, ...
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/recovery/browser:
     get:
       description: |-
@@ -995,7 +1046,7 @@ paths:
           description: jsonError
       summary: Initialize Recovery Flow for Browsers
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/recovery/flows:
     get:
       description: |-
@@ -1070,7 +1121,7 @@ paths:
           description: jsonError
       summary: Get Recovery Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/registration:
     post:
       description: |-
@@ -1140,7 +1191,7 @@ paths:
           description: jsonError
       summary: Submit a Registration Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/registration/api:
     get:
       description: |-
@@ -1180,7 +1231,7 @@ paths:
           description: jsonError
       summary: Initialize Registration Flow for APIs, Services, Apps, ...
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/registration/browser:
     get:
       description: |-
@@ -1221,7 +1272,7 @@ paths:
           description: jsonError
       summary: Initialize Registration Flow for Browsers
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/registration/flows:
     get:
       description: |-
@@ -1302,7 +1353,7 @@ paths:
           description: jsonError
       summary: Get Registration Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/settings:
     post:
       description: |-
@@ -1365,8 +1416,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/successfulSelfServiceSettingsWithoutBrowser'
-          description: successfulSelfServiceSettingsWithoutBrowser
+                $ref: '#/components/schemas/selfServiceSettingsFlow'
+          description: selfServiceSettingsFlow
         "302":
           description: Empty responses are sent when, for example, resources are deleted.
             The HTTP status code for empty responses is typically 201.
@@ -1398,7 +1449,7 @@ paths:
       - sessionToken: []
       summary: Complete Settings Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/settings/api:
     get:
       description: |-
@@ -1445,7 +1496,7 @@ paths:
           description: jsonError
       summary: Initialize Settings Flow for APIs, Services, Apps, ...
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/settings/browser:
     get:
       description: |-
@@ -1497,7 +1548,7 @@ paths:
           description: jsonError
       summary: Initialize Settings Flow for Browsers
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/settings/flows:
     get:
       description: |-
@@ -1580,7 +1631,7 @@ paths:
           description: jsonError
       summary: Get Settings Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/verification:
     post:
       description: |-
@@ -1661,7 +1712,7 @@ paths:
           description: jsonError
       summary: Complete Verification Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/verification/api:
     get:
       description: |-
@@ -1698,7 +1749,7 @@ paths:
           description: jsonError
       summary: Initialize Verification Flow for APIs, Services, Apps, ...
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/verification/browser:
     get:
       description: |-
@@ -1729,7 +1780,7 @@ paths:
           description: jsonError
       summary: Initialize Verification Flow for Browser Clients
       tags:
-      - v0alpha1
+      - v0alpha2
   /self-service/verification/flows:
     get:
       description: |-
@@ -1803,7 +1854,7 @@ paths:
           description: jsonError
       summary: Get Verification Flow
       tags:
-      - v0alpha1
+      - v0alpha2
   /sessions/whoami:
     get:
       description: |-
@@ -1892,7 +1943,7 @@ paths:
           description: jsonError
       summary: Check Who the Current HTTP Session Belongs To
       tags:
-      - v0alpha1
+      - v0alpha2
   /version:
     get:
       description: |-
@@ -2037,11 +2088,6 @@ components:
           description: Details of an error
           type: string
       type: object
-    CredentialsType:
-      description: and so on.
-      title: CredentialsType  represents several different credential types, like
-        password credentials, passwordless credentials,
-      type: string
     ErrorResponse:
       properties:
         message:
@@ -2645,6 +2691,22 @@ components:
       required:
       - identity_id
       type: object
+    authenticatorAssuranceLevel:
+      description: |-
+        The authenticator assurance level can be one of "aal1", "aal2", or "aal3". A higher number means that it is harder
+        for an attacker to compromise the account.
+
+        Generally, "aal1" implies that one authentication factor was used while AAL2 implies that two factors (e.g.
+        password + TOTP) have been used.
+
+        To learn more about these levels please head over to: https://www.ory.sh/kratos/docs/concepts/credentials
+      enum:
+      - aal0
+      - aal1
+      - aal2
+      - aal3
+      title: Authenticator Assurance Level (AAL)
+      type: string
     genericError:
       properties:
         code:
@@ -2661,7 +2723,7 @@ components:
           example: SQL field "foo" is not a bool.
           type: string
         details:
-          additionalProperties: true
+          additionalProperties: false
           description: Further error details
           type: object
         message:
@@ -2730,7 +2792,6 @@ components:
             - identifiers
             - identifiers
             created_at: 2000-01-23T04:56:07.000+00:00
-            type: type
             config: '{}'
         verifiable_addresses:
         - updated_at: 2014-01-01T23:28:56.782Z
@@ -2822,7 +2883,6 @@ components:
         - identifiers
         - identifiers
         created_at: 2000-01-23T04:56:07.000+00:00
-        type: type
         config: '{}'
       properties:
         config:
@@ -2840,15 +2900,21 @@ components:
             type: string
           type: array
         type:
-          description: and so on.
-          title: CredentialsType  represents several different credential types, like
-            password credentials, passwordless credentials,
-          type: string
+          $ref: '#/components/schemas/identityCredentialsType'
         updated_at:
           description: UpdatedAt is a helper struct field for gobuffalo.pop.
           format: date-time
           type: string
       type: object
+    identityCredentialsType:
+      description: and so on.
+      enum:
+      - password
+      - totp
+      - oidc
+      title: CredentialsType  represents several different credential types, like
+        password credentials, passwordless credentials,
+      type: string
     identityList:
       items:
         $ref: '#/components/schemas/identity'
@@ -2978,7 +3044,6 @@ components:
             type: type
         updated_at: 2000-01-23T04:56:07.000+00:00
         forced: true
-        active: active
         created_at: 2000-01-23T04:56:07.000+00:00
         id: id
         type: type
@@ -2986,10 +3051,7 @@ components:
         request_url: request_url
       properties:
         active:
-          description: and so on.
-          title: CredentialsType  represents several different credential types, like
-            password credentials, passwordless credentials,
-          type: string
+          $ref: '#/components/schemas/identityCredentialsType'
         created_at:
           description: CreatedAt is a helper struct field for gobuffalo.pop.
           format: date-time
@@ -3001,7 +3063,7 @@ components:
           format: date-time
           type: string
         forced:
-          description: Forced stores whether this login flow should enforce re-authentication.
+          description: Refresh stores whether this login flow should enforce re-authentication.
           type: boolean
         id:
           format: uuid4
@@ -3015,6 +3077,8 @@ components:
             RequestURL is the initial URL that was requested from Ory Kratos. It can be used
             to forward information contained in the URL's path or query for example.
           type: string
+        requested_aal:
+          $ref: '#/components/schemas/authenticatorAssuranceLevel'
         type:
           description: The flow type can either be `api` or `browser`.
           title: Type is the flow type.
@@ -3229,17 +3293,13 @@ components:
             id: 0
             text: text
             type: type
-        active: active
         id: id
         type: type
         issued_at: 2000-01-23T04:56:07.000+00:00
         request_url: request_url
       properties:
         active:
-          description: and so on.
-          title: CredentialsType  represents several different credential types, like
-            password credentials, passwordless credentials,
-          type: string
+          $ref: '#/components/schemas/identityCredentialsType'
         expires_at:
           description: |-
             ExpiresAt is the time (UTC) when the flow expires. If the user still wishes to log in,
@@ -3347,7 +3407,6 @@ components:
               - identifiers
               - identifiers
               created_at: 2000-01-23T04:56:07.000+00:00
-              type: type
               config: '{}'
           verifiable_addresses:
           - updated_at: 2014-01-01T23:28:56.782Z
@@ -3547,6 +3606,11 @@ components:
       description: A Session
       example:
         expires_at: 2000-01-23T04:56:07.000+00:00
+        authentication_methods:
+        - completed_at: 2000-01-23T04:56:07.000+00:00
+          method: link_recovery
+        - completed_at: 2000-01-23T04:56:07.000+00:00
+          method: link_recovery
         identity:
           recovery_addresses:
           - updated_at: 2000-01-23T04:56:07.000+00:00
@@ -3568,7 +3632,6 @@ components:
               - identifiers
               - identifiers
               created_at: 2000-01-23T04:56:07.000+00:00
-              type: type
               config: '{}'
           verifiable_addresses:
           - updated_at: 2014-01-01T23:28:56.782Z
@@ -3598,15 +3661,25 @@ components:
         issued_at: 2000-01-23T04:56:07.000+00:00
       properties:
         active:
-          description: Whether or not the session is active.
+          description: Active state. If false the session is no longer active.
           type: boolean
         authenticated_at:
           description: |-
             The Session Authentication Timestamp
 
-            When this session was authenticated at.
+            When this session was authenticated at. If multi-factor authentication was used this
+            is the time when the last factor was authenticated (e.g. the TOTP code challenge was completed).
           format: date-time
           type: string
+        authentication_methods:
+          description: A list of authenticators which were used to authenticate the
+            session.
+          items:
+            $ref: '#/components/schemas/sessionAuthenticationMethod'
+          title: List of (Used) AuthenticationMethods
+          type: array
+        authenticator_assurance_level:
+          $ref: '#/components/schemas/authenticatorAssuranceLevel'
         expires_at:
           description: |-
             The Session Expiry
@@ -3623,12 +3696,44 @@ components:
           description: |-
             The Session Issuance Timestamp
 
-            When this session was authenticated at.
+            When this session was issued at. Usually equal or close to `authenticated_at`.
           format: date-time
           type: string
       required:
       - id
       - identity
+      type: object
+    sessionAuthenticationMethod:
+      description: A singular authenticator used during authentication / login.
+      example:
+        completed_at: 2000-01-23T04:56:07.000+00:00
+        method: link_recovery
+      properties:
+        completed_at:
+          description: When the authentication challenge was completed.
+          format: date-time
+          type: string
+        method:
+          enum:
+          - link_recovery
+          - password
+          - totp
+          - oidc
+          title: The method used
+          type: string
+      title: AuthenticationMethod identifies an authentication method
+      type: object
+    sessionAuthenticationMethods:
+      description: A list of authenticators which were used to authenticate the session.
+      items:
+        $ref: '#/components/schemas/sessionAuthenticationMethod'
+      title: List of (Used) AuthenticationMethods
+      type: array
+    sessionDevice:
+      properties:
+        user_agent:
+          description: UserAgent of this device
+          type: string
       type: object
     settingsProfileFormConfig:
       properties:
@@ -3657,9 +3762,31 @@ components:
         mapping:
           oidc: '#/components/schemas/submitSelfServiceLoginFlowWithOidcMethodBody'
           password: '#/components/schemas/submitSelfServiceLoginFlowWithPasswordMethodBody'
+          totp: '#/components/schemas/submitSelfServiceLoginFlowWithTotpMethodBody'
         propertyName: method
       oneOf:
       - $ref: '#/components/schemas/submitSelfServiceLoginFlowWithPasswordMethodBody'
+      - $ref: '#/components/schemas/submitSelfServiceLoginFlowWithOidcMethodBody'
+      - $ref: '#/components/schemas/submitSelfServiceLoginFlowWithTotpMethodBody'
+    submitSelfServiceLoginFlowWithLookupSecretMethodBody:
+      properties:
+        csrf_token:
+          description: Sending the anti-csrf token is only required for browser login
+            flows.
+          type: string
+        lookup_secret:
+          description: The lookup secret.
+          type: string
+        method:
+          description: Method should be set to "lookup_secret" when logging in using
+            the lookup_secret strategy.
+          type: string
+      required:
+      - lookup_secret
+      - method
+      title: submitSelfServiceLoginFlowWithLookupSecretMethodBody is used to decode
+        the login form payload.
+      type: object
     submitSelfServiceLoginFlowWithOidcMethodBody:
       description: |-
         SubmitSelfServiceLoginFlowWithOidcMethodBody is used to decode the login form payload
@@ -3693,6 +3820,7 @@ components:
           enum:
           - password
           - oidc
+          - totp
           type: string
         password:
           description: The user's password.
@@ -3706,6 +3834,46 @@ components:
       - password
       - password_identifier
       title: submitSelfServiceLoginFlowWithPasswordMethodBody is used to decode the
+        login form payload.
+      type: object
+    submitSelfServiceLoginFlowWithTotpMethodBody:
+      properties:
+        csrf_token:
+          description: Sending the anti-csrf token is only required for browser login
+            flows.
+          type: string
+        method:
+          description: Method should be set to "totp" when logging in using the TOTP
+            strategy.
+          type: string
+        totp_code:
+          description: The TOTP code.
+          type: string
+      required:
+      - method
+      - totp_code
+      title: submitSelfServiceLoginFlowWithTotpMethodBody is used to decode the login
+        form payload.
+      type: object
+    submitSelfServiceLoginFlowWithWebAuthnMethodBody:
+      properties:
+        csrf_token:
+          description: Sending the anti-csrf token is only required for browser login
+            flows.
+          type: string
+        method:
+          description: Method should be set to "webAuthn" when logging in using the
+            WebAuthn strategy.
+          type: string
+        webauthn_login:
+          description: |-
+            Login a WebAuthn Security Key
+
+            This must contain the ID of the WebAuthN connection.
+          type: string
+      required:
+      - method
+      title: submitSelfServiceLoginFlowWithWebAuthnMethodBody is used to decode the
         login form payload.
       type: object
     submitSelfServiceLogoutFlowWithoutBrowserBody:
@@ -3815,10 +3983,36 @@ components:
           oidc: '#/components/schemas/submitSelfServiceSettingsFlowWithOidcMethodBody'
           password: '#/components/schemas/submitSelfServiceSettingsFlowWithPasswordMethodBody'
           profile: '#/components/schemas/submitSelfServiceSettingsFlowWithProfileMethodBody'
+          totp: '#/components/schemas/submitSelfServiceSettingsFlowWithTotpMethodBody'
         propertyName: method
       oneOf:
       - $ref: '#/components/schemas/submitSelfServiceSettingsFlowWithPasswordMethodBody'
       - $ref: '#/components/schemas/submitSelfServiceSettingsFlowWithProfileMethodBody'
+      - $ref: '#/components/schemas/submitSelfServiceSettingsFlowWithOidcMethodBody'
+      - $ref: '#/components/schemas/submitSelfServiceSettingsFlowWithTotpMethodBody'
+    submitSelfServiceSettingsFlowWithLookupMethodBody:
+      properties:
+        csrf_token:
+          description: CSRFToken is the anti-CSRF token
+          type: string
+        lookup_secret_confirm:
+          description: If set to true will save the regenerated lookup secrets
+          type: boolean
+        lookup_secret_regenerate:
+          description: If set to true will regenerate the lookup secrets
+          type: boolean
+        lookup_secret_reveal:
+          description: If set to true will reveal the lookup secrets
+          type: boolean
+        method:
+          description: |-
+            Method
+
+            Should be set to "lookup" when trying to add, update, or remove a lookup pairing.
+          type: string
+      required:
+      - method
+      type: object
     submitSelfServiceSettingsFlowWithOidcMethodBody:
       description: nolint:deadcode,unused
       properties:
@@ -3869,6 +4063,7 @@ components:
           - password
           - profile
           - oidc
+          - totp
           type: string
         password:
           description: Password is the updated password
@@ -3898,6 +4093,62 @@ components:
       required:
       - method
       - traits
+      type: object
+    submitSelfServiceSettingsFlowWithTotpMethodBody:
+      properties:
+        csrf_token:
+          description: CSRFToken is the anti-CSRF token
+          type: string
+        method:
+          description: |-
+            Method
+
+            Should be set to "totp" when trying to add, update, or remove a totp pairing.
+          type: string
+        totp_code:
+          description: ValidationTOTP must contain a valid TOTP based on the
+          type: string
+        totp_unlink:
+          description: |-
+            UnlinkTOTP if true will remove the TOTP pairing,
+            effectively removing the credential. This can be used
+            to set up a new TOTP device.
+          type: boolean
+      required:
+      - method
+      type: object
+    submitSelfServiceSettingsFlowWithWebAuthnMethodBody:
+      properties:
+        csrf_token:
+          description: CSRFToken is the anti-CSRF token
+          type: string
+        method:
+          description: |-
+            Method
+
+            Should be set to "webauthn" when trying to add, update, or remove a webAuthn pairing.
+          type: string
+        webauthn_register:
+          description: |-
+            Register a WebAuthn Security Key
+
+            It is expected that the JSON returned by the WebAuthn registration process
+            is included here.
+          type: string
+        webauthn_register_displayname:
+          description: |-
+            Name of the WebAuthn Security Key to be Added
+
+            A human-readable name for the security key which will be added.
+          type: string
+        webauthn_remove:
+          description: |-
+            Remove a WebAuthn Security Key
+
+            This must contain the ID of the WebAuthN connection.
+          type: string
+      required:
+      - method
       type: object
     submitSelfServiceVerificationFlowBody:
       description: nolint:deadcode,unused
@@ -3938,6 +4189,11 @@ components:
         session_token: session_token
         session:
           expires_at: 2000-01-23T04:56:07.000+00:00
+          authentication_methods:
+          - completed_at: 2000-01-23T04:56:07.000+00:00
+            method: link_recovery
+          - completed_at: 2000-01-23T04:56:07.000+00:00
+            method: link_recovery
           identity:
             recovery_addresses:
             - updated_at: 2000-01-23T04:56:07.000+00:00
@@ -3959,7 +4215,6 @@ components:
                 - identifiers
                 - identifiers
                 created_at: 2000-01-23T04:56:07.000+00:00
-                type: type
                 config: '{}'
             verifiable_addresses:
             - updated_at: 2014-01-01T23:28:56.782Z
@@ -4029,7 +4284,6 @@ components:
               - identifiers
               - identifiers
               created_at: 2000-01-23T04:56:07.000+00:00
-              type: type
               config: '{}'
           verifiable_addresses:
           - updated_at: 2014-01-01T23:28:56.782Z
@@ -4055,6 +4309,11 @@ components:
           id: id
         session:
           expires_at: 2000-01-23T04:56:07.000+00:00
+          authentication_methods:
+          - completed_at: 2000-01-23T04:56:07.000+00:00
+            method: link_recovery
+          - completed_at: 2000-01-23T04:56:07.000+00:00
+            method: link_recovery
           identity:
             recovery_addresses:
             - updated_at: 2000-01-23T04:56:07.000+00:00
@@ -4076,7 +4335,6 @@ components:
                 - identifiers
                 - identifiers
                 created_at: 2000-01-23T04:56:07.000+00:00
-                type: type
                 config: '{}'
             verifiable_addresses:
             - updated_at: 2014-01-01T23:28:56.782Z
@@ -4123,162 +4381,6 @@ components:
             The session token is only issued for API flows, not for Browser flows!
           type: string
       required:
-      - identity
-      type: object
-    successfulSelfServiceSettingsWithoutBrowser:
-      description: The Response for Settings Flows via API
-      example:
-        identity:
-          recovery_addresses:
-          - updated_at: 2000-01-23T04:56:07.000+00:00
-            created_at: 2000-01-23T04:56:07.000+00:00
-            id: id
-            value: value
-            via: via
-          - updated_at: 2000-01-23T04:56:07.000+00:00
-            created_at: 2000-01-23T04:56:07.000+00:00
-            id: id
-            value: value
-            via: via
-          traits: ""
-          updated_at: 2000-01-23T04:56:07.000+00:00
-          credentials:
-            key:
-              updated_at: 2000-01-23T04:56:07.000+00:00
-              identifiers:
-              - identifiers
-              - identifiers
-              created_at: 2000-01-23T04:56:07.000+00:00
-              type: type
-              config: '{}'
-          verifiable_addresses:
-          - updated_at: 2014-01-01T23:28:56.782Z
-            verified_at: 2000-01-23T04:56:07.000+00:00
-            verified: true
-            created_at: 2014-01-01T23:28:56.782Z
-            id: id
-            value: value
-            status: status
-            via: via
-          - updated_at: 2014-01-01T23:28:56.782Z
-            verified_at: 2000-01-23T04:56:07.000+00:00
-            verified: true
-            created_at: 2014-01-01T23:28:56.782Z
-            id: id
-            value: value
-            status: status
-            via: via
-          schema_id: schema_id
-          state_changed_at: 2000-01-23T04:56:07.000+00:00
-          created_at: 2000-01-23T04:56:07.000+00:00
-          schema_url: schema_url
-          id: id
-        flow:
-          expires_at: 2000-01-23T04:56:07.000+00:00
-          ui:
-            nodes:
-            - meta:
-                label:
-                  context: '{}'
-                  id: 0
-                  text: text
-                  type: type
-              messages:
-              - context: '{}'
-                id: 0
-                text: text
-                type: type
-              - context: '{}'
-                id: 0
-                text: text
-                type: type
-              type: type
-              group: group
-            - meta:
-                label:
-                  context: '{}'
-                  id: 0
-                  text: text
-                  type: type
-              messages:
-              - context: '{}'
-                id: 0
-                text: text
-                type: type
-              - context: '{}'
-                id: 0
-                text: text
-                type: type
-              type: type
-              group: group
-            method: method
-            action: action
-            messages:
-            - context: '{}'
-              id: 0
-              text: text
-              type: type
-            - context: '{}'
-              id: 0
-              text: text
-              type: type
-          identity:
-            recovery_addresses:
-            - updated_at: 2000-01-23T04:56:07.000+00:00
-              created_at: 2000-01-23T04:56:07.000+00:00
-              id: id
-              value: value
-              via: via
-            - updated_at: 2000-01-23T04:56:07.000+00:00
-              created_at: 2000-01-23T04:56:07.000+00:00
-              id: id
-              value: value
-              via: via
-            traits: ""
-            updated_at: 2000-01-23T04:56:07.000+00:00
-            credentials:
-              key:
-                updated_at: 2000-01-23T04:56:07.000+00:00
-                identifiers:
-                - identifiers
-                - identifiers
-                created_at: 2000-01-23T04:56:07.000+00:00
-                type: type
-                config: '{}'
-            verifiable_addresses:
-            - updated_at: 2014-01-01T23:28:56.782Z
-              verified_at: 2000-01-23T04:56:07.000+00:00
-              verified: true
-              created_at: 2014-01-01T23:28:56.782Z
-              id: id
-              value: value
-              status: status
-              via: via
-            - updated_at: 2014-01-01T23:28:56.782Z
-              verified_at: 2000-01-23T04:56:07.000+00:00
-              verified: true
-              created_at: 2014-01-01T23:28:56.782Z
-              id: id
-              value: value
-              status: status
-              via: via
-            schema_id: schema_id
-            state_changed_at: 2000-01-23T04:56:07.000+00:00
-            created_at: 2000-01-23T04:56:07.000+00:00
-            schema_url: schema_url
-            id: id
-          active: active
-          id: id
-          type: type
-          issued_at: 2000-01-23T04:56:07.000+00:00
-          request_url: request_url
-      properties:
-        flow:
-          $ref: '#/components/schemas/selfServiceSettingsFlow'
-        identity:
-          $ref: '#/components/schemas/identity'
-      required:
-      - flow
       - identity
       type: object
     uiContainer:
@@ -4403,10 +4505,14 @@ components:
 
             format: uri
           type: string
+        id:
+          description: A unique identifier
+          type: string
         title:
           $ref: '#/components/schemas/uiText'
       required:
       - href
+      - id
       - title
       title: AnchorAttributes represents the attributes of an anchor node.
       type: object
@@ -4421,13 +4527,25 @@ components:
       type: string
     uiNodeImageAttributes:
       properties:
+        height:
+          description: Height of the image
+          format: int64
+          type: integer
+        id:
+          description: A unique identifier
+          type: string
         src:
           description: |-
             The image's source URL.
 
             format: uri
           type: string
+        width:
+          description: Width of the image
+          format: int64
+          type: integer
       required:
+      - id
       - src
       title: ImageAttributes represents the attributes of an image node.
       type: object
@@ -4443,6 +4561,11 @@ components:
           $ref: '#/components/schemas/uiText'
         name:
           description: The input's element name.
+          type: string
+        onclick:
+          description: |-
+            OnClick may contain javascript which should be executed on click. This is primarily
+            used for WebAuthn.
           type: string
         pattern:
           description: The input's pattern.
@@ -4462,9 +4585,13 @@ components:
       type: object
     uiNodeTextAttributes:
       properties:
+        id:
+          description: A unique identifier
+          type: string
         text:
           $ref: '#/components/schemas/uiText'
       required:
+      - id
       - text
       title: TextAttributes represents the attributes of a text node.
       type: object
@@ -4596,12 +4723,8 @@ components:
       type: object
   securitySchemes:
     oryAccessToken:
-      description: |
-        This security mechanism is only applicable when using the [Ory Platform](https://console.ory.sh) by
-        creating an [Ory Personal Access Token](https://www.ory.sh/docs/guides/create-personal-access-token).
-        If you are using the open source version, this security mechanism
-        will not work out of the box as you will need to add a security mechanism yourself.
-      scheme: bearer
-      type: http
+      in: header
+      name: Authorization
+      type: apiKey
 x-forwarded-proto: string
 x-request-id: string

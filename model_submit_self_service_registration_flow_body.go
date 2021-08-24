@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -27,7 +27,6 @@ func SubmitSelfServiceRegistrationFlowWithPasswordMethodBodyAsSubmitSelfServiceR
 		SubmitSelfServiceRegistrationFlowWithPasswordMethodBody: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *SubmitSelfServiceRegistrationFlowBody) UnmarshalJSON(data []byte) error {
@@ -68,7 +67,7 @@ func (src SubmitSelfServiceRegistrationFlowBody) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *SubmitSelfServiceRegistrationFlowBody) GetActualInstance() (interface{}) {
+func (obj *SubmitSelfServiceRegistrationFlowBody) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -115,5 +114,3 @@ func (v *NullableSubmitSelfServiceRegistrationFlowBody) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

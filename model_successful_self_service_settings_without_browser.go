@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -17,18 +17,17 @@ import (
 
 // SuccessfulSelfServiceSettingsWithoutBrowser The Response for Settings Flows via API
 type SuccessfulSelfServiceSettingsWithoutBrowser struct {
-	Flow SelfServiceSettingsFlow `json:"flow"`
-	Identity Identity `json:"identity"`
+	Flow     SelfServiceSettingsFlow `json:"flow"`
+	Identity *Identity               `json:"identity,omitempty"`
 }
 
 // NewSuccessfulSelfServiceSettingsWithoutBrowser instantiates a new SuccessfulSelfServiceSettingsWithoutBrowser object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSuccessfulSelfServiceSettingsWithoutBrowser(flow SelfServiceSettingsFlow, identity Identity) *SuccessfulSelfServiceSettingsWithoutBrowser {
+func NewSuccessfulSelfServiceSettingsWithoutBrowser(flow SelfServiceSettingsFlow) *SuccessfulSelfServiceSettingsWithoutBrowser {
 	this := SuccessfulSelfServiceSettingsWithoutBrowser{}
 	this.Flow = flow
-	this.Identity = identity
 	return &this
 }
 
@@ -53,7 +52,7 @@ func (o *SuccessfulSelfServiceSettingsWithoutBrowser) GetFlow() SelfServiceSetti
 // GetFlowOk returns a tuple with the Flow field value
 // and a boolean to check if the value has been set.
 func (o *SuccessfulSelfServiceSettingsWithoutBrowser) GetFlowOk() (*SelfServiceSettingsFlow, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Flow, true
@@ -64,28 +63,36 @@ func (o *SuccessfulSelfServiceSettingsWithoutBrowser) SetFlow(v SelfServiceSetti
 	o.Flow = v
 }
 
-// GetIdentity returns the Identity field value
+// GetIdentity returns the Identity field value if set, zero value otherwise.
 func (o *SuccessfulSelfServiceSettingsWithoutBrowser) GetIdentity() Identity {
-	if o == nil {
+	if o == nil || o.Identity == nil {
 		var ret Identity
 		return ret
 	}
-
-	return o.Identity
+	return *o.Identity
 }
 
-// GetIdentityOk returns a tuple with the Identity field value
+// GetIdentityOk returns a tuple with the Identity field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SuccessfulSelfServiceSettingsWithoutBrowser) GetIdentityOk() (*Identity, bool) {
-	if o == nil  {
+	if o == nil || o.Identity == nil {
 		return nil, false
 	}
-	return &o.Identity, true
+	return o.Identity, true
 }
 
-// SetIdentity sets field value
+// HasIdentity returns a boolean if a field has been set.
+func (o *SuccessfulSelfServiceSettingsWithoutBrowser) HasIdentity() bool {
+	if o != nil && o.Identity != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetIdentity gets a reference to the given Identity and assigns it to the Identity field.
 func (o *SuccessfulSelfServiceSettingsWithoutBrowser) SetIdentity(v Identity) {
-	o.Identity = v
+	o.Identity = &v
 }
 
 func (o SuccessfulSelfServiceSettingsWithoutBrowser) MarshalJSON() ([]byte, error) {
@@ -93,7 +100,7 @@ func (o SuccessfulSelfServiceSettingsWithoutBrowser) MarshalJSON() ([]byte, erro
 	if true {
 		toSerialize["flow"] = o.Flow
 	}
-	if true {
+	if o.Identity != nil {
 		toSerialize["identity"] = o.Identity
 	}
 	return json.Marshal(toSerialize)
@@ -134,5 +141,3 @@ func (v *NullableSuccessfulSelfServiceSettingsWithoutBrowser) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

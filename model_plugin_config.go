@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -27,22 +27,22 @@ type PluginConfig struct {
 	// entrypoint
 	Entrypoint []string `json:"Entrypoint"`
 	// env
-	Env []PluginEnv `json:"Env"`
+	Env       []PluginEnv           `json:"Env"`
 	Interface PluginConfigInterface `json:"Interface"`
 	// ipc host
-	IpcHost bool `json:"IpcHost"`
-	Linux PluginConfigLinux `json:"Linux"`
+	IpcHost bool              `json:"IpcHost"`
+	Linux   PluginConfigLinux `json:"Linux"`
 	// mounts
-	Mounts []PluginMount `json:"Mounts"`
+	Mounts  []PluginMount       `json:"Mounts"`
 	Network PluginConfigNetwork `json:"Network"`
 	// pid host
 	PidHost bool `json:"PidHost"`
 	// propagated mount
-	PropagatedMount string `json:"PropagatedMount"`
-	User *PluginConfigUser `json:"User,omitempty"`
+	PropagatedMount string            `json:"PropagatedMount"`
+	User            *PluginConfigUser `json:"User,omitempty"`
 	// work dir
-	WorkDir string `json:"WorkDir"`
-	Rootfs *PluginConfigRootfs `json:"rootfs,omitempty"`
+	WorkDir string              `json:"WorkDir"`
+	Rootfs  *PluginConfigRootfs `json:"rootfs,omitempty"`
 }
 
 // NewPluginConfig instantiates a new PluginConfig object
@@ -88,7 +88,7 @@ func (o *PluginConfig) GetArgs() PluginConfigArgs {
 // GetArgsOk returns a tuple with the Args field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetArgsOk() (*PluginConfigArgs, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Args, true
@@ -112,7 +112,7 @@ func (o *PluginConfig) GetDescription() string {
 // GetDescriptionOk returns a tuple with the Description field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetDescriptionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Description, true
@@ -168,7 +168,7 @@ func (o *PluginConfig) GetDocumentation() string {
 // GetDocumentationOk returns a tuple with the Documentation field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetDocumentationOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Documentation, true
@@ -192,7 +192,7 @@ func (o *PluginConfig) GetEntrypoint() []string {
 // GetEntrypointOk returns a tuple with the Entrypoint field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetEntrypointOk() ([]string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Entrypoint, true
@@ -216,7 +216,7 @@ func (o *PluginConfig) GetEnv() []PluginEnv {
 // GetEnvOk returns a tuple with the Env field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetEnvOk() ([]PluginEnv, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Env, true
@@ -240,7 +240,7 @@ func (o *PluginConfig) GetInterface() PluginConfigInterface {
 // GetInterfaceOk returns a tuple with the Interface field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetInterfaceOk() (*PluginConfigInterface, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Interface, true
@@ -264,7 +264,7 @@ func (o *PluginConfig) GetIpcHost() bool {
 // GetIpcHostOk returns a tuple with the IpcHost field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetIpcHostOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IpcHost, true
@@ -288,7 +288,7 @@ func (o *PluginConfig) GetLinux() PluginConfigLinux {
 // GetLinuxOk returns a tuple with the Linux field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetLinuxOk() (*PluginConfigLinux, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Linux, true
@@ -312,7 +312,7 @@ func (o *PluginConfig) GetMounts() []PluginMount {
 // GetMountsOk returns a tuple with the Mounts field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetMountsOk() ([]PluginMount, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Mounts, true
@@ -336,7 +336,7 @@ func (o *PluginConfig) GetNetwork() PluginConfigNetwork {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetNetworkOk() (*PluginConfigNetwork, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -360,7 +360,7 @@ func (o *PluginConfig) GetPidHost() bool {
 // GetPidHostOk returns a tuple with the PidHost field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetPidHostOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PidHost, true
@@ -384,7 +384,7 @@ func (o *PluginConfig) GetPropagatedMount() string {
 // GetPropagatedMountOk returns a tuple with the PropagatedMount field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetPropagatedMountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PropagatedMount, true
@@ -440,7 +440,7 @@ func (o *PluginConfig) GetWorkDir() string {
 // GetWorkDirOk returns a tuple with the WorkDir field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfig) GetWorkDirOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.WorkDir, true
@@ -571,5 +571,3 @@ func (v *NullablePluginConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

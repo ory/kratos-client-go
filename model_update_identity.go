@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.6.3-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -19,6 +19,8 @@ import (
 type UpdateIdentity struct {
 	// SchemaID is the ID of the JSON Schema to be used for validating the identity's traits. If set will update the Identity's SchemaID.
 	SchemaId *string `json:"schema_id,omitempty"`
+	// State is the identity's state.
+	State string `json:"state"`
 	// Traits represent an identity's traits. The identity is able to create, modify, and delete traits in a self-service manner. The input will always be validated against the JSON Schema defined in `schema_id`.
 	Traits map[string]interface{} `json:"traits"`
 }
@@ -27,8 +29,9 @@ type UpdateIdentity struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUpdateIdentity(traits map[string]interface{}) *UpdateIdentity {
+func NewUpdateIdentity(state string, traits map[string]interface{}) *UpdateIdentity {
 	this := UpdateIdentity{}
+	this.State = state
 	this.Traits = traits
 	return &this
 }
@@ -73,6 +76,30 @@ func (o *UpdateIdentity) SetSchemaId(v string) {
 	o.SchemaId = &v
 }
 
+// GetState returns the State field value
+func (o *UpdateIdentity) GetState() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.State
+}
+
+// GetStateOk returns a tuple with the State field value
+// and a boolean to check if the value has been set.
+func (o *UpdateIdentity) GetStateOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.State, true
+}
+
+// SetState sets field value
+func (o *UpdateIdentity) SetState(v string) {
+	o.State = v
+}
+
 // GetTraits returns the Traits field value
 func (o *UpdateIdentity) GetTraits() map[string]interface{} {
 	if o == nil {
@@ -86,7 +113,7 @@ func (o *UpdateIdentity) GetTraits() map[string]interface{} {
 // GetTraitsOk returns a tuple with the Traits field value
 // and a boolean to check if the value has been set.
 func (o *UpdateIdentity) GetTraitsOk() (map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Traits, true
@@ -101,6 +128,9 @@ func (o UpdateIdentity) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.SchemaId != nil {
 		toSerialize["schema_id"] = o.SchemaId
+	}
+	if true {
+		toSerialize["state"] = o.State
 	}
 	if true {
 		toSerialize["traits"] = o.Traits
@@ -143,5 +173,3 @@ func (v *NullableUpdateIdentity) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

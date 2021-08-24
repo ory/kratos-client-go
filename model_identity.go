@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -22,15 +22,15 @@ type Identity struct {
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// Credentials represents all credentials that can be used for authenticating this identity.
 	Credentials *map[string]IdentityCredentials `json:"credentials,omitempty"`
-	Id string `json:"id"`
+	Id          string                          `json:"id"`
 	// RecoveryAddresses contains all the addresses that can be used to recover an identity.
 	RecoveryAddresses []RecoveryAddress `json:"recovery_addresses,omitempty"`
 	// SchemaID is the ID of the JSON Schema to be used for validating the identity's traits.
 	SchemaId string `json:"schema_id"`
 	// SchemaURL is the URL of the endpoint where the identity's traits schema can be fetched from.  format: url
-	SchemaUrl string `json:"schema_url"`
-	State *IdentityState `json:"state,omitempty"`
-	StateChangedAt *time.Time `json:"state_changed_at,omitempty"`
+	SchemaUrl      string         `json:"schema_url"`
+	State          *IdentityState `json:"state,omitempty"`
+	StateChangedAt *time.Time     `json:"state_changed_at,omitempty"`
 	// Traits represent an identity's traits. The identity is able to create, modify, and delete traits in a self-service manner. The input will always be validated against the JSON Schema defined in `schema_url`.
 	Traits interface{} `json:"traits"`
 	// UpdatedAt is a helper struct field for gobuffalo.pop.
@@ -137,7 +137,7 @@ func (o *Identity) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *Identity) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -193,7 +193,7 @@ func (o *Identity) GetSchemaId() string {
 // GetSchemaIdOk returns a tuple with the SchemaId field value
 // and a boolean to check if the value has been set.
 func (o *Identity) GetSchemaIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SchemaId, true
@@ -217,7 +217,7 @@ func (o *Identity) GetSchemaUrl() string {
 // GetSchemaUrlOk returns a tuple with the SchemaUrl field value
 // and a boolean to check if the value has been set.
 func (o *Identity) GetSchemaUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SchemaUrl, true
@@ -455,5 +455,3 @@ func (v *NullableIdentity) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

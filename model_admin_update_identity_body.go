@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,8 +18,8 @@ import (
 // AdminUpdateIdentityBody struct for AdminUpdateIdentityBody
 type AdminUpdateIdentityBody struct {
 	// SchemaID is the ID of the JSON Schema to be used for validating the identity's traits. If set will update the Identity's SchemaID.
-	SchemaId *string `json:"schema_id,omitempty"`
-	State IdentityState `json:"state"`
+	SchemaId *string       `json:"schema_id,omitempty"`
+	State    IdentityState `json:"state"`
 	// Traits represent an identity's traits. The identity is able to create, modify, and delete traits in a self-service manner. The input will always be validated against the JSON Schema defined in `schema_id`.
 	Traits map[string]interface{} `json:"traits"`
 }
@@ -88,7 +88,7 @@ func (o *AdminUpdateIdentityBody) GetState() IdentityState {
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
 func (o *AdminUpdateIdentityBody) GetStateOk() (*IdentityState, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.State, true
@@ -112,7 +112,7 @@ func (o *AdminUpdateIdentityBody) GetTraits() map[string]interface{} {
 // GetTraitsOk returns a tuple with the Traits field value
 // and a boolean to check if the value has been set.
 func (o *AdminUpdateIdentityBody) GetTraitsOk() (map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Traits, true
@@ -172,5 +172,3 @@ func (v *NullableAdminUpdateIdentityBody) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

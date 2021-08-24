@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.1-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -55,7 +55,7 @@ func (o *PluginConfigInterface) GetSocket() string {
 // GetSocketOk returns a tuple with the Socket field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfigInterface) GetSocketOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Socket, true
@@ -79,7 +79,7 @@ func (o *PluginConfigInterface) GetTypes() []PluginInterfaceType {
 // GetTypesOk returns a tuple with the Types field value
 // and a boolean to check if the value has been set.
 func (o *PluginConfigInterface) GetTypesOk() ([]PluginInterfaceType, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Types, true
@@ -136,5 +136,3 @@ func (v *NullablePluginConfigInterface) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
