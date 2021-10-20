@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.6-alpha.7
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,15 +18,18 @@ import (
 
 // Session A Session
 type Session struct {
-	// Whether or not the session is active.
+	// Active state. If false the session is no longer active.
 	Active *bool `json:"active,omitempty"`
-	// The Session Authentication Timestamp  When this session was authenticated at.
+	// The Session Authentication Timestamp  When this session was authenticated at. If multi-factor authentication was used this is the time when the last factor was authenticated (e.g. the TOTP code challenge was completed).
 	AuthenticatedAt *time.Time `json:"authenticated_at,omitempty"`
+	// A list of authenticators which were used to authenticate the session.
+	AuthenticationMethods       []SessionAuthenticationMethod `json:"authentication_methods,omitempty"`
+	AuthenticatorAssuranceLevel *AuthenticatorAssuranceLevel  `json:"authenticator_assurance_level,omitempty"`
 	// The Session Expiry  When this session expires at.
 	ExpiresAt *time.Time `json:"expires_at,omitempty"`
-	Id string `json:"id"`
-	Identity Identity `json:"identity"`
-	// The Session Issuance Timestamp  When this session was authenticated at.
+	Id        string     `json:"id"`
+	Identity  Identity   `json:"identity"`
+	// The Session Issuance Timestamp  When this session was issued at. Usually equal or close to `authenticated_at`.
 	IssuedAt *time.Time `json:"issued_at,omitempty"`
 }
 
@@ -113,6 +116,70 @@ func (o *Session) SetAuthenticatedAt(v time.Time) {
 	o.AuthenticatedAt = &v
 }
 
+// GetAuthenticationMethods returns the AuthenticationMethods field value if set, zero value otherwise.
+func (o *Session) GetAuthenticationMethods() []SessionAuthenticationMethod {
+	if o == nil || o.AuthenticationMethods == nil {
+		var ret []SessionAuthenticationMethod
+		return ret
+	}
+	return o.AuthenticationMethods
+}
+
+// GetAuthenticationMethodsOk returns a tuple with the AuthenticationMethods field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Session) GetAuthenticationMethodsOk() ([]SessionAuthenticationMethod, bool) {
+	if o == nil || o.AuthenticationMethods == nil {
+		return nil, false
+	}
+	return o.AuthenticationMethods, true
+}
+
+// HasAuthenticationMethods returns a boolean if a field has been set.
+func (o *Session) HasAuthenticationMethods() bool {
+	if o != nil && o.AuthenticationMethods != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthenticationMethods gets a reference to the given []SessionAuthenticationMethod and assigns it to the AuthenticationMethods field.
+func (o *Session) SetAuthenticationMethods(v []SessionAuthenticationMethod) {
+	o.AuthenticationMethods = v
+}
+
+// GetAuthenticatorAssuranceLevel returns the AuthenticatorAssuranceLevel field value if set, zero value otherwise.
+func (o *Session) GetAuthenticatorAssuranceLevel() AuthenticatorAssuranceLevel {
+	if o == nil || o.AuthenticatorAssuranceLevel == nil {
+		var ret AuthenticatorAssuranceLevel
+		return ret
+	}
+	return *o.AuthenticatorAssuranceLevel
+}
+
+// GetAuthenticatorAssuranceLevelOk returns a tuple with the AuthenticatorAssuranceLevel field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Session) GetAuthenticatorAssuranceLevelOk() (*AuthenticatorAssuranceLevel, bool) {
+	if o == nil || o.AuthenticatorAssuranceLevel == nil {
+		return nil, false
+	}
+	return o.AuthenticatorAssuranceLevel, true
+}
+
+// HasAuthenticatorAssuranceLevel returns a boolean if a field has been set.
+func (o *Session) HasAuthenticatorAssuranceLevel() bool {
+	if o != nil && o.AuthenticatorAssuranceLevel != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAuthenticatorAssuranceLevel gets a reference to the given AuthenticatorAssuranceLevel and assigns it to the AuthenticatorAssuranceLevel field.
+func (o *Session) SetAuthenticatorAssuranceLevel(v AuthenticatorAssuranceLevel) {
+	o.AuthenticatorAssuranceLevel = &v
+}
+
 // GetExpiresAt returns the ExpiresAt field value if set, zero value otherwise.
 func (o *Session) GetExpiresAt() time.Time {
 	if o == nil || o.ExpiresAt == nil {
@@ -158,7 +225,7 @@ func (o *Session) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *Session) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -182,7 +249,7 @@ func (o *Session) GetIdentity() Identity {
 // GetIdentityOk returns a tuple with the Identity field value
 // and a boolean to check if the value has been set.
 func (o *Session) GetIdentityOk() (*Identity, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identity, true
@@ -232,6 +299,12 @@ func (o Session) MarshalJSON() ([]byte, error) {
 	}
 	if o.AuthenticatedAt != nil {
 		toSerialize["authenticated_at"] = o.AuthenticatedAt
+	}
+	if o.AuthenticationMethods != nil {
+		toSerialize["authentication_methods"] = o.AuthenticationMethods
+	}
+	if o.AuthenticatorAssuranceLevel != nil {
+		toSerialize["authenticator_assurance_level"] = o.AuthenticatorAssuranceLevel
 	}
 	if o.ExpiresAt != nil {
 		toSerialize["expires_at"] = o.ExpiresAt
@@ -283,5 +356,3 @@ func (v *NullableSession) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.6-alpha.7
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,11 +18,11 @@ import (
 // UiContainer Container represents a HTML Form. The container can work with both HTTP Form and JSON requests
 type UiContainer struct {
 	// Action should be used as the form action URL `<form action=\"{{ .Action }}\" method=\"post\">`.
-	Action string `json:"action"`
+	Action   string   `json:"action"`
 	Messages []UiText `json:"messages,omitempty"`
 	// Method is the form method (e.g. POST)
-	Method string `json:"method"`
-	Nodes []UiNode `json:"nodes"`
+	Method string   `json:"method"`
+	Nodes  []UiNode `json:"nodes"`
 }
 
 // NewUiContainer instantiates a new UiContainer object
@@ -58,7 +58,7 @@ func (o *UiContainer) GetAction() string {
 // GetActionOk returns a tuple with the Action field value
 // and a boolean to check if the value has been set.
 func (o *UiContainer) GetActionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Action, true
@@ -114,7 +114,7 @@ func (o *UiContainer) GetMethod() string {
 // GetMethodOk returns a tuple with the Method field value
 // and a boolean to check if the value has been set.
 func (o *UiContainer) GetMethodOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Method, true
@@ -138,7 +138,7 @@ func (o *UiContainer) GetNodes() []UiNode {
 // GetNodesOk returns a tuple with the Nodes field value
 // and a boolean to check if the value has been set.
 func (o *UiContainer) GetNodesOk() ([]UiNode, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Nodes, true
@@ -201,5 +201,3 @@ func (v *NullableUiContainer) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

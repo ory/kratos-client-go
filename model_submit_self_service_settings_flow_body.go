@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.6-alpha.7
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,9 +18,10 @@ import (
 
 // SubmitSelfServiceSettingsFlowBody - struct for SubmitSelfServiceSettingsFlowBody
 type SubmitSelfServiceSettingsFlowBody struct {
-	SubmitSelfServiceSettingsFlowWithOidcMethodBody *SubmitSelfServiceSettingsFlowWithOidcMethodBody
+	SubmitSelfServiceSettingsFlowWithOidcMethodBody     *SubmitSelfServiceSettingsFlowWithOidcMethodBody
 	SubmitSelfServiceSettingsFlowWithPasswordMethodBody *SubmitSelfServiceSettingsFlowWithPasswordMethodBody
-	SubmitSelfServiceSettingsFlowWithProfileMethodBody *SubmitSelfServiceSettingsFlowWithProfileMethodBody
+	SubmitSelfServiceSettingsFlowWithProfileMethodBody  *SubmitSelfServiceSettingsFlowWithProfileMethodBody
+	SubmitSelfServiceSettingsFlowWithTotpMethodBody     *SubmitSelfServiceSettingsFlowWithTotpMethodBody
 }
 
 // SubmitSelfServiceSettingsFlowWithOidcMethodBodyAsSubmitSelfServiceSettingsFlowBody is a convenience function that returns SubmitSelfServiceSettingsFlowWithOidcMethodBody wrapped in SubmitSelfServiceSettingsFlowBody
@@ -44,6 +45,12 @@ func SubmitSelfServiceSettingsFlowWithProfileMethodBodyAsSubmitSelfServiceSettin
 	}
 }
 
+// SubmitSelfServiceSettingsFlowWithTotpMethodBodyAsSubmitSelfServiceSettingsFlowBody is a convenience function that returns SubmitSelfServiceSettingsFlowWithTotpMethodBody wrapped in SubmitSelfServiceSettingsFlowBody
+func SubmitSelfServiceSettingsFlowWithTotpMethodBodyAsSubmitSelfServiceSettingsFlowBody(v *SubmitSelfServiceSettingsFlowWithTotpMethodBody) SubmitSelfServiceSettingsFlowBody {
+	return SubmitSelfServiceSettingsFlowBody{
+		SubmitSelfServiceSettingsFlowWithTotpMethodBody: v,
+	}
+}
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *SubmitSelfServiceSettingsFlowBody) UnmarshalJSON(data []byte) error {
@@ -88,11 +95,25 @@ func (dst *SubmitSelfServiceSettingsFlowBody) UnmarshalJSON(data []byte) error {
 		dst.SubmitSelfServiceSettingsFlowWithProfileMethodBody = nil
 	}
 
+	// try to unmarshal data into SubmitSelfServiceSettingsFlowWithTotpMethodBody
+	err = newStrictDecoder(data).Decode(&dst.SubmitSelfServiceSettingsFlowWithTotpMethodBody)
+	if err == nil {
+		jsonSubmitSelfServiceSettingsFlowWithTotpMethodBody, _ := json.Marshal(dst.SubmitSelfServiceSettingsFlowWithTotpMethodBody)
+		if string(jsonSubmitSelfServiceSettingsFlowWithTotpMethodBody) == "{}" { // empty struct
+			dst.SubmitSelfServiceSettingsFlowWithTotpMethodBody = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.SubmitSelfServiceSettingsFlowWithTotpMethodBody = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.SubmitSelfServiceSettingsFlowWithOidcMethodBody = nil
 		dst.SubmitSelfServiceSettingsFlowWithPasswordMethodBody = nil
 		dst.SubmitSelfServiceSettingsFlowWithProfileMethodBody = nil
+		dst.SubmitSelfServiceSettingsFlowWithTotpMethodBody = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(SubmitSelfServiceSettingsFlowBody)")
 	} else if match == 1 {
@@ -116,11 +137,15 @@ func (src SubmitSelfServiceSettingsFlowBody) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.SubmitSelfServiceSettingsFlowWithProfileMethodBody)
 	}
 
+	if src.SubmitSelfServiceSettingsFlowWithTotpMethodBody != nil {
+		return json.Marshal(&src.SubmitSelfServiceSettingsFlowWithTotpMethodBody)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
 // Get the actual instance
-func (obj *SubmitSelfServiceSettingsFlowBody) GetActualInstance() (interface{}) {
+func (obj *SubmitSelfServiceSettingsFlowBody) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -134,6 +159,10 @@ func (obj *SubmitSelfServiceSettingsFlowBody) GetActualInstance() (interface{}) 
 
 	if obj.SubmitSelfServiceSettingsFlowWithProfileMethodBody != nil {
 		return obj.SubmitSelfServiceSettingsFlowWithProfileMethodBody
+	}
+
+	if obj.SubmitSelfServiceSettingsFlowWithTotpMethodBody != nil {
+		return obj.SubmitSelfServiceSettingsFlowWithTotpMethodBody
 	}
 
 	// all schemas are nil
@@ -175,5 +204,3 @@ func (v *NullableSubmitSelfServiceSettingsFlowBody) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

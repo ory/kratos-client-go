@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.6-alpha.7
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -17,7 +17,9 @@ import (
 
 // SelfServiceLogoutUrl struct for SelfServiceLogoutUrl
 type SelfServiceLogoutUrl struct {
-	// LogoutURL can be opened in a browser to  format: uri
+	// LogoutToken can be used to perform logout using AJAX.
+	LogoutToken string `json:"logout_token"`
+	// LogoutURL can be opened in a browser to sign the user out.  format: uri
 	LogoutUrl string `json:"logout_url"`
 }
 
@@ -25,8 +27,9 @@ type SelfServiceLogoutUrl struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSelfServiceLogoutUrl(logoutUrl string) *SelfServiceLogoutUrl {
+func NewSelfServiceLogoutUrl(logoutToken string, logoutUrl string) *SelfServiceLogoutUrl {
 	this := SelfServiceLogoutUrl{}
+	this.LogoutToken = logoutToken
 	this.LogoutUrl = logoutUrl
 	return &this
 }
@@ -37,6 +40,30 @@ func NewSelfServiceLogoutUrl(logoutUrl string) *SelfServiceLogoutUrl {
 func NewSelfServiceLogoutUrlWithDefaults() *SelfServiceLogoutUrl {
 	this := SelfServiceLogoutUrl{}
 	return &this
+}
+
+// GetLogoutToken returns the LogoutToken field value
+func (o *SelfServiceLogoutUrl) GetLogoutToken() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.LogoutToken
+}
+
+// GetLogoutTokenOk returns a tuple with the LogoutToken field value
+// and a boolean to check if the value has been set.
+func (o *SelfServiceLogoutUrl) GetLogoutTokenOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LogoutToken, true
+}
+
+// SetLogoutToken sets field value
+func (o *SelfServiceLogoutUrl) SetLogoutToken(v string) {
+	o.LogoutToken = v
 }
 
 // GetLogoutUrl returns the LogoutUrl field value
@@ -52,7 +79,7 @@ func (o *SelfServiceLogoutUrl) GetLogoutUrl() string {
 // GetLogoutUrlOk returns a tuple with the LogoutUrl field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLogoutUrl) GetLogoutUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.LogoutUrl, true
@@ -65,6 +92,9 @@ func (o *SelfServiceLogoutUrl) SetLogoutUrl(v string) {
 
 func (o SelfServiceLogoutUrl) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["logout_token"] = o.LogoutToken
+	}
 	if true {
 		toSerialize["logout_url"] = o.LogoutUrl
 	}
@@ -106,5 +136,3 @@ func (v *NullableSelfServiceLogoutUrl) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

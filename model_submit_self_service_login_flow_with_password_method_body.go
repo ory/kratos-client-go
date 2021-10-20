@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.6-alpha.7
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -92,7 +92,7 @@ func (o *SubmitSelfServiceLoginFlowWithPasswordMethodBody) GetMethod() string {
 // GetMethodOk returns a tuple with the Method field value
 // and a boolean to check if the value has been set.
 func (o *SubmitSelfServiceLoginFlowWithPasswordMethodBody) GetMethodOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Method, true
@@ -116,7 +116,7 @@ func (o *SubmitSelfServiceLoginFlowWithPasswordMethodBody) GetPassword() string 
 // GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
 func (o *SubmitSelfServiceLoginFlowWithPasswordMethodBody) GetPasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Password, true
@@ -140,7 +140,7 @@ func (o *SubmitSelfServiceLoginFlowWithPasswordMethodBody) GetPasswordIdentifier
 // GetPasswordIdentifierOk returns a tuple with the PasswordIdentifier field value
 // and a boolean to check if the value has been set.
 func (o *SubmitSelfServiceLoginFlowWithPasswordMethodBody) GetPasswordIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PasswordIdentifier, true
@@ -203,5 +203,3 @@ func (v *NullableSubmitSelfServiceLoginFlowWithPasswordMethodBody) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

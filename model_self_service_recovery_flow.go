@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.6-alpha.7
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -22,15 +22,17 @@ type SelfServiceRecoveryFlow struct {
 	Active *string `json:"active,omitempty"`
 	// ExpiresAt is the time (UTC) when the request expires. If the user still wishes to update the setting, a new request has to be initiated.
 	ExpiresAt time.Time `json:"expires_at"`
-	Id string `json:"id"`
+	Id        string    `json:"id"`
 	// IssuedAt is the time (UTC) when the request occurred.
 	IssuedAt time.Time `json:"issued_at"`
 	// RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL's path or query for example.
 	RequestUrl string `json:"request_url"`
-	State SelfServiceRecoveryFlowState `json:"state"`
+	// ReturnTo contains the requested return_to URL.
+	ReturnTo *string                      `json:"return_to,omitempty"`
+	State    SelfServiceRecoveryFlowState `json:"state"`
 	// The flow type can either be `api` or `browser`.
-	Type *string `json:"type,omitempty"`
-	Ui UiContainer `json:"ui"`
+	Type *string     `json:"type,omitempty"`
+	Ui   UiContainer `json:"ui"`
 }
 
 // NewSelfServiceRecoveryFlow instantiates a new SelfServiceRecoveryFlow object
@@ -101,7 +103,7 @@ func (o *SelfServiceRecoveryFlow) GetExpiresAt() time.Time {
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceRecoveryFlow) GetExpiresAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiresAt, true
@@ -125,7 +127,7 @@ func (o *SelfServiceRecoveryFlow) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceRecoveryFlow) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -149,7 +151,7 @@ func (o *SelfServiceRecoveryFlow) GetIssuedAt() time.Time {
 // GetIssuedAtOk returns a tuple with the IssuedAt field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceRecoveryFlow) GetIssuedAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAt, true
@@ -173,7 +175,7 @@ func (o *SelfServiceRecoveryFlow) GetRequestUrl() string {
 // GetRequestUrlOk returns a tuple with the RequestUrl field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceRecoveryFlow) GetRequestUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestUrl, true
@@ -182,6 +184,38 @@ func (o *SelfServiceRecoveryFlow) GetRequestUrlOk() (*string, bool) {
 // SetRequestUrl sets field value
 func (o *SelfServiceRecoveryFlow) SetRequestUrl(v string) {
 	o.RequestUrl = v
+}
+
+// GetReturnTo returns the ReturnTo field value if set, zero value otherwise.
+func (o *SelfServiceRecoveryFlow) GetReturnTo() string {
+	if o == nil || o.ReturnTo == nil {
+		var ret string
+		return ret
+	}
+	return *o.ReturnTo
+}
+
+// GetReturnToOk returns a tuple with the ReturnTo field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SelfServiceRecoveryFlow) GetReturnToOk() (*string, bool) {
+	if o == nil || o.ReturnTo == nil {
+		return nil, false
+	}
+	return o.ReturnTo, true
+}
+
+// HasReturnTo returns a boolean if a field has been set.
+func (o *SelfServiceRecoveryFlow) HasReturnTo() bool {
+	if o != nil && o.ReturnTo != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReturnTo gets a reference to the given string and assigns it to the ReturnTo field.
+func (o *SelfServiceRecoveryFlow) SetReturnTo(v string) {
+	o.ReturnTo = &v
 }
 
 // GetState returns the State field value
@@ -197,7 +231,7 @@ func (o *SelfServiceRecoveryFlow) GetState() SelfServiceRecoveryFlowState {
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceRecoveryFlow) GetStateOk() (*SelfServiceRecoveryFlowState, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.State, true
@@ -253,7 +287,7 @@ func (o *SelfServiceRecoveryFlow) GetUi() UiContainer {
 // GetUiOk returns a tuple with the Ui field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceRecoveryFlow) GetUiOk() (*UiContainer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Ui, true
@@ -280,6 +314,9 @@ func (o SelfServiceRecoveryFlow) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["request_url"] = o.RequestUrl
+	}
+	if o.ReturnTo != nil {
+		toSerialize["return_to"] = o.ReturnTo
 	}
 	if true {
 		toSerialize["state"] = o.State
@@ -328,5 +365,3 @@ func (v *NullableSelfServiceRecoveryFlow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

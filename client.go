@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.6-alpha.7
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -41,7 +41,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the Ory Kratos API API vv0.7.6-alpha.7
+// APIClient manages communication with the Ory Kratos API API v1.0.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -51,7 +51,7 @@ type APIClient struct {
 
 	MetadataApi MetadataApi
 
-	V0alpha1Api V0alpha1Api
+	V0alpha2Api V0alpha2Api
 }
 
 type service struct {
@@ -71,7 +71,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 
 	// API Services
 	c.MetadataApi = (*MetadataApiService)(&c.common)
-	c.V0alpha1Api = (*V0alpha1ApiService)(&c.common)
+	c.V0alpha2Api = (*V0alpha2ApiService)(&c.common)
 
 	return c
 }
@@ -408,7 +408,7 @@ func reportError(format string, a ...interface{}) error {
 	return fmt.Errorf(format, a...)
 }
 
-// A wrapper for strict JSON decoding
+// Prevent trying to import "bytes"
 func newStrictDecoder(data []byte) *json.Decoder {
 	dec := json.NewDecoder(bytes.NewBuffer(data))
 	dec.DisallowUnknownFields()
@@ -423,8 +423,6 @@ func setBody(body interface{}, contentType string) (bodyBuf *bytes.Buffer, err e
 
 	if reader, ok := body.(io.Reader); ok {
 		_, err = bodyBuf.ReadFrom(reader)
-	} else if fp, ok := body.(**os.File); ok {
-		_, err = bodyBuf.ReadFrom(*fp)
 	} else if b, ok := body.([]byte); ok {
 		_, err = bodyBuf.Write(b)
 	} else if s, ok := body.(string); ok {

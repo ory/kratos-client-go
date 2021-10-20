@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.7.6-alpha.7
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -19,9 +19,10 @@ import (
 // UiNodeAttributes - struct for UiNodeAttributes
 type UiNodeAttributes struct {
 	UiNodeAnchorAttributes *UiNodeAnchorAttributes
-	UiNodeImageAttributes *UiNodeImageAttributes
-	UiNodeInputAttributes *UiNodeInputAttributes
-	UiNodeTextAttributes *UiNodeTextAttributes
+	UiNodeImageAttributes  *UiNodeImageAttributes
+	UiNodeInputAttributes  *UiNodeInputAttributes
+	UiNodeScriptAttributes *UiNodeScriptAttributes
+	UiNodeTextAttributes   *UiNodeTextAttributes
 }
 
 // UiNodeAnchorAttributesAsUiNodeAttributes is a convenience function that returns UiNodeAnchorAttributes wrapped in UiNodeAttributes
@@ -45,13 +46,19 @@ func UiNodeInputAttributesAsUiNodeAttributes(v *UiNodeInputAttributes) UiNodeAtt
 	}
 }
 
+// UiNodeScriptAttributesAsUiNodeAttributes is a convenience function that returns UiNodeScriptAttributes wrapped in UiNodeAttributes
+func UiNodeScriptAttributesAsUiNodeAttributes(v *UiNodeScriptAttributes) UiNodeAttributes {
+	return UiNodeAttributes{
+		UiNodeScriptAttributes: v,
+	}
+}
+
 // UiNodeTextAttributesAsUiNodeAttributes is a convenience function that returns UiNodeTextAttributes wrapped in UiNodeAttributes
 func UiNodeTextAttributesAsUiNodeAttributes(v *UiNodeTextAttributes) UiNodeAttributes {
 	return UiNodeAttributes{
 		UiNodeTextAttributes: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *UiNodeAttributes) UnmarshalJSON(data []byte) error {
@@ -96,6 +103,19 @@ func (dst *UiNodeAttributes) UnmarshalJSON(data []byte) error {
 		dst.UiNodeInputAttributes = nil
 	}
 
+	// try to unmarshal data into UiNodeScriptAttributes
+	err = newStrictDecoder(data).Decode(&dst.UiNodeScriptAttributes)
+	if err == nil {
+		jsonUiNodeScriptAttributes, _ := json.Marshal(dst.UiNodeScriptAttributes)
+		if string(jsonUiNodeScriptAttributes) == "{}" { // empty struct
+			dst.UiNodeScriptAttributes = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.UiNodeScriptAttributes = nil
+	}
+
 	// try to unmarshal data into UiNodeTextAttributes
 	err = newStrictDecoder(data).Decode(&dst.UiNodeTextAttributes)
 	if err == nil {
@@ -114,6 +134,7 @@ func (dst *UiNodeAttributes) UnmarshalJSON(data []byte) error {
 		dst.UiNodeAnchorAttributes = nil
 		dst.UiNodeImageAttributes = nil
 		dst.UiNodeInputAttributes = nil
+		dst.UiNodeScriptAttributes = nil
 		dst.UiNodeTextAttributes = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(UiNodeAttributes)")
@@ -138,6 +159,10 @@ func (src UiNodeAttributes) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.UiNodeInputAttributes)
 	}
 
+	if src.UiNodeScriptAttributes != nil {
+		return json.Marshal(&src.UiNodeScriptAttributes)
+	}
+
 	if src.UiNodeTextAttributes != nil {
 		return json.Marshal(&src.UiNodeTextAttributes)
 	}
@@ -146,7 +171,7 @@ func (src UiNodeAttributes) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *UiNodeAttributes) GetActualInstance() (interface{}) {
+func (obj *UiNodeAttributes) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -160,6 +185,10 @@ func (obj *UiNodeAttributes) GetActualInstance() (interface{}) {
 
 	if obj.UiNodeInputAttributes != nil {
 		return obj.UiNodeInputAttributes
+	}
+
+	if obj.UiNodeScriptAttributes != nil {
+		return obj.UiNodeScriptAttributes
 	}
 
 	if obj.UiNodeTextAttributes != nil {
@@ -205,5 +234,3 @@ func (v *NullableUiNodeAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
