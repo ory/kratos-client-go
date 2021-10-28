@@ -1,4 +1,4 @@
-# Meta
+# UiNodeMeta
 
 ## Properties
 
@@ -8,45 +8,45 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewMeta
+### NewUiNodeMeta
 
-`func NewMeta() *Meta`
+`func NewUiNodeMeta() *UiNodeMeta`
 
-NewMeta instantiates a new Meta object
+NewUiNodeMeta instantiates a new UiNodeMeta object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewMetaWithDefaults
+### NewUiNodeMetaWithDefaults
 
-`func NewMetaWithDefaults() *Meta`
+`func NewUiNodeMetaWithDefaults() *UiNodeMeta`
 
-NewMetaWithDefaults instantiates a new Meta object
+NewUiNodeMetaWithDefaults instantiates a new UiNodeMeta object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetLabel
 
-`func (o *Meta) GetLabel() UiText`
+`func (o *UiNodeMeta) GetLabel() UiText`
 
 GetLabel returns the Label field if non-nil, zero value otherwise.
 
 ### GetLabelOk
 
-`func (o *Meta) GetLabelOk() (*UiText, bool)`
+`func (o *UiNodeMeta) GetLabelOk() (*UiText, bool)`
 
 GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLabel
 
-`func (o *Meta) SetLabel(v UiText)`
+`func (o *UiNodeMeta) SetLabel(v UiText)`
 
 SetLabel sets Label field to given value.
 
 ### HasLabel
 
-`func (o *Meta) HasLabel() bool`
+`func (o *UiNodeMeta) HasLabel() bool`
 
 HasLabel returns a boolean if a field has been set.
 

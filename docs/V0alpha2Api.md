@@ -1,41 +1,44 @@
-# \V0alpha1Api
+# \V0alpha2Api
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AdminCreateIdentity**](V0alpha1Api.md#AdminCreateIdentity) | **Post** /identities | Create an Identity
-[**AdminCreateSelfServiceRecoveryLink**](V0alpha1Api.md#AdminCreateSelfServiceRecoveryLink) | **Post** /recovery/link | Create a Recovery Link
-[**AdminDeleteIdentity**](V0alpha1Api.md#AdminDeleteIdentity) | **Delete** /identities/{id} | Delete an Identity
-[**AdminGetIdentity**](V0alpha1Api.md#AdminGetIdentity) | **Get** /identities/{id} | Get an Identity
-[**AdminListIdentities**](V0alpha1Api.md#AdminListIdentities) | **Get** /identities | List Identities
-[**AdminUpdateIdentity**](V0alpha1Api.md#AdminUpdateIdentity) | **Put** /identities/{id} | Update an Identity
-[**CreateSelfServiceLogoutFlowUrlForBrowsers**](V0alpha1Api.md#CreateSelfServiceLogoutFlowUrlForBrowsers) | **Get** /self-service/logout/browser | Create a Logout URL for Browsers
-[**GetJsonSchema**](V0alpha1Api.md#GetJsonSchema) | **Get** /schemas/{id} | 
-[**GetSelfServiceError**](V0alpha1Api.md#GetSelfServiceError) | **Get** /self-service/errors | Get Self-Service Errors
-[**GetSelfServiceLoginFlow**](V0alpha1Api.md#GetSelfServiceLoginFlow) | **Get** /self-service/login/flows | Get Login Flow
-[**GetSelfServiceRecoveryFlow**](V0alpha1Api.md#GetSelfServiceRecoveryFlow) | **Get** /self-service/recovery/flows | Get Recovery Flow
-[**GetSelfServiceRegistrationFlow**](V0alpha1Api.md#GetSelfServiceRegistrationFlow) | **Get** /self-service/registration/flows | Get Registration Flow
-[**GetSelfServiceSettingsFlow**](V0alpha1Api.md#GetSelfServiceSettingsFlow) | **Get** /self-service/settings/flows | Get Settings Flow
-[**GetSelfServiceVerificationFlow**](V0alpha1Api.md#GetSelfServiceVerificationFlow) | **Get** /self-service/verification/flows | Get Verification Flow
-[**InitializeSelfServiceLoginFlowForBrowsers**](V0alpha1Api.md#InitializeSelfServiceLoginFlowForBrowsers) | **Get** /self-service/login/browser | Initialize Login Flow for Browsers
-[**InitializeSelfServiceLoginFlowWithoutBrowser**](V0alpha1Api.md#InitializeSelfServiceLoginFlowWithoutBrowser) | **Get** /self-service/login/api | Initialize Login Flow for APIs, Services, Apps, ...
-[**InitializeSelfServiceRecoveryFlowForBrowsers**](V0alpha1Api.md#InitializeSelfServiceRecoveryFlowForBrowsers) | **Get** /self-service/recovery/browser | Initialize Recovery Flow for Browsers
-[**InitializeSelfServiceRecoveryFlowWithoutBrowser**](V0alpha1Api.md#InitializeSelfServiceRecoveryFlowWithoutBrowser) | **Get** /self-service/recovery/api | Initialize Recovery Flow for APIs, Services, Apps, ...
-[**InitializeSelfServiceRegistrationFlowForBrowsers**](V0alpha1Api.md#InitializeSelfServiceRegistrationFlowForBrowsers) | **Get** /self-service/registration/browser | Initialize Registration Flow for Browsers
-[**InitializeSelfServiceRegistrationFlowWithoutBrowser**](V0alpha1Api.md#InitializeSelfServiceRegistrationFlowWithoutBrowser) | **Get** /self-service/registration/api | Initialize Registration Flow for APIs, Services, Apps, ...
-[**InitializeSelfServiceSettingsFlowForBrowsers**](V0alpha1Api.md#InitializeSelfServiceSettingsFlowForBrowsers) | **Get** /self-service/settings/browser | Initialize Settings Flow for Browsers
-[**InitializeSelfServiceSettingsFlowWithoutBrowser**](V0alpha1Api.md#InitializeSelfServiceSettingsFlowWithoutBrowser) | **Get** /self-service/settings/api | Initialize Settings Flow for APIs, Services, Apps, ...
-[**InitializeSelfServiceVerificationFlowForBrowsers**](V0alpha1Api.md#InitializeSelfServiceVerificationFlowForBrowsers) | **Get** /self-service/verification/browser | Initialize Verification Flow for Browser Clients
-[**InitializeSelfServiceVerificationFlowWithoutBrowser**](V0alpha1Api.md#InitializeSelfServiceVerificationFlowWithoutBrowser) | **Get** /self-service/verification/api | Initialize Verification Flow for APIs, Services, Apps, ...
-[**SubmitSelfServiceLoginFlow**](V0alpha1Api.md#SubmitSelfServiceLoginFlow) | **Post** /self-service/login | Submit a Login Flow
-[**SubmitSelfServiceLogoutFlow**](V0alpha1Api.md#SubmitSelfServiceLogoutFlow) | **Get** /self-service/logout | Complete Self-Service Logout
-[**SubmitSelfServiceLogoutFlowWithoutBrowser**](V0alpha1Api.md#SubmitSelfServiceLogoutFlowWithoutBrowser) | **Delete** /self-service/logout/api | Perform Logout for APIs, Services, Apps, ...
-[**SubmitSelfServiceRecoveryFlow**](V0alpha1Api.md#SubmitSelfServiceRecoveryFlow) | **Post** /self-service/recovery | Complete Recovery Flow
-[**SubmitSelfServiceRegistrationFlow**](V0alpha1Api.md#SubmitSelfServiceRegistrationFlow) | **Post** /self-service/registration | Submit a Registration Flow
-[**SubmitSelfServiceSettingsFlow**](V0alpha1Api.md#SubmitSelfServiceSettingsFlow) | **Post** /self-service/settings | Complete Settings Flow
-[**SubmitSelfServiceVerificationFlow**](V0alpha1Api.md#SubmitSelfServiceVerificationFlow) | **Post** /self-service/verification | Complete Verification Flow
-[**ToSession**](V0alpha1Api.md#ToSession) | **Get** /sessions/whoami | Check Who the Current HTTP Session Belongs To
+[**AdminCreateIdentity**](V0alpha2Api.md#AdminCreateIdentity) | **Post** /identities | Create an Identity
+[**AdminCreateSelfServiceRecoveryLink**](V0alpha2Api.md#AdminCreateSelfServiceRecoveryLink) | **Post** /recovery/link | Create a Recovery Link
+[**AdminDeleteIdentity**](V0alpha2Api.md#AdminDeleteIdentity) | **Delete** /identities/{id} | Delete an Identity
+[**AdminDeleteIdentitySessions**](V0alpha2Api.md#AdminDeleteIdentitySessions) | **Delete** /identities/{id}/sessions | Calling this endpoint irrecoverably and permanently deletes and invalidates all sessions that belong to the given Identity.
+[**AdminGetIdentity**](V0alpha2Api.md#AdminGetIdentity) | **Get** /identities/{id} | Get an Identity
+[**AdminListIdentities**](V0alpha2Api.md#AdminListIdentities) | **Get** /identities | List Identities
+[**AdminUpdateIdentity**](V0alpha2Api.md#AdminUpdateIdentity) | **Put** /identities/{id} | Update an Identity
+[**CreateSelfServiceLogoutFlowUrlForBrowsers**](V0alpha2Api.md#CreateSelfServiceLogoutFlowUrlForBrowsers) | **Get** /self-service/logout/browser | Create a Logout URL for Browsers
+[**GetJsonSchema**](V0alpha2Api.md#GetJsonSchema) | **Get** /schemas/{id} | 
+[**GetSelfServiceError**](V0alpha2Api.md#GetSelfServiceError) | **Get** /self-service/errors | Get Self-Service Errors
+[**GetSelfServiceLoginFlow**](V0alpha2Api.md#GetSelfServiceLoginFlow) | **Get** /self-service/login/flows | Get Login Flow
+[**GetSelfServiceRecoveryFlow**](V0alpha2Api.md#GetSelfServiceRecoveryFlow) | **Get** /self-service/recovery/flows | Get Recovery Flow
+[**GetSelfServiceRegistrationFlow**](V0alpha2Api.md#GetSelfServiceRegistrationFlow) | **Get** /self-service/registration/flows | Get Registration Flow
+[**GetSelfServiceSettingsFlow**](V0alpha2Api.md#GetSelfServiceSettingsFlow) | **Get** /self-service/settings/flows | Get Settings Flow
+[**GetSelfServiceVerificationFlow**](V0alpha2Api.md#GetSelfServiceVerificationFlow) | **Get** /self-service/verification/flows | Get Verification Flow
+[**GetWebAuthnJavaScript**](V0alpha2Api.md#GetWebAuthnJavaScript) | **Get** /.well-known/ory/webauthn.js | Get WebAuthn JavaScript
+[**InitializeSelfServiceLoginFlowForBrowsers**](V0alpha2Api.md#InitializeSelfServiceLoginFlowForBrowsers) | **Get** /self-service/login/browser | Initialize Login Flow for Browsers
+[**InitializeSelfServiceLoginFlowWithoutBrowser**](V0alpha2Api.md#InitializeSelfServiceLoginFlowWithoutBrowser) | **Get** /self-service/login/api | Initialize Login Flow for APIs, Services, Apps, ...
+[**InitializeSelfServiceRecoveryFlowForBrowsers**](V0alpha2Api.md#InitializeSelfServiceRecoveryFlowForBrowsers) | **Get** /self-service/recovery/browser | Initialize Recovery Flow for Browsers
+[**InitializeSelfServiceRecoveryFlowWithoutBrowser**](V0alpha2Api.md#InitializeSelfServiceRecoveryFlowWithoutBrowser) | **Get** /self-service/recovery/api | Initialize Recovery Flow for APIs, Services, Apps, ...
+[**InitializeSelfServiceRegistrationFlowForBrowsers**](V0alpha2Api.md#InitializeSelfServiceRegistrationFlowForBrowsers) | **Get** /self-service/registration/browser | Initialize Registration Flow for Browsers
+[**InitializeSelfServiceRegistrationFlowWithoutBrowser**](V0alpha2Api.md#InitializeSelfServiceRegistrationFlowWithoutBrowser) | **Get** /self-service/registration/api | Initialize Registration Flow for APIs, Services, Apps, ...
+[**InitializeSelfServiceSettingsFlowForBrowsers**](V0alpha2Api.md#InitializeSelfServiceSettingsFlowForBrowsers) | **Get** /self-service/settings/browser | Initialize Settings Flow for Browsers
+[**InitializeSelfServiceSettingsFlowWithoutBrowser**](V0alpha2Api.md#InitializeSelfServiceSettingsFlowWithoutBrowser) | **Get** /self-service/settings/api | Initialize Settings Flow for APIs, Services, Apps, ...
+[**InitializeSelfServiceVerificationFlowForBrowsers**](V0alpha2Api.md#InitializeSelfServiceVerificationFlowForBrowsers) | **Get** /self-service/verification/browser | Initialize Verification Flow for Browser Clients
+[**InitializeSelfServiceVerificationFlowWithoutBrowser**](V0alpha2Api.md#InitializeSelfServiceVerificationFlowWithoutBrowser) | **Get** /self-service/verification/api | Initialize Verification Flow for APIs, Services, Apps, ...
+[**ListIdentitySchemas**](V0alpha2Api.md#ListIdentitySchemas) | **Get** /schemas | 
+[**SubmitSelfServiceLoginFlow**](V0alpha2Api.md#SubmitSelfServiceLoginFlow) | **Post** /self-service/login | Submit a Login Flow
+[**SubmitSelfServiceLogoutFlow**](V0alpha2Api.md#SubmitSelfServiceLogoutFlow) | **Get** /self-service/logout | Complete Self-Service Logout
+[**SubmitSelfServiceLogoutFlowWithoutBrowser**](V0alpha2Api.md#SubmitSelfServiceLogoutFlowWithoutBrowser) | **Delete** /self-service/logout/api | Perform Logout for APIs, Services, Apps, ...
+[**SubmitSelfServiceRecoveryFlow**](V0alpha2Api.md#SubmitSelfServiceRecoveryFlow) | **Post** /self-service/recovery | Complete Recovery Flow
+[**SubmitSelfServiceRegistrationFlow**](V0alpha2Api.md#SubmitSelfServiceRegistrationFlow) | **Post** /self-service/registration | Submit a Registration Flow
+[**SubmitSelfServiceSettingsFlow**](V0alpha2Api.md#SubmitSelfServiceSettingsFlow) | **Post** /self-service/settings | Complete Settings Flow
+[**SubmitSelfServiceVerificationFlow**](V0alpha2Api.md#SubmitSelfServiceVerificationFlow) | **Post** /self-service/verification | Complete Verification Flow
+[**ToSession**](V0alpha2Api.md#ToSession) | **Get** /sessions/whoami | Check Who the Current HTTP Session Belongs To
 
 
 
@@ -64,13 +67,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.AdminCreateIdentity(context.Background()).AdminCreateIdentityBody(adminCreateIdentityBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.AdminCreateIdentity(context.Background()).AdminCreateIdentityBody(adminCreateIdentityBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.AdminCreateIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.AdminCreateIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AdminCreateIdentity`: Identity
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.AdminCreateIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.AdminCreateIdentity`: %v\n", resp)
 }
 ```
 
@@ -130,13 +133,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.AdminCreateSelfServiceRecoveryLink(context.Background()).AdminCreateSelfServiceRecoveryLinkBody(adminCreateSelfServiceRecoveryLinkBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.AdminCreateSelfServiceRecoveryLink(context.Background()).AdminCreateSelfServiceRecoveryLinkBody(adminCreateSelfServiceRecoveryLinkBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.AdminCreateSelfServiceRecoveryLink``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.AdminCreateSelfServiceRecoveryLink``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AdminCreateSelfServiceRecoveryLink`: SelfServiceRecoveryLink
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.AdminCreateSelfServiceRecoveryLink`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.AdminCreateSelfServiceRecoveryLink`: %v\n", resp)
 }
 ```
 
@@ -196,9 +199,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.AdminDeleteIdentity(context.Background(), id).Execute()
+    resp, r, err := apiClient.V0alpha2Api.AdminDeleteIdentity(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.AdminDeleteIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.AdminDeleteIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -239,9 +242,77 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## AdminDeleteIdentitySessions
+
+> AdminDeleteIdentitySessions(ctx, id).Execute()
+
+Calling this endpoint irrecoverably and permanently deletes and invalidates all sessions that belong to the given Identity.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    id := "id_example" // string | ID is the identity's ID.
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.V0alpha2Api.AdminDeleteIdentitySessions(context.Background(), id).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.AdminDeleteIdentitySessions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID is the identity&#39;s ID. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiAdminDeleteIdentitySessionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[oryAccessToken](../README.md#oryAccessToken)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## AdminGetIdentity
 
-> Identity AdminGetIdentity(ctx, id).Execute()
+> Identity AdminGetIdentity(ctx, id).IncludeCredential(includeCredential).Execute()
 
 Get an Identity
 
@@ -261,16 +332,17 @@ import (
 
 func main() {
     id := "id_example" // string | ID must be set to the ID of identity you want to get
+    includeCredential := []string{"Inner_example"} // []string | DeclassifyCredentials will declassify one or more identity's credentials  Currently, only `oidc` is supported. This will return the initial OAuth 2.0 Access, Refresh and (optionally) OpenID Connect ID Token. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.AdminGetIdentity(context.Background(), id).Execute()
+    resp, r, err := apiClient.V0alpha2Api.AdminGetIdentity(context.Background(), id).IncludeCredential(includeCredential).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.AdminGetIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.AdminGetIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AdminGetIdentity`: Identity
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.AdminGetIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.AdminGetIdentity`: %v\n", resp)
 }
 ```
 
@@ -290,6 +362,7 @@ Other parameters are passed through a pointer to a apiAdminGetIdentityRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **includeCredential** | **[]string** | DeclassifyCredentials will declassify one or more identity&#39;s credentials  Currently, only &#x60;oidc&#x60; is supported. This will return the initial OAuth 2.0 Access, Refresh and (optionally) OpenID Connect ID Token. | 
 
 ### Return type
 
@@ -335,13 +408,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.AdminListIdentities(context.Background()).PerPage(perPage).Page(page).Execute()
+    resp, r, err := apiClient.V0alpha2Api.AdminListIdentities(context.Background()).PerPage(perPage).Page(page).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.AdminListIdentities``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.AdminListIdentities``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AdminListIdentities`: []Identity
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.AdminListIdentities`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.AdminListIdentities`: %v\n", resp)
 }
 ```
 
@@ -403,13 +476,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.AdminUpdateIdentity(context.Background(), id).AdminUpdateIdentityBody(adminUpdateIdentityBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.AdminUpdateIdentity(context.Background(), id).AdminUpdateIdentityBody(adminUpdateIdentityBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.AdminUpdateIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.AdminUpdateIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `AdminUpdateIdentity`: Identity
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.AdminUpdateIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.AdminUpdateIdentity`: %v\n", resp)
 }
 ```
 
@@ -474,13 +547,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.CreateSelfServiceLogoutFlowUrlForBrowsers(context.Background()).Cookie(cookie).Execute()
+    resp, r, err := apiClient.V0alpha2Api.CreateSelfServiceLogoutFlowUrlForBrowsers(context.Background()).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.CreateSelfServiceLogoutFlowUrlForBrowsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.CreateSelfServiceLogoutFlowUrlForBrowsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateSelfServiceLogoutFlowUrlForBrowsers`: SelfServiceLogoutUrl
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.CreateSelfServiceLogoutFlowUrlForBrowsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.CreateSelfServiceLogoutFlowUrlForBrowsers`: %v\n", resp)
 }
 ```
 
@@ -540,13 +613,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.GetJsonSchema(context.Background(), id).Execute()
+    resp, r, err := apiClient.V0alpha2Api.GetJsonSchema(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.GetJsonSchema``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.GetJsonSchema``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetJsonSchema`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.GetJsonSchema`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.GetJsonSchema`: %v\n", resp)
 }
 ```
 
@@ -610,13 +683,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.GetSelfServiceError(context.Background()).Id(id).Execute()
+    resp, r, err := apiClient.V0alpha2Api.GetSelfServiceError(context.Background()).Id(id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.GetSelfServiceError``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.GetSelfServiceError``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSelfServiceError`: SelfServiceError
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.GetSelfServiceError`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.GetSelfServiceError`: %v\n", resp)
 }
 ```
 
@@ -677,13 +750,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.GetSelfServiceLoginFlow(context.Background()).Id(id).Cookie(cookie).Execute()
+    resp, r, err := apiClient.V0alpha2Api.GetSelfServiceLoginFlow(context.Background()).Id(id).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.GetSelfServiceLoginFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.GetSelfServiceLoginFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSelfServiceLoginFlow`: SelfServiceLoginFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.GetSelfServiceLoginFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.GetSelfServiceLoginFlow`: %v\n", resp)
 }
 ```
 
@@ -745,13 +818,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.GetSelfServiceRecoveryFlow(context.Background()).Id(id).Cookie(cookie).Execute()
+    resp, r, err := apiClient.V0alpha2Api.GetSelfServiceRecoveryFlow(context.Background()).Id(id).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.GetSelfServiceRecoveryFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.GetSelfServiceRecoveryFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSelfServiceRecoveryFlow`: SelfServiceRecoveryFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.GetSelfServiceRecoveryFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.GetSelfServiceRecoveryFlow`: %v\n", resp)
 }
 ```
 
@@ -813,13 +886,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.GetSelfServiceRegistrationFlow(context.Background()).Id(id).Cookie(cookie).Execute()
+    resp, r, err := apiClient.V0alpha2Api.GetSelfServiceRegistrationFlow(context.Background()).Id(id).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.GetSelfServiceRegistrationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.GetSelfServiceRegistrationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSelfServiceRegistrationFlow`: SelfServiceRegistrationFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.GetSelfServiceRegistrationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.GetSelfServiceRegistrationFlow`: %v\n", resp)
 }
 ```
 
@@ -882,13 +955,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.GetSelfServiceSettingsFlow(context.Background()).Id(id).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    resp, r, err := apiClient.V0alpha2Api.GetSelfServiceSettingsFlow(context.Background()).Id(id).XSessionToken(xSessionToken).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.GetSelfServiceSettingsFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.GetSelfServiceSettingsFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSelfServiceSettingsFlow`: SelfServiceSettingsFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.GetSelfServiceSettingsFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.GetSelfServiceSettingsFlow`: %v\n", resp)
 }
 ```
 
@@ -951,13 +1024,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.GetSelfServiceVerificationFlow(context.Background()).Id(id).Cookie(cookie).Execute()
+    resp, r, err := apiClient.V0alpha2Api.GetSelfServiceVerificationFlow(context.Background()).Id(id).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.GetSelfServiceVerificationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.GetSelfServiceVerificationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSelfServiceVerificationFlow`: SelfServiceVerificationFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.GetSelfServiceVerificationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.GetSelfServiceVerificationFlow`: %v\n", resp)
 }
 ```
 
@@ -993,9 +1066,70 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetWebAuthnJavaScript
+
+> string GetWebAuthnJavaScript(ctx).Execute()
+
+Get WebAuthn JavaScript
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.V0alpha2Api.GetWebAuthnJavaScript(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.GetWebAuthnJavaScript``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWebAuthnJavaScript`: string
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.GetWebAuthnJavaScript`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetWebAuthnJavaScriptRequest struct via the builder pattern
+
+
+### Return type
+
+**string**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## InitializeSelfServiceLoginFlowForBrowsers
 
-> SelfServiceLoginFlow InitializeSelfServiceLoginFlowForBrowsers(ctx).Refresh(refresh).Execute()
+> SelfServiceLoginFlow InitializeSelfServiceLoginFlowForBrowsers(ctx).Refresh(refresh).Aal(aal).ReturnTo(returnTo).Execute()
 
 Initialize Login Flow for Browsers
 
@@ -1015,16 +1149,18 @@ import (
 
 func main() {
     refresh := true // bool | Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session. (optional)
+    aal := "aal_example" // string | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \"upgrade\" the session's security by asking the user to perform TOTP / WebAuth/ ... you would set this to \"aal2\". (optional)
+    returnTo := "returnTo_example" // string | The URL to return the browser to after the flow was completed. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceLoginFlowForBrowsers(context.Background()).Refresh(refresh).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceLoginFlowForBrowsers(context.Background()).Refresh(refresh).Aal(aal).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceLoginFlowForBrowsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceLoginFlowForBrowsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceLoginFlowForBrowsers`: SelfServiceLoginFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceLoginFlowForBrowsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceLoginFlowForBrowsers`: %v\n", resp)
 }
 ```
 
@@ -1040,6 +1176,8 @@ Other parameters are passed through a pointer to a apiInitializeSelfServiceLogin
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **refresh** | **bool** | Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session. | 
+ **aal** | **string** | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session&#39;s authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \&quot;upgrade\&quot; the session&#39;s security by asking the user to perform TOTP / WebAuth/ ... you would set this to \&quot;aal2\&quot;. | 
+ **returnTo** | **string** | The URL to return the browser to after the flow was completed. | 
 
 ### Return type
 
@@ -1061,7 +1199,7 @@ No authorization required
 
 ## InitializeSelfServiceLoginFlowWithoutBrowser
 
-> SelfServiceLoginFlow InitializeSelfServiceLoginFlowWithoutBrowser(ctx).Refresh(refresh).Execute()
+> SelfServiceLoginFlow InitializeSelfServiceLoginFlowWithoutBrowser(ctx).Refresh(refresh).Aal(aal).XSessionToken(xSessionToken).Execute()
 
 Initialize Login Flow for APIs, Services, Apps, ...
 
@@ -1081,16 +1219,18 @@ import (
 
 func main() {
     refresh := true // bool | Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session. (optional)
+    aal := "aal_example" // string | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session's authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \"upgrade\" the session's security by asking the user to perform TOTP / WebAuth/ ... you would set this to \"aal2\". (optional)
+    xSessionToken := "xSessionToken_example" // string | The Session Token of the Identity performing the settings flow. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceLoginFlowWithoutBrowser(context.Background()).Refresh(refresh).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceLoginFlowWithoutBrowser(context.Background()).Refresh(refresh).Aal(aal).XSessionToken(xSessionToken).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceLoginFlowWithoutBrowser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceLoginFlowWithoutBrowser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceLoginFlowWithoutBrowser`: SelfServiceLoginFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceLoginFlowWithoutBrowser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceLoginFlowWithoutBrowser`: %v\n", resp)
 }
 ```
 
@@ -1106,6 +1246,8 @@ Other parameters are passed through a pointer to a apiInitializeSelfServiceLogin
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **refresh** | **bool** | Refresh a login session  If set to true, this will refresh an existing login session by asking the user to sign in again. This will reset the authenticated_at time of the session. | 
+ **aal** | **string** | Request a Specific AuthenticationMethod Assurance Level  Use this parameter to upgrade an existing session&#39;s authenticator assurance level (AAL). This allows you to ask for multi-factor authentication. When an identity sign in using e.g. username+password, the AAL is 1. If you wish to \&quot;upgrade\&quot; the session&#39;s security by asking the user to perform TOTP / WebAuth/ ... you would set this to \&quot;aal2\&quot;. | 
+ **xSessionToken** | **string** | The Session Token of the Identity performing the settings flow. | 
 
 ### Return type
 
@@ -1127,7 +1269,7 @@ No authorization required
 
 ## InitializeSelfServiceRecoveryFlowForBrowsers
 
-> SelfServiceRecoveryFlow InitializeSelfServiceRecoveryFlowForBrowsers(ctx).Execute()
+> SelfServiceRecoveryFlow InitializeSelfServiceRecoveryFlowForBrowsers(ctx).ReturnTo(returnTo).Execute()
 
 Initialize Recovery Flow for Browsers
 
@@ -1146,27 +1288,32 @@ import (
 )
 
 func main() {
+    returnTo := "returnTo_example" // string | The URL to return the browser to after the flow was completed. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceRecoveryFlowForBrowsers(context.Background()).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceRecoveryFlowForBrowsers(context.Background()).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceRecoveryFlowForBrowsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceRecoveryFlowForBrowsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceRecoveryFlowForBrowsers`: SelfServiceRecoveryFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceRecoveryFlowForBrowsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceRecoveryFlowForBrowsers`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiInitializeSelfServiceRecoveryFlowForBrowsersRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **returnTo** | **string** | The URL to return the browser to after the flow was completed. | 
 
 ### Return type
 
@@ -1210,13 +1357,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceRecoveryFlowWithoutBrowser(context.Background()).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceRecoveryFlowWithoutBrowser(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceRecoveryFlowWithoutBrowser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceRecoveryFlowWithoutBrowser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceRecoveryFlowWithoutBrowser`: SelfServiceRecoveryFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceRecoveryFlowWithoutBrowser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceRecoveryFlowWithoutBrowser`: %v\n", resp)
 }
 ```
 
@@ -1249,7 +1396,7 @@ No authorization required
 
 ## InitializeSelfServiceRegistrationFlowForBrowsers
 
-> SelfServiceRegistrationFlow InitializeSelfServiceRegistrationFlowForBrowsers(ctx).Execute()
+> SelfServiceRegistrationFlow InitializeSelfServiceRegistrationFlowForBrowsers(ctx).ReturnTo(returnTo).Execute()
 
 Initialize Registration Flow for Browsers
 
@@ -1268,27 +1415,32 @@ import (
 )
 
 func main() {
+    returnTo := "returnTo_example" // string | The URL to return the browser to after the flow was completed. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceRegistrationFlowForBrowsers(context.Background()).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceRegistrationFlowForBrowsers(context.Background()).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceRegistrationFlowForBrowsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceRegistrationFlowForBrowsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceRegistrationFlowForBrowsers`: SelfServiceRegistrationFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceRegistrationFlowForBrowsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceRegistrationFlowForBrowsers`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiInitializeSelfServiceRegistrationFlowForBrowsersRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **returnTo** | **string** | The URL to return the browser to after the flow was completed. | 
 
 ### Return type
 
@@ -1332,13 +1484,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceRegistrationFlowWithoutBrowser(context.Background()).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceRegistrationFlowWithoutBrowser(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceRegistrationFlowWithoutBrowser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceRegistrationFlowWithoutBrowser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceRegistrationFlowWithoutBrowser`: SelfServiceRegistrationFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceRegistrationFlowWithoutBrowser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceRegistrationFlowWithoutBrowser`: %v\n", resp)
 }
 ```
 
@@ -1371,7 +1523,7 @@ No authorization required
 
 ## InitializeSelfServiceSettingsFlowForBrowsers
 
-> SelfServiceSettingsFlow InitializeSelfServiceSettingsFlowForBrowsers(ctx).Cookie(cookie).Execute()
+> SelfServiceSettingsFlow InitializeSelfServiceSettingsFlowForBrowsers(ctx).ReturnTo(returnTo).Execute()
 
 Initialize Settings Flow for Browsers
 
@@ -1390,17 +1542,17 @@ import (
 )
 
 func main() {
-    cookie := "cookie_example" // string | The Session Cookie of the Identity performing the settings flow. (optional)
+    returnTo := "returnTo_example" // string | The URL to return the browser to after the flow was completed. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceSettingsFlowForBrowsers(context.Background()).Cookie(cookie).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceSettingsFlowForBrowsers(context.Background()).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceSettingsFlowForBrowsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceSettingsFlowForBrowsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceSettingsFlowForBrowsers`: SelfServiceSettingsFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceSettingsFlowForBrowsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceSettingsFlowForBrowsers`: %v\n", resp)
 }
 ```
 
@@ -1415,7 +1567,7 @@ Other parameters are passed through a pointer to a apiInitializeSelfServiceSetti
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cookie** | **string** | The Session Cookie of the Identity performing the settings flow. | 
+ **returnTo** | **string** | The URL to return the browser to after the flow was completed. | 
 
 ### Return type
 
@@ -1460,13 +1612,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceSettingsFlowWithoutBrowser(context.Background()).XSessionToken(xSessionToken).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceSettingsFlowWithoutBrowser(context.Background()).XSessionToken(xSessionToken).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceSettingsFlowWithoutBrowser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceSettingsFlowWithoutBrowser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceSettingsFlowWithoutBrowser`: SelfServiceSettingsFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceSettingsFlowWithoutBrowser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceSettingsFlowWithoutBrowser`: %v\n", resp)
 }
 ```
 
@@ -1503,7 +1655,7 @@ No authorization required
 
 ## InitializeSelfServiceVerificationFlowForBrowsers
 
-> SelfServiceVerificationFlow InitializeSelfServiceVerificationFlowForBrowsers(ctx).Execute()
+> SelfServiceVerificationFlow InitializeSelfServiceVerificationFlowForBrowsers(ctx).ReturnTo(returnTo).Execute()
 
 Initialize Verification Flow for Browser Clients
 
@@ -1522,27 +1674,32 @@ import (
 )
 
 func main() {
+    returnTo := "returnTo_example" // string | The URL to return the browser to after the flow was completed. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceVerificationFlowForBrowsers(context.Background()).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceVerificationFlowForBrowsers(context.Background()).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceVerificationFlowForBrowsers``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceVerificationFlowForBrowsers``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceVerificationFlowForBrowsers`: SelfServiceVerificationFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceVerificationFlowForBrowsers`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceVerificationFlowForBrowsers`: %v\n", resp)
 }
 ```
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiInitializeSelfServiceVerificationFlowForBrowsersRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **returnTo** | **string** | The URL to return the browser to after the flow was completed. | 
 
 ### Return type
 
@@ -1586,13 +1743,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.InitializeSelfServiceVerificationFlowWithoutBrowser(context.Background()).Execute()
+    resp, r, err := apiClient.V0alpha2Api.InitializeSelfServiceVerificationFlowWithoutBrowser(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.InitializeSelfServiceVerificationFlowWithoutBrowser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.InitializeSelfServiceVerificationFlowWithoutBrowser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `InitializeSelfServiceVerificationFlowWithoutBrowser`: SelfServiceVerificationFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.InitializeSelfServiceVerificationFlowWithoutBrowser`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.InitializeSelfServiceVerificationFlowWithoutBrowser`: %v\n", resp)
 }
 ```
 
@@ -1623,9 +1780,77 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## ListIdentitySchemas
+
+> []IdentitySchema ListIdentitySchemas(ctx).PerPage(perPage).Page(page).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    perPage := int64(789) // int64 | Items per Page  This is the number of items per page. (optional) (default to 100)
+    page := int64(789) // int64 | Pagination Page (optional) (default to 0)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.V0alpha2Api.ListIdentitySchemas(context.Background()).PerPage(perPage).Page(page).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.ListIdentitySchemas``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListIdentitySchemas`: []IdentitySchema
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.ListIdentitySchemas`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListIdentitySchemasRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **perPage** | **int64** | Items per Page  This is the number of items per page. | [default to 100]
+ **page** | **int64** | Pagination Page | [default to 0]
+
+### Return type
+
+[**[]IdentitySchema**](IdentitySchema.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## SubmitSelfServiceLoginFlow
 
-> SuccessfulSelfServiceLoginWithoutBrowser SubmitSelfServiceLoginFlow(ctx).Flow(flow).SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody).Execute()
+> SuccessfulSelfServiceLoginWithoutBrowser SubmitSelfServiceLoginFlow(ctx).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody).Execute()
 
 Submit a Login Flow
 
@@ -1645,17 +1870,18 @@ import (
 
 func main() {
     flow := "flow_example" // string | The Login Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/login?flow=abcde`).
-    submitSelfServiceLoginFlowBody := openapiclient.submitSelfServiceLoginFlowBody{SubmitSelfServiceLoginFlowWithOidcMethodBody: openapiclient.NewSubmitSelfServiceLoginFlowWithOidcMethodBody("Method_example", "Traits_example")} // SubmitSelfServiceLoginFlowBody |  (optional)
+    xSessionToken := "xSessionToken_example" // string | The Session Token of the Identity performing the settings flow. (optional)
+    submitSelfServiceLoginFlowBody := openapiclient.submitSelfServiceLoginFlowBody{SubmitSelfServiceLoginFlowWithOidcMethodBody: openapiclient.NewSubmitSelfServiceLoginFlowWithOidcMethodBody("Method_example", "Provider_example")} // SubmitSelfServiceLoginFlowBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.SubmitSelfServiceLoginFlow(context.Background()).Flow(flow).SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceLoginFlow(context.Background()).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceLoginFlowBody(submitSelfServiceLoginFlowBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.SubmitSelfServiceLoginFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceLoginFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SubmitSelfServiceLoginFlow`: SuccessfulSelfServiceLoginWithoutBrowser
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.SubmitSelfServiceLoginFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.SubmitSelfServiceLoginFlow`: %v\n", resp)
 }
 ```
 
@@ -1671,6 +1897,7 @@ Other parameters are passed through a pointer to a apiSubmitSelfServiceLoginFlow
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **flow** | **string** | The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;). | 
+ **xSessionToken** | **string** | The Session Token of the Identity performing the settings flow. | 
  **submitSelfServiceLoginFlowBody** | [**SubmitSelfServiceLoginFlowBody**](SubmitSelfServiceLoginFlowBody.md) |  | 
 
 ### Return type
@@ -1693,7 +1920,7 @@ No authorization required
 
 ## SubmitSelfServiceLogoutFlow
 
-> SubmitSelfServiceLogoutFlow(ctx).Token(token).Execute()
+> SubmitSelfServiceLogoutFlow(ctx).Token(token).ReturnTo(returnTo).Execute()
 
 Complete Self-Service Logout
 
@@ -1713,12 +1940,13 @@ import (
 
 func main() {
     token := "token_example" // string | A Valid Logout Token  If you do not have a logout token because you only have a session cookie, call `/self-service/logout/urls` to generate a URL for this endpoint. (optional)
+    returnTo := "returnTo_example" // string | The URL to return to after the logout was completed. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.SubmitSelfServiceLogoutFlow(context.Background()).Token(token).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceLogoutFlow(context.Background()).Token(token).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.SubmitSelfServiceLogoutFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceLogoutFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1736,6 +1964,7 @@ Other parameters are passed through a pointer to a apiSubmitSelfServiceLogoutFlo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token** | **string** | A Valid Logout Token  If you do not have a logout token because you only have a session cookie, call &#x60;/self-service/logout/urls&#x60; to generate a URL for this endpoint. | 
+ **returnTo** | **string** | The URL to return to after the logout was completed. | 
 
 ### Return type
 
@@ -1780,9 +2009,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.SubmitSelfServiceLogoutFlowWithoutBrowser(context.Background()).SubmitSelfServiceLogoutFlowWithoutBrowserBody(submitSelfServiceLogoutFlowWithoutBrowserBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceLogoutFlowWithoutBrowser(context.Background()).SubmitSelfServiceLogoutFlowWithoutBrowserBody(submitSelfServiceLogoutFlowWithoutBrowserBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.SubmitSelfServiceLogoutFlowWithoutBrowser``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceLogoutFlowWithoutBrowser``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1846,13 +2075,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.SubmitSelfServiceRecoveryFlow(context.Background()).Flow(flow).Token(token).SubmitSelfServiceRecoveryFlowBody(submitSelfServiceRecoveryFlowBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceRecoveryFlow(context.Background()).Flow(flow).Token(token).SubmitSelfServiceRecoveryFlowBody(submitSelfServiceRecoveryFlowBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.SubmitSelfServiceRecoveryFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceRecoveryFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SubmitSelfServiceRecoveryFlow`: SelfServiceRecoveryFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.SubmitSelfServiceRecoveryFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.SubmitSelfServiceRecoveryFlow`: %v\n", resp)
 }
 ```
 
@@ -1911,17 +2140,17 @@ import (
 
 func main() {
     flow := "flow_example" // string | The Registration Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/registration?flow=abcde`).
-    submitSelfServiceRegistrationFlowBody := openapiclient.submitSelfServiceRegistrationFlowBody{SubmitSelfServiceRegistrationFlowWithOidcMethodBody: openapiclient.NewSubmitSelfServiceRegistrationFlowWithOidcMethodBody("Method_example", "Traits_example")} // SubmitSelfServiceRegistrationFlowBody |  (optional)
+    submitSelfServiceRegistrationFlowBody := openapiclient.submitSelfServiceRegistrationFlowBody{SubmitSelfServiceRegistrationFlowWithOidcMethodBody: openapiclient.NewSubmitSelfServiceRegistrationFlowWithOidcMethodBody("Method_example", "Provider_example")} // SubmitSelfServiceRegistrationFlowBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.SubmitSelfServiceRegistrationFlow(context.Background()).Flow(flow).SubmitSelfServiceRegistrationFlowBody(submitSelfServiceRegistrationFlowBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceRegistrationFlow(context.Background()).Flow(flow).SubmitSelfServiceRegistrationFlowBody(submitSelfServiceRegistrationFlowBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.SubmitSelfServiceRegistrationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceRegistrationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SubmitSelfServiceRegistrationFlow`: SuccessfulSelfServiceRegistrationWithoutBrowser
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.SubmitSelfServiceRegistrationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.SubmitSelfServiceRegistrationFlow`: %v\n", resp)
 }
 ```
 
@@ -1959,7 +2188,7 @@ No authorization required
 
 ## SubmitSelfServiceSettingsFlow
 
-> SuccessfulSelfServiceSettingsWithoutBrowser SubmitSelfServiceSettingsFlow(ctx).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody).Execute()
+> SelfServiceSettingsFlow SubmitSelfServiceSettingsFlow(ctx).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody).Execute()
 
 Complete Settings Flow
 
@@ -1984,13 +2213,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.SubmitSelfServiceSettingsFlow(context.Background()).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceSettingsFlow(context.Background()).Flow(flow).XSessionToken(xSessionToken).SubmitSelfServiceSettingsFlowBody(submitSelfServiceSettingsFlowBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.SubmitSelfServiceSettingsFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceSettingsFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SubmitSelfServiceSettingsFlow`: SuccessfulSelfServiceSettingsWithoutBrowser
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.SubmitSelfServiceSettingsFlow`: %v\n", resp)
+    // response from `SubmitSelfServiceSettingsFlow`: SelfServiceSettingsFlow
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.SubmitSelfServiceSettingsFlow`: %v\n", resp)
 }
 ```
 
@@ -2011,7 +2240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessfulSelfServiceSettingsWithoutBrowser**](SuccessfulSelfServiceSettingsWithoutBrowser.md)
+[**SelfServiceSettingsFlow**](SelfServiceSettingsFlow.md)
 
 ### Authorization
 
@@ -2054,13 +2283,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.SubmitSelfServiceVerificationFlow(context.Background()).Flow(flow).Token(token).SubmitSelfServiceVerificationFlowBody(submitSelfServiceVerificationFlowBody).Execute()
+    resp, r, err := apiClient.V0alpha2Api.SubmitSelfServiceVerificationFlow(context.Background()).Flow(flow).Token(token).SubmitSelfServiceVerificationFlowBody(submitSelfServiceVerificationFlowBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.SubmitSelfServiceVerificationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.SubmitSelfServiceVerificationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `SubmitSelfServiceVerificationFlow`: SelfServiceVerificationFlow
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.SubmitSelfServiceVerificationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.SubmitSelfServiceVerificationFlow`: %v\n", resp)
 }
 ```
 
@@ -2123,13 +2352,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.V0alpha1Api.ToSession(context.Background()).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    resp, r, err := apiClient.V0alpha2Api.ToSession(context.Background()).XSessionToken(xSessionToken).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha1Api.ToSession``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `V0alpha2Api.ToSession``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ToSession`: Session
-    fmt.Fprintf(os.Stdout, "Response from `V0alpha1Api.ToSession`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `V0alpha2Api.ToSession`: %v\n", resp)
 }
 ```
 
