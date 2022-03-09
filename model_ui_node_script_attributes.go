@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.8.2-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -25,7 +25,9 @@ type UiNodeScriptAttributes struct {
 	Id string `json:"id"`
 	// The script's integrity hash
 	Integrity string `json:"integrity"`
-	NodeType string `json:"node_type"`
+	NodeType  string `json:"node_type"`
+	// Nonce for CSP  A nonce you may want to use to improve your Content Security Policy. You do not have to use this value but if you want to improve your CSP policies you may use it. You can also choose to use your own nonce value!
+	Nonce string `json:"nonce"`
 	// The script referrer policy
 	Referrerpolicy string `json:"referrerpolicy"`
 	// The script source
@@ -38,13 +40,14 @@ type UiNodeScriptAttributes struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUiNodeScriptAttributes(async bool, crossorigin string, id string, integrity string, nodeType string, referrerpolicy string, src string, type_ string) *UiNodeScriptAttributes {
+func NewUiNodeScriptAttributes(async bool, crossorigin string, id string, integrity string, nodeType string, nonce string, referrerpolicy string, src string, type_ string) *UiNodeScriptAttributes {
 	this := UiNodeScriptAttributes{}
 	this.Async = async
 	this.Crossorigin = crossorigin
 	this.Id = id
 	this.Integrity = integrity
 	this.NodeType = nodeType
+	this.Nonce = nonce
 	this.Referrerpolicy = referrerpolicy
 	this.Src = src
 	this.Type = type_
@@ -72,7 +75,7 @@ func (o *UiNodeScriptAttributes) GetAsync() bool {
 // GetAsyncOk returns a tuple with the Async field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeScriptAttributes) GetAsyncOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Async, true
@@ -96,7 +99,7 @@ func (o *UiNodeScriptAttributes) GetCrossorigin() string {
 // GetCrossoriginOk returns a tuple with the Crossorigin field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeScriptAttributes) GetCrossoriginOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Crossorigin, true
@@ -120,7 +123,7 @@ func (o *UiNodeScriptAttributes) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeScriptAttributes) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -144,7 +147,7 @@ func (o *UiNodeScriptAttributes) GetIntegrity() string {
 // GetIntegrityOk returns a tuple with the Integrity field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeScriptAttributes) GetIntegrityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Integrity, true
@@ -168,7 +171,7 @@ func (o *UiNodeScriptAttributes) GetNodeType() string {
 // GetNodeTypeOk returns a tuple with the NodeType field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeScriptAttributes) GetNodeTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NodeType, true
@@ -177,6 +180,30 @@ func (o *UiNodeScriptAttributes) GetNodeTypeOk() (*string, bool) {
 // SetNodeType sets field value
 func (o *UiNodeScriptAttributes) SetNodeType(v string) {
 	o.NodeType = v
+}
+
+// GetNonce returns the Nonce field value
+func (o *UiNodeScriptAttributes) GetNonce() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Nonce
+}
+
+// GetNonceOk returns a tuple with the Nonce field value
+// and a boolean to check if the value has been set.
+func (o *UiNodeScriptAttributes) GetNonceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Nonce, true
+}
+
+// SetNonce sets field value
+func (o *UiNodeScriptAttributes) SetNonce(v string) {
+	o.Nonce = v
 }
 
 // GetReferrerpolicy returns the Referrerpolicy field value
@@ -192,7 +219,7 @@ func (o *UiNodeScriptAttributes) GetReferrerpolicy() string {
 // GetReferrerpolicyOk returns a tuple with the Referrerpolicy field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeScriptAttributes) GetReferrerpolicyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Referrerpolicy, true
@@ -216,7 +243,7 @@ func (o *UiNodeScriptAttributes) GetSrc() string {
 // GetSrcOk returns a tuple with the Src field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeScriptAttributes) GetSrcOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Src, true
@@ -240,7 +267,7 @@ func (o *UiNodeScriptAttributes) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeScriptAttributes) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -267,6 +294,9 @@ func (o UiNodeScriptAttributes) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["node_type"] = o.NodeType
+	}
+	if true {
+		toSerialize["nonce"] = o.Nonce
 	}
 	if true {
 		toSerialize["referrerpolicy"] = o.Referrerpolicy
@@ -315,5 +345,3 @@ func (v *NullableUiNodeScriptAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

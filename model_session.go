@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.8.2-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -23,12 +23,12 @@ type Session struct {
 	// The Session Authentication Timestamp  When this session was authenticated at. If multi-factor authentication was used this is the time when the last factor was authenticated (e.g. the TOTP code challenge was completed).
 	AuthenticatedAt *time.Time `json:"authenticated_at,omitempty"`
 	// A list of authenticators which were used to authenticate the session.
-	AuthenticationMethods []SessionAuthenticationMethod `json:"authentication_methods,omitempty"`
-	AuthenticatorAssuranceLevel *AuthenticatorAssuranceLevel `json:"authenticator_assurance_level,omitempty"`
+	AuthenticationMethods       []SessionAuthenticationMethod `json:"authentication_methods,omitempty"`
+	AuthenticatorAssuranceLevel *AuthenticatorAssuranceLevel  `json:"authenticator_assurance_level,omitempty"`
 	// The Session Expiry  When this session expires at.
 	ExpiresAt *time.Time `json:"expires_at,omitempty"`
-	Id string `json:"id"`
-	Identity Identity `json:"identity"`
+	Id        string     `json:"id"`
+	Identity  Identity   `json:"identity"`
 	// The Session Issuance Timestamp  When this session was issued at. Usually equal or close to `authenticated_at`.
 	IssuedAt *time.Time `json:"issued_at,omitempty"`
 }
@@ -225,7 +225,7 @@ func (o *Session) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *Session) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -249,7 +249,7 @@ func (o *Session) GetIdentity() Identity {
 // GetIdentityOk returns a tuple with the Identity field value
 // and a boolean to check if the value has been set.
 func (o *Session) GetIdentityOk() (*Identity, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identity, true
@@ -356,5 +356,3 @@ func (v *NullableSession) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

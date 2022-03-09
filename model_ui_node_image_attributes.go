@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.8.2-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -20,7 +20,7 @@ type UiNodeImageAttributes struct {
 	// Height of the image
 	Height *int64 `json:"height,omitempty"`
 	// A unique identifier
-	Id string `json:"id"`
+	Id       string `json:"id"`
 	NodeType string `json:"node_type"`
 	// The image's source URL.  format: uri
 	Src string `json:"src"`
@@ -93,7 +93,7 @@ func (o *UiNodeImageAttributes) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeImageAttributes) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -117,7 +117,7 @@ func (o *UiNodeImageAttributes) GetNodeType() string {
 // GetNodeTypeOk returns a tuple with the NodeType field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeImageAttributes) GetNodeTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NodeType, true
@@ -141,7 +141,7 @@ func (o *UiNodeImageAttributes) GetSrc() string {
 // GetSrcOk returns a tuple with the Src field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeImageAttributes) GetSrcOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Src, true
@@ -239,5 +239,3 @@ func (v *NullableUiNodeImageAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

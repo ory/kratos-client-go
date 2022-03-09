@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.8.2-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -21,14 +21,9 @@ type IdentityState string
 
 // List of identityState
 const (
-	IDENTITYSTATE_ACTIVE IdentityState = "active"
+	IDENTITYSTATE_ACTIVE   IdentityState = "active"
 	IDENTITYSTATE_INACTIVE IdentityState = "inactive"
 )
-
-var allowedIdentityStateEnumValues = []IdentityState{
-	"active",
-	"inactive",
-}
 
 func (v *IdentityState) UnmarshalJSON(src []byte) error {
 	var value string
@@ -37,7 +32,7 @@ func (v *IdentityState) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := IdentityState(value)
-	for _, existing := range allowedIdentityStateEnumValues {
+	for _, existing := range []IdentityState{"active", "inactive"} {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -45,27 +40,6 @@ func (v *IdentityState) UnmarshalJSON(src []byte) error {
 	}
 
 	return fmt.Errorf("%+v is not a valid IdentityState", value)
-}
-
-// NewIdentityStateFromValue returns a pointer to a valid IdentityState
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewIdentityStateFromValue(v string) (*IdentityState, error) {
-	ev := IdentityState(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for IdentityState: valid values are %v", v, allowedIdentityStateEnumValues)
-	}
-}
-
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v IdentityState) IsValid() bool {
-	for _, existing := range allowedIdentityStateEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
 }
 
 // Ptr returns reference to identityState value
@@ -108,4 +82,3 @@ func (v *NullableIdentityState) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

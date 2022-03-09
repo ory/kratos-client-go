@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.8.2-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,18 +18,18 @@ import (
 // UiNodeInputAttributes InputAttributes represents the attributes of an input node
 type UiNodeInputAttributes struct {
 	// Sets the input's disabled field to true or false.
-	Disabled bool `json:"disabled"`
-	Label *UiText `json:"label,omitempty"`
+	Disabled bool    `json:"disabled"`
+	Label    *UiText `json:"label,omitempty"`
 	// The input's element name.
-	Name string `json:"name"`
+	Name     string `json:"name"`
 	NodeType string `json:"node_type"`
 	// OnClick may contain javascript which should be executed on click. This is primarily used for WebAuthn.
 	Onclick *string `json:"onclick,omitempty"`
 	// The input's pattern.
 	Pattern *string `json:"pattern,omitempty"`
 	// Mark this input field as required.
-	Required *bool `json:"required,omitempty"`
-	Type string `json:"type"`
+	Required *bool  `json:"required,omitempty"`
+	Type     string `json:"type"`
 	// The input's value.
 	Value interface{} `json:"value,omitempty"`
 }
@@ -68,7 +68,7 @@ func (o *UiNodeInputAttributes) GetDisabled() bool {
 // GetDisabledOk returns a tuple with the Disabled field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeInputAttributes) GetDisabledOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Disabled, true
@@ -124,7 +124,7 @@ func (o *UiNodeInputAttributes) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeInputAttributes) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -148,7 +148,7 @@ func (o *UiNodeInputAttributes) GetNodeType() string {
 // GetNodeTypeOk returns a tuple with the NodeType field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeInputAttributes) GetNodeTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NodeType, true
@@ -268,7 +268,7 @@ func (o *UiNodeInputAttributes) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeInputAttributes) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -281,7 +281,7 @@ func (o *UiNodeInputAttributes) SetType(v string) {
 
 // GetValue returns the Value field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *UiNodeInputAttributes) GetValue() interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret interface{}
 		return ret
 	}
@@ -379,5 +379,3 @@ func (v *NullableUiNodeInputAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

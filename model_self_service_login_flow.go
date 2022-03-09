@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.8.2-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -23,19 +23,19 @@ type SelfServiceLoginFlow struct {
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// ExpiresAt is the time (UTC) when the flow expires. If the user still wishes to log in, a new flow has to be initiated.
 	ExpiresAt time.Time `json:"expires_at"`
-	Id string `json:"id"`
+	Id        string    `json:"id"`
 	// IssuedAt is the time (UTC) when the flow started.
 	IssuedAt time.Time `json:"issued_at"`
 	// Refresh stores whether this login flow should enforce re-authentication.
 	Refresh *bool `json:"refresh,omitempty"`
 	// RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL's path or query for example.
-	RequestUrl string `json:"request_url"`
+	RequestUrl   string                       `json:"request_url"`
 	RequestedAal *AuthenticatorAssuranceLevel `json:"requested_aal,omitempty"`
 	// ReturnTo contains the requested return_to URL.
 	ReturnTo *string `json:"return_to,omitempty"`
 	// The flow type can either be `api` or `browser`.
-	Type string `json:"type"`
-	Ui UiContainer `json:"ui"`
+	Type string      `json:"type"`
+	Ui   UiContainer `json:"ui"`
 	// UpdatedAt is a helper struct field for gobuffalo.pop.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
@@ -140,7 +140,7 @@ func (o *SelfServiceLoginFlow) GetExpiresAt() time.Time {
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetExpiresAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiresAt, true
@@ -164,7 +164,7 @@ func (o *SelfServiceLoginFlow) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -188,7 +188,7 @@ func (o *SelfServiceLoginFlow) GetIssuedAt() time.Time {
 // GetIssuedAtOk returns a tuple with the IssuedAt field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetIssuedAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAt, true
@@ -244,7 +244,7 @@ func (o *SelfServiceLoginFlow) GetRequestUrl() string {
 // GetRequestUrlOk returns a tuple with the RequestUrl field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetRequestUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestUrl, true
@@ -332,7 +332,7 @@ func (o *SelfServiceLoginFlow) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -356,7 +356,7 @@ func (o *SelfServiceLoginFlow) GetUi() UiContainer {
 // GetUiOk returns a tuple with the Ui field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceLoginFlow) GetUiOk() (*UiContainer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Ui, true
@@ -475,5 +475,3 @@ func (v *NullableSelfServiceLoginFlow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

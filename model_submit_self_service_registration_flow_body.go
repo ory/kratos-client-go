@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.8.2-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,8 +18,9 @@ import (
 
 // SubmitSelfServiceRegistrationFlowBody - struct for SubmitSelfServiceRegistrationFlowBody
 type SubmitSelfServiceRegistrationFlowBody struct {
-	SubmitSelfServiceRegistrationFlowWithOidcMethodBody *SubmitSelfServiceRegistrationFlowWithOidcMethodBody
+	SubmitSelfServiceRegistrationFlowWithOidcMethodBody     *SubmitSelfServiceRegistrationFlowWithOidcMethodBody
 	SubmitSelfServiceRegistrationFlowWithPasswordMethodBody *SubmitSelfServiceRegistrationFlowWithPasswordMethodBody
+	SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody *SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody
 }
 
 // SubmitSelfServiceRegistrationFlowWithOidcMethodBodyAsSubmitSelfServiceRegistrationFlowBody is a convenience function that returns SubmitSelfServiceRegistrationFlowWithOidcMethodBody wrapped in SubmitSelfServiceRegistrationFlowBody
@@ -36,6 +37,12 @@ func SubmitSelfServiceRegistrationFlowWithPasswordMethodBodyAsSubmitSelfServiceR
 	}
 }
 
+// SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBodyAsSubmitSelfServiceRegistrationFlowBody is a convenience function that returns SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody wrapped in SubmitSelfServiceRegistrationFlowBody
+func SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBodyAsSubmitSelfServiceRegistrationFlowBody(v *SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody) SubmitSelfServiceRegistrationFlowBody {
+	return SubmitSelfServiceRegistrationFlowBody{
+		SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody: v,
+	}
+}
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *SubmitSelfServiceRegistrationFlowBody) UnmarshalJSON(data []byte) error {
@@ -67,10 +74,24 @@ func (dst *SubmitSelfServiceRegistrationFlowBody) UnmarshalJSON(data []byte) err
 		dst.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody = nil
 	}
 
+	// try to unmarshal data into SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody
+	err = newStrictDecoder(data).Decode(&dst.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody)
+	if err == nil {
+		jsonSubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody, _ := json.Marshal(dst.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody)
+		if string(jsonSubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody) == "{}" { // empty struct
+			dst.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.SubmitSelfServiceRegistrationFlowWithOidcMethodBody = nil
 		dst.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody = nil
+		dst.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(SubmitSelfServiceRegistrationFlowBody)")
 	} else if match == 1 {
@@ -90,11 +111,15 @@ func (src SubmitSelfServiceRegistrationFlowBody) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody)
 	}
 
+	if src.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody != nil {
+		return json.Marshal(&src.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
 // Get the actual instance
-func (obj *SubmitSelfServiceRegistrationFlowBody) GetActualInstance() (interface{}) {
+func (obj *SubmitSelfServiceRegistrationFlowBody) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -104,6 +129,10 @@ func (obj *SubmitSelfServiceRegistrationFlowBody) GetActualInstance() (interface
 
 	if obj.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody != nil {
 		return obj.SubmitSelfServiceRegistrationFlowWithPasswordMethodBody
+	}
+
+	if obj.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody != nil {
+		return obj.SubmitSelfServiceRegistrationFlowWithWebAuthnMethodBody
 	}
 
 	// all schemas are nil
@@ -145,5 +174,3 @@ func (v *NullableSubmitSelfServiceRegistrationFlowBody) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

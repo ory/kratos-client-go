@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.8.2-alpha.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,10 +18,10 @@ import (
 // UiNode Nodes are represented as HTML elements or their native UI equivalents. For example, a node can be an `<img>` tag, or an `<input element>` but also `some plain text`.
 type UiNode struct {
 	Attributes UiNodeAttributes `json:"attributes"`
-	Group string `json:"group"`
-	Messages []UiText `json:"messages"`
-	Meta UiNodeMeta `json:"meta"`
-	Type string `json:"type"`
+	Group      string           `json:"group"`
+	Messages   []UiText         `json:"messages"`
+	Meta       UiNodeMeta       `json:"meta"`
+	Type       string           `json:"type"`
 }
 
 // NewUiNode instantiates a new UiNode object
@@ -59,7 +59,7 @@ func (o *UiNode) GetAttributes() UiNodeAttributes {
 // GetAttributesOk returns a tuple with the Attributes field value
 // and a boolean to check if the value has been set.
 func (o *UiNode) GetAttributesOk() (*UiNodeAttributes, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Attributes, true
@@ -83,7 +83,7 @@ func (o *UiNode) GetGroup() string {
 // GetGroupOk returns a tuple with the Group field value
 // and a boolean to check if the value has been set.
 func (o *UiNode) GetGroupOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Group, true
@@ -107,7 +107,7 @@ func (o *UiNode) GetMessages() []UiText {
 // GetMessagesOk returns a tuple with the Messages field value
 // and a boolean to check if the value has been set.
 func (o *UiNode) GetMessagesOk() ([]UiText, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Messages, true
@@ -131,7 +131,7 @@ func (o *UiNode) GetMeta() UiNodeMeta {
 // GetMetaOk returns a tuple with the Meta field value
 // and a boolean to check if the value has been set.
 func (o *UiNode) GetMetaOk() (*UiNodeMeta, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Meta, true
@@ -155,7 +155,7 @@ func (o *UiNode) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *UiNode) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -221,5 +221,3 @@ func (v *NullableUiNode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
