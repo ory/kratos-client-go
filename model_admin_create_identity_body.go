@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -25,8 +25,8 @@ type AdminCreateIdentityBody struct {
 	// RecoveryAddresses contains all the addresses that can be used to recover an identity.  Use this structure to import recovery addresses for an identity. Please keep in mind that the address needs to be represented in the Identity Schema or this field will be overwritten on the next identity update.
 	RecoveryAddresses []RecoveryAddress `json:"recovery_addresses,omitempty"`
 	// SchemaID is the ID of the JSON Schema to be used for validating the identity's traits.
-	SchemaId string `json:"schema_id"`
-	State *IdentityState `json:"state,omitempty"`
+	SchemaId string         `json:"schema_id"`
+	State    *IdentityState `json:"state,omitempty"`
 	// Traits represent an identity's traits. The identity is able to create, modify, and delete traits in a self-service manner. The input will always be validated against the JSON Schema defined in `schema_url`.
 	Traits map[string]interface{} `json:"traits"`
 	// VerifiableAddresses contains all the addresses that can be verified by the user.  Use this structure to import verified addresses for an identity. Please keep in mind that the address needs to be represented in the Identity Schema or this field will be overwritten on the next identity update.
@@ -86,7 +86,7 @@ func (o *AdminCreateIdentityBody) SetCredentials(v AdminIdentityImportCredential
 
 // GetMetadataAdmin returns the MetadataAdmin field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdminCreateIdentityBody) GetMetadataAdmin() interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret interface{}
 		return ret
 	}
@@ -119,7 +119,7 @@ func (o *AdminCreateIdentityBody) SetMetadataAdmin(v interface{}) {
 
 // GetMetadataPublic returns the MetadataPublic field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdminCreateIdentityBody) GetMetadataPublic() interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret interface{}
 		return ret
 	}
@@ -195,7 +195,7 @@ func (o *AdminCreateIdentityBody) GetSchemaId() string {
 // GetSchemaIdOk returns a tuple with the SchemaId field value
 // and a boolean to check if the value has been set.
 func (o *AdminCreateIdentityBody) GetSchemaIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SchemaId, true
@@ -251,7 +251,7 @@ func (o *AdminCreateIdentityBody) GetTraits() map[string]interface{} {
 // GetTraitsOk returns a tuple with the Traits field value
 // and a boolean to check if the value has been set.
 func (o *AdminCreateIdentityBody) GetTraitsOk() (map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Traits, true
@@ -358,5 +358,3 @@ func (v *NullableAdminCreateIdentityBody) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

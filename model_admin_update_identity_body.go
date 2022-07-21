@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -17,13 +17,14 @@ import (
 
 // AdminUpdateIdentityBody struct for AdminUpdateIdentityBody
 type AdminUpdateIdentityBody struct {
+	Credentials *AdminIdentityImportCredentials `json:"credentials,omitempty"`
 	// Store metadata about the user which is only accessible through admin APIs such as `GET /admin/identities/<id>`.
 	MetadataAdmin interface{} `json:"metadata_admin,omitempty"`
 	// Store metadata about the identity which the identity itself can see when calling for example the session endpoint. Do not store sensitive information (e.g. credit score) about the identity in this field.
 	MetadataPublic interface{} `json:"metadata_public,omitempty"`
 	// SchemaID is the ID of the JSON Schema to be used for validating the identity's traits. If set will update the Identity's SchemaID.
-	SchemaId string `json:"schema_id"`
-	State IdentityState `json:"state"`
+	SchemaId string        `json:"schema_id"`
+	State    IdentityState `json:"state"`
 	// Traits represent an identity's traits. The identity is able to create, modify, and delete traits in a self-service manner. The input will always be validated against the JSON Schema defined in `schema_id`.
 	Traits map[string]interface{} `json:"traits"`
 }
@@ -48,9 +49,41 @@ func NewAdminUpdateIdentityBodyWithDefaults() *AdminUpdateIdentityBody {
 	return &this
 }
 
+// GetCredentials returns the Credentials field value if set, zero value otherwise.
+func (o *AdminUpdateIdentityBody) GetCredentials() AdminIdentityImportCredentials {
+	if o == nil || o.Credentials == nil {
+		var ret AdminIdentityImportCredentials
+		return ret
+	}
+	return *o.Credentials
+}
+
+// GetCredentialsOk returns a tuple with the Credentials field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AdminUpdateIdentityBody) GetCredentialsOk() (*AdminIdentityImportCredentials, bool) {
+	if o == nil || o.Credentials == nil {
+		return nil, false
+	}
+	return o.Credentials, true
+}
+
+// HasCredentials returns a boolean if a field has been set.
+func (o *AdminUpdateIdentityBody) HasCredentials() bool {
+	if o != nil && o.Credentials != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCredentials gets a reference to the given AdminIdentityImportCredentials and assigns it to the Credentials field.
+func (o *AdminUpdateIdentityBody) SetCredentials(v AdminIdentityImportCredentials) {
+	o.Credentials = &v
+}
+
 // GetMetadataAdmin returns the MetadataAdmin field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdminUpdateIdentityBody) GetMetadataAdmin() interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret interface{}
 		return ret
 	}
@@ -83,7 +116,7 @@ func (o *AdminUpdateIdentityBody) SetMetadataAdmin(v interface{}) {
 
 // GetMetadataPublic returns the MetadataPublic field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AdminUpdateIdentityBody) GetMetadataPublic() interface{} {
-	if o == nil  {
+	if o == nil {
 		var ret interface{}
 		return ret
 	}
@@ -127,7 +160,7 @@ func (o *AdminUpdateIdentityBody) GetSchemaId() string {
 // GetSchemaIdOk returns a tuple with the SchemaId field value
 // and a boolean to check if the value has been set.
 func (o *AdminUpdateIdentityBody) GetSchemaIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SchemaId, true
@@ -151,7 +184,7 @@ func (o *AdminUpdateIdentityBody) GetState() IdentityState {
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
 func (o *AdminUpdateIdentityBody) GetStateOk() (*IdentityState, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.State, true
@@ -175,7 +208,7 @@ func (o *AdminUpdateIdentityBody) GetTraits() map[string]interface{} {
 // GetTraitsOk returns a tuple with the Traits field value
 // and a boolean to check if the value has been set.
 func (o *AdminUpdateIdentityBody) GetTraitsOk() (map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Traits, true
@@ -188,6 +221,9 @@ func (o *AdminUpdateIdentityBody) SetTraits(v map[string]interface{}) {
 
 func (o AdminUpdateIdentityBody) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.Credentials != nil {
+		toSerialize["credentials"] = o.Credentials
+	}
 	if o.MetadataAdmin != nil {
 		toSerialize["metadata_admin"] = o.MetadataAdmin
 	}
@@ -241,5 +277,3 @@ func (v *NullableAdminUpdateIdentityBody) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

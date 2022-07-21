@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,11 +18,11 @@ import (
 
 // SubmitSelfServiceSettingsFlowBody - struct for SubmitSelfServiceSettingsFlowBody
 type SubmitSelfServiceSettingsFlowBody struct {
-	SubmitSelfServiceSettingsFlowWithLookupMethodBody *SubmitSelfServiceSettingsFlowWithLookupMethodBody
-	SubmitSelfServiceSettingsFlowWithOidcMethodBody *SubmitSelfServiceSettingsFlowWithOidcMethodBody
+	SubmitSelfServiceSettingsFlowWithLookupMethodBody   *SubmitSelfServiceSettingsFlowWithLookupMethodBody
+	SubmitSelfServiceSettingsFlowWithOidcMethodBody     *SubmitSelfServiceSettingsFlowWithOidcMethodBody
 	SubmitSelfServiceSettingsFlowWithPasswordMethodBody *SubmitSelfServiceSettingsFlowWithPasswordMethodBody
-	SubmitSelfServiceSettingsFlowWithProfileMethodBody *SubmitSelfServiceSettingsFlowWithProfileMethodBody
-	SubmitSelfServiceSettingsFlowWithTotpMethodBody *SubmitSelfServiceSettingsFlowWithTotpMethodBody
+	SubmitSelfServiceSettingsFlowWithProfileMethodBody  *SubmitSelfServiceSettingsFlowWithProfileMethodBody
+	SubmitSelfServiceSettingsFlowWithTotpMethodBody     *SubmitSelfServiceSettingsFlowWithTotpMethodBody
 	SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody *SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody
 }
 
@@ -67,7 +67,6 @@ func SubmitSelfServiceSettingsFlowWithWebAuthnMethodBodyAsSubmitSelfServiceSetti
 		SubmitSelfServiceSettingsFlowWithWebAuthnMethodBody: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *SubmitSelfServiceSettingsFlowBody) UnmarshalJSON(data []byte) error {
@@ -198,7 +197,7 @@ func (src SubmitSelfServiceSettingsFlowBody) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *SubmitSelfServiceSettingsFlowBody) GetActualInstance() (interface{}) {
+func (obj *SubmitSelfServiceSettingsFlowBody) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -265,5 +264,3 @@ func (v *NullableSubmitSelfServiceSettingsFlowBody) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

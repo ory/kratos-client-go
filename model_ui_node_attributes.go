@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -19,10 +19,10 @@ import (
 // UiNodeAttributes - struct for UiNodeAttributes
 type UiNodeAttributes struct {
 	UiNodeAnchorAttributes *UiNodeAnchorAttributes
-	UiNodeImageAttributes *UiNodeImageAttributes
-	UiNodeInputAttributes *UiNodeInputAttributes
+	UiNodeImageAttributes  *UiNodeImageAttributes
+	UiNodeInputAttributes  *UiNodeInputAttributes
 	UiNodeScriptAttributes *UiNodeScriptAttributes
-	UiNodeTextAttributes *UiNodeTextAttributes
+	UiNodeTextAttributes   *UiNodeTextAttributes
 }
 
 // UiNodeAnchorAttributesAsUiNodeAttributes is a convenience function that returns UiNodeAnchorAttributes wrapped in UiNodeAttributes
@@ -59,7 +59,6 @@ func UiNodeTextAttributesAsUiNodeAttributes(v *UiNodeTextAttributes) UiNodeAttri
 		UiNodeTextAttributes: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *UiNodeAttributes) UnmarshalJSON(data []byte) error {
@@ -172,7 +171,7 @@ func (src UiNodeAttributes) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *UiNodeAttributes) GetActualInstance() (interface{}) {
+func (obj *UiNodeAttributes) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -235,5 +234,3 @@ func (v *NullableUiNodeAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

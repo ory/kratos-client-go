@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -53,7 +53,7 @@ func (o *SuccessfulSelfServiceLoginWithoutBrowser) GetSession() Session {
 // GetSessionOk returns a tuple with the Session field value
 // and a boolean to check if the value has been set.
 func (o *SuccessfulSelfServiceLoginWithoutBrowser) GetSessionOk() (*Session, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Session, true
@@ -142,5 +142,3 @@ func (v *NullableSuccessfulSelfServiceLoginWithoutBrowser) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

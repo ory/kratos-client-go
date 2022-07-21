@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -22,18 +22,18 @@ type SelfServiceSettingsFlow struct {
 	Active *string `json:"active,omitempty"`
 	// ExpiresAt is the time (UTC) when the flow expires. If the user still wishes to update the setting, a new flow has to be initiated.
 	ExpiresAt time.Time `json:"expires_at"`
-	Id string `json:"id"`
-	Identity Identity `json:"identity"`
+	Id        string    `json:"id"`
+	Identity  Identity  `json:"identity"`
 	// IssuedAt is the time (UTC) when the flow occurred.
 	IssuedAt time.Time `json:"issued_at"`
 	// RequestURL is the initial URL that was requested from Ory Kratos. It can be used to forward information contained in the URL's path or query for example.
 	RequestUrl string `json:"request_url"`
 	// ReturnTo contains the requested return_to URL.
-	ReturnTo *string `json:"return_to,omitempty"`
-	State SelfServiceSettingsFlowState `json:"state"`
+	ReturnTo *string                      `json:"return_to,omitempty"`
+	State    SelfServiceSettingsFlowState `json:"state"`
 	// The flow type can either be `api` or `browser`.
-	Type string `json:"type"`
-	Ui UiContainer `json:"ui"`
+	Type string      `json:"type"`
+	Ui   UiContainer `json:"ui"`
 }
 
 // NewSelfServiceSettingsFlow instantiates a new SelfServiceSettingsFlow object
@@ -106,7 +106,7 @@ func (o *SelfServiceSettingsFlow) GetExpiresAt() time.Time {
 // GetExpiresAtOk returns a tuple with the ExpiresAt field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceSettingsFlow) GetExpiresAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiresAt, true
@@ -130,7 +130,7 @@ func (o *SelfServiceSettingsFlow) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceSettingsFlow) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -154,7 +154,7 @@ func (o *SelfServiceSettingsFlow) GetIdentity() Identity {
 // GetIdentityOk returns a tuple with the Identity field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceSettingsFlow) GetIdentityOk() (*Identity, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identity, true
@@ -178,7 +178,7 @@ func (o *SelfServiceSettingsFlow) GetIssuedAt() time.Time {
 // GetIssuedAtOk returns a tuple with the IssuedAt field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceSettingsFlow) GetIssuedAtOk() (*time.Time, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IssuedAt, true
@@ -202,7 +202,7 @@ func (o *SelfServiceSettingsFlow) GetRequestUrl() string {
 // GetRequestUrlOk returns a tuple with the RequestUrl field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceSettingsFlow) GetRequestUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestUrl, true
@@ -258,7 +258,7 @@ func (o *SelfServiceSettingsFlow) GetState() SelfServiceSettingsFlowState {
 // GetStateOk returns a tuple with the State field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceSettingsFlow) GetStateOk() (*SelfServiceSettingsFlowState, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.State, true
@@ -282,7 +282,7 @@ func (o *SelfServiceSettingsFlow) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceSettingsFlow) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -306,7 +306,7 @@ func (o *SelfServiceSettingsFlow) GetUi() UiContainer {
 // GetUiOk returns a tuple with the Ui field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceSettingsFlow) GetUiOk() (*UiContainer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Ui, true
@@ -387,5 +387,3 @@ func (v *NullableSelfServiceSettingsFlow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

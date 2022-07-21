@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -18,7 +18,7 @@ import (
 // SuccessfulSelfServiceRegistrationWithoutBrowser The Response for Registration Flows via API
 type SuccessfulSelfServiceRegistrationWithoutBrowser struct {
 	Identity Identity `json:"identity"`
-	Session *Session `json:"session,omitempty"`
+	Session  *Session `json:"session,omitempty"`
 	// The Session Token  This field is only set when the session hook is configured as a post-registration hook.  A session token is equivalent to a session cookie, but it can be sent in the HTTP Authorization Header:  Authorization: bearer ${session-token}  The session token is only issued for API flows, not for Browser flows!
 	SessionToken *string `json:"session_token,omitempty"`
 }
@@ -54,7 +54,7 @@ func (o *SuccessfulSelfServiceRegistrationWithoutBrowser) GetIdentity() Identity
 // GetIdentityOk returns a tuple with the Identity field value
 // and a boolean to check if the value has been set.
 func (o *SuccessfulSelfServiceRegistrationWithoutBrowser) GetIdentityOk() (*Identity, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identity, true
@@ -178,5 +178,3 @@ func (v *NullableSuccessfulSelfServiceRegistrationWithoutBrowser) UnmarshalJSON(
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

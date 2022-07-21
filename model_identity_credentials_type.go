@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -21,20 +21,12 @@ type IdentityCredentialsType string
 
 // List of identityCredentialsType
 const (
-	IDENTITYCREDENTIALSTYPE_PASSWORD IdentityCredentialsType = "password"
-	IDENTITYCREDENTIALSTYPE_TOTP IdentityCredentialsType = "totp"
-	IDENTITYCREDENTIALSTYPE_OIDC IdentityCredentialsType = "oidc"
-	IDENTITYCREDENTIALSTYPE_WEBAUTHN IdentityCredentialsType = "webauthn"
+	IDENTITYCREDENTIALSTYPE_PASSWORD      IdentityCredentialsType = "password"
+	IDENTITYCREDENTIALSTYPE_TOTP          IdentityCredentialsType = "totp"
+	IDENTITYCREDENTIALSTYPE_OIDC          IdentityCredentialsType = "oidc"
+	IDENTITYCREDENTIALSTYPE_WEBAUTHN      IdentityCredentialsType = "webauthn"
 	IDENTITYCREDENTIALSTYPE_LOOKUP_SECRET IdentityCredentialsType = "lookup_secret"
 )
-
-var allowedIdentityCredentialsTypeEnumValues = []IdentityCredentialsType{
-	"password",
-	"totp",
-	"oidc",
-	"webauthn",
-	"lookup_secret",
-}
 
 func (v *IdentityCredentialsType) UnmarshalJSON(src []byte) error {
 	var value string
@@ -43,7 +35,7 @@ func (v *IdentityCredentialsType) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := IdentityCredentialsType(value)
-	for _, existing := range allowedIdentityCredentialsTypeEnumValues {
+	for _, existing := range []IdentityCredentialsType{"password", "totp", "oidc", "webauthn", "lookup_secret"} {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -51,27 +43,6 @@ func (v *IdentityCredentialsType) UnmarshalJSON(src []byte) error {
 	}
 
 	return fmt.Errorf("%+v is not a valid IdentityCredentialsType", value)
-}
-
-// NewIdentityCredentialsTypeFromValue returns a pointer to a valid IdentityCredentialsType
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewIdentityCredentialsTypeFromValue(v string) (*IdentityCredentialsType, error) {
-	ev := IdentityCredentialsType(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for IdentityCredentialsType: valid values are %v", v, allowedIdentityCredentialsTypeEnumValues)
-	}
-}
-
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v IdentityCredentialsType) IsValid() bool {
-	for _, existing := range allowedIdentityCredentialsTypeEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
 }
 
 // Ptr returns reference to identityCredentialsType value
@@ -114,4 +85,3 @@ func (v *NullableIdentityCredentialsType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

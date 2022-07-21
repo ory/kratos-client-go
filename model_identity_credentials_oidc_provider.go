@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -17,11 +17,11 @@ import (
 
 // IdentityCredentialsOidcProvider struct for IdentityCredentialsOidcProvider
 type IdentityCredentialsOidcProvider struct {
-	InitialAccessToken *string `json:"initial_access_token,omitempty"`
-	InitialIdToken *string `json:"initial_id_token,omitempty"`
+	InitialAccessToken  *string `json:"initial_access_token,omitempty"`
+	InitialIdToken      *string `json:"initial_id_token,omitempty"`
 	InitialRefreshToken *string `json:"initial_refresh_token,omitempty"`
-	Provider *string `json:"provider,omitempty"`
-	Subject *string `json:"subject,omitempty"`
+	Provider            *string `json:"provider,omitempty"`
+	Subject             *string `json:"subject,omitempty"`
 }
 
 // NewIdentityCredentialsOidcProvider instantiates a new IdentityCredentialsOidcProvider object
@@ -256,5 +256,3 @@ func (v *NullableIdentityCredentialsOidcProvider) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
