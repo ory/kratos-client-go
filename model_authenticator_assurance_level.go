@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -27,13 +27,6 @@ const (
 	AUTHENTICATORASSURANCELEVEL_AAL3 AuthenticatorAssuranceLevel = "aal3"
 )
 
-var allowedAuthenticatorAssuranceLevelEnumValues = []AuthenticatorAssuranceLevel{
-	"aal0",
-	"aal1",
-	"aal2",
-	"aal3",
-}
-
 func (v *AuthenticatorAssuranceLevel) UnmarshalJSON(src []byte) error {
 	var value string
 	err := json.Unmarshal(src, &value)
@@ -41,7 +34,7 @@ func (v *AuthenticatorAssuranceLevel) UnmarshalJSON(src []byte) error {
 		return err
 	}
 	enumTypeValue := AuthenticatorAssuranceLevel(value)
-	for _, existing := range allowedAuthenticatorAssuranceLevelEnumValues {
+	for _, existing := range []AuthenticatorAssuranceLevel{"aal0", "aal1", "aal2", "aal3"} {
 		if existing == enumTypeValue {
 			*v = enumTypeValue
 			return nil
@@ -49,27 +42,6 @@ func (v *AuthenticatorAssuranceLevel) UnmarshalJSON(src []byte) error {
 	}
 
 	return fmt.Errorf("%+v is not a valid AuthenticatorAssuranceLevel", value)
-}
-
-// NewAuthenticatorAssuranceLevelFromValue returns a pointer to a valid AuthenticatorAssuranceLevel
-// for the value passed as argument, or an error if the value passed is not allowed by the enum
-func NewAuthenticatorAssuranceLevelFromValue(v string) (*AuthenticatorAssuranceLevel, error) {
-	ev := AuthenticatorAssuranceLevel(v)
-	if ev.IsValid() {
-		return &ev, nil
-	} else {
-		return nil, fmt.Errorf("invalid value '%v' for AuthenticatorAssuranceLevel: valid values are %v", v, allowedAuthenticatorAssuranceLevelEnumValues)
-	}
-}
-
-// IsValid return true if the value is valid for the enum, false otherwise
-func (v AuthenticatorAssuranceLevel) IsValid() bool {
-	for _, existing := range allowedAuthenticatorAssuranceLevelEnumValues {
-		if existing == v {
-			return true
-		}
-	}
-	return false
 }
 
 // Ptr returns reference to authenticatorAssuranceLevel value
@@ -112,4 +84,3 @@ func (v *NullableAuthenticatorAssuranceLevel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

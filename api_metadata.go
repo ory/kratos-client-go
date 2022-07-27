@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -27,17 +27,17 @@ var (
 type MetadataApi interface {
 
 	/*
-	 * GetVersion Return Running Software Version.
-	 * This endpoint returns the version of Ory Kratos.
+			 * GetVersion Return Running Software Version.
+			 * This endpoint returns the version of Ory Kratos.
 
-If the service supports TLS Edge Termination, this endpoint does not require the
-`X-Forwarded-Proto` header to be set.
+		If the service supports TLS Edge Termination, this endpoint does not require the
+		`X-Forwarded-Proto` header to be set.
 
-Be aware that if you are running multiple nodes of this service, the version will never
-refer to the cluster state, only to a single instance.
-	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return MetadataApiApiGetVersionRequest
-	 */
+		Be aware that if you are running multiple nodes of this service, the version will never
+		refer to the cluster state, only to a single instance.
+			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			 * @return MetadataApiApiGetVersionRequest
+	*/
 	GetVersion(ctx context.Context) MetadataApiApiGetVersionRequest
 
 	/*
@@ -47,18 +47,18 @@ refer to the cluster state, only to a single instance.
 	GetVersionExecute(r MetadataApiApiGetVersionRequest) (*InlineResponse2001, *http.Response, error)
 
 	/*
-	 * IsAlive Check HTTP Server Status
-	 * This endpoint returns a HTTP 200 status code when Ory Kratos is accepting incoming
-HTTP requests. This status does currently not include checks whether the database connection is working.
+			 * IsAlive Check HTTP Server Status
+			 * This endpoint returns a HTTP 200 status code when Ory Kratos is accepting incoming
+		HTTP requests. This status does currently not include checks whether the database connection is working.
 
-If the service supports TLS Edge Termination, this endpoint does not require the
-`X-Forwarded-Proto` header to be set.
+		If the service supports TLS Edge Termination, this endpoint does not require the
+		`X-Forwarded-Proto` header to be set.
 
-Be aware that if you are running multiple nodes of this service, the health status will never
-refer to the cluster state, only to a single instance.
-	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return MetadataApiApiIsAliveRequest
-	 */
+		Be aware that if you are running multiple nodes of this service, the health status will never
+		refer to the cluster state, only to a single instance.
+			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			 * @return MetadataApiApiIsAliveRequest
+	*/
 	IsAlive(ctx context.Context) MetadataApiApiIsAliveRequest
 
 	/*
@@ -68,18 +68,18 @@ refer to the cluster state, only to a single instance.
 	IsAliveExecute(r MetadataApiApiIsAliveRequest) (*InlineResponse200, *http.Response, error)
 
 	/*
-	 * IsReady Check HTTP Server and Database Status
-	 * This endpoint returns a HTTP 200 status code when Ory Kratos is up running and the environment dependencies (e.g.
-the database) are responsive as well.
+			 * IsReady Check HTTP Server and Database Status
+			 * This endpoint returns a HTTP 200 status code when Ory Kratos is up running and the environment dependencies (e.g.
+		the database) are responsive as well.
 
-If the service supports TLS Edge Termination, this endpoint does not require the
-`X-Forwarded-Proto` header to be set.
+		If the service supports TLS Edge Termination, this endpoint does not require the
+		`X-Forwarded-Proto` header to be set.
 
-Be aware that if you are running multiple nodes of Ory Kratos, the health status will never
-refer to the cluster state, only to a single instance.
-	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return MetadataApiApiIsReadyRequest
-	 */
+		Be aware that if you are running multiple nodes of Ory Kratos, the health status will never
+		refer to the cluster state, only to a single instance.
+			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			 * @return MetadataApiApiIsReadyRequest
+	*/
 	IsReady(ctx context.Context) MetadataApiApiIsReadyRequest
 
 	/*
@@ -93,10 +93,9 @@ refer to the cluster state, only to a single instance.
 type MetadataApiService service
 
 type MetadataApiApiGetVersionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService MetadataApi
 }
-
 
 func (r MetadataApiApiGetVersionRequest) Execute() (*InlineResponse2001, *http.Response, error) {
 	return r.ApiService.GetVersionExecute(r)
@@ -113,11 +112,11 @@ Be aware that if you are running multiple nodes of this service, the version wil
 refer to the cluster state, only to a single instance.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return MetadataApiApiGetVersionRequest
- */
+*/
 func (a *MetadataApiService) GetVersion(ctx context.Context) MetadataApiApiGetVersionRequest {
 	return MetadataApiApiGetVersionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -201,10 +200,9 @@ func (a *MetadataApiService) GetVersionExecute(r MetadataApiApiGetVersionRequest
 }
 
 type MetadataApiApiIsAliveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService MetadataApi
 }
-
 
 func (r MetadataApiApiIsAliveRequest) Execute() (*InlineResponse200, *http.Response, error) {
 	return r.ApiService.IsAliveExecute(r)
@@ -222,11 +220,11 @@ Be aware that if you are running multiple nodes of this service, the health stat
 refer to the cluster state, only to a single instance.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return MetadataApiApiIsAliveRequest
- */
+*/
 func (a *MetadataApiService) IsAlive(ctx context.Context) MetadataApiApiIsAliveRequest {
 	return MetadataApiApiIsAliveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
@@ -319,10 +317,9 @@ func (a *MetadataApiService) IsAliveExecute(r MetadataApiApiIsAliveRequest) (*In
 }
 
 type MetadataApiApiIsReadyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService MetadataApi
 }
-
 
 func (r MetadataApiApiIsReadyRequest) Execute() (*InlineResponse200, *http.Response, error) {
 	return r.ApiService.IsReadyExecute(r)
@@ -340,11 +337,11 @@ Be aware that if you are running multiple nodes of Ory Kratos, the health status
 refer to the cluster state, only to a single instance.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return MetadataApiApiIsReadyRequest
- */
+*/
 func (a *MetadataApiService) IsReady(ctx context.Context) MetadataApiApiIsReadyRequest {
 	return MetadataApiApiIsReadyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 

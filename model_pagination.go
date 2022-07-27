@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -17,7 +17,7 @@ import (
 
 // Pagination struct for Pagination
 type Pagination struct {
-	// Pagination Page
+	// Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist.
 	Page *int64 `json:"page,omitempty"`
 	// Items per Page  This is the number of items per page.
 	PerPage *int64 `json:"per_page,omitempty"`
@@ -158,5 +158,3 @@ func (v *NullablePagination) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -89,7 +89,7 @@ func (o *SubmitSelfServiceVerificationFlowWithLinkMethodBody) GetEmail() string 
 // GetEmailOk returns a tuple with the Email field value
 // and a boolean to check if the value has been set.
 func (o *SubmitSelfServiceVerificationFlowWithLinkMethodBody) GetEmailOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Email, true
@@ -113,7 +113,7 @@ func (o *SubmitSelfServiceVerificationFlowWithLinkMethodBody) GetMethod() string
 // GetMethodOk returns a tuple with the Method field value
 // and a boolean to check if the value has been set.
 func (o *SubmitSelfServiceVerificationFlowWithLinkMethodBody) GetMethodOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Method, true
@@ -173,5 +173,3 @@ func (v *NullableSubmitSelfServiceVerificationFlowWithLinkMethodBody) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

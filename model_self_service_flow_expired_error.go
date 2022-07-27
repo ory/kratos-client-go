@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -34,7 +34,7 @@ type SelfServiceFlowExpiredError struct {
 	// A Duration represents the elapsed time between two instants as an int64 nanosecond count. The representation limits the largest representable duration to approximately 290 years.
 	Since *int64 `json:"since,omitempty"`
 	// The status description
-	Status *string `json:"status,omitempty"`
+	Status    *string `json:"status,omitempty"`
 	UseFlowId *string `json:"use_flow_id,omitempty"`
 }
 
@@ -197,7 +197,7 @@ func (o *SelfServiceFlowExpiredError) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
 func (o *SelfServiceFlowExpiredError) GetMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Message, true
@@ -438,5 +438,3 @@ func (v *NullableSelfServiceFlowExpiredError) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

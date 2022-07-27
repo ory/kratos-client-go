@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -92,7 +92,7 @@ func (o *SubmitSelfServiceRegistrationFlowWithPasswordMethodBody) GetMethod() st
 // GetMethodOk returns a tuple with the Method field value
 // and a boolean to check if the value has been set.
 func (o *SubmitSelfServiceRegistrationFlowWithPasswordMethodBody) GetMethodOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Method, true
@@ -116,7 +116,7 @@ func (o *SubmitSelfServiceRegistrationFlowWithPasswordMethodBody) GetPassword() 
 // GetPasswordOk returns a tuple with the Password field value
 // and a boolean to check if the value has been set.
 func (o *SubmitSelfServiceRegistrationFlowWithPasswordMethodBody) GetPasswordOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Password, true
@@ -140,7 +140,7 @@ func (o *SubmitSelfServiceRegistrationFlowWithPasswordMethodBody) GetTraits() ma
 // GetTraitsOk returns a tuple with the Traits field value
 // and a boolean to check if the value has been set.
 func (o *SubmitSelfServiceRegistrationFlowWithPasswordMethodBody) GetTraitsOk() (map[string]interface{}, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return o.Traits, true
@@ -203,5 +203,3 @@ func (v *NullableSubmitSelfServiceRegistrationFlowWithPasswordMethodBody) Unmars
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

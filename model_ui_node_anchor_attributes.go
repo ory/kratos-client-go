@@ -1,9 +1,9 @@
 /*
  * Ory Kratos API
  *
- * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests. 
+ * Documentation for all public and administrative Ory Kratos APIs. Public and administrative APIs are exposed on different ports. Public APIs can face the public internet without any protection while administrative APIs should never be exposed without prior authorization. To protect the administative API port you should use something like Nginx, Ory Oathkeeper, or any other technology capable of authorizing incoming requests.
  *
- * API version: v0.10.1
+ * API version: 1.0.0
  * Contact: hi@ory.sh
  */
 
@@ -23,7 +23,7 @@ type UiNodeAnchorAttributes struct {
 	Id string `json:"id"`
 	// NodeType represents this node's types. It is a mirror of `node.type` and is primarily used to allow compatibility with OpenAPI 3.0.  In this struct it technically always is \"a\".
 	NodeType string `json:"node_type"`
-	Title UiText `json:"title"`
+	Title    UiText `json:"title"`
 }
 
 // NewUiNodeAnchorAttributes instantiates a new UiNodeAnchorAttributes object
@@ -60,7 +60,7 @@ func (o *UiNodeAnchorAttributes) GetHref() string {
 // GetHrefOk returns a tuple with the Href field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeAnchorAttributes) GetHrefOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Href, true
@@ -84,7 +84,7 @@ func (o *UiNodeAnchorAttributes) GetId() string {
 // GetIdOk returns a tuple with the Id field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeAnchorAttributes) GetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Id, true
@@ -108,7 +108,7 @@ func (o *UiNodeAnchorAttributes) GetNodeType() string {
 // GetNodeTypeOk returns a tuple with the NodeType field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeAnchorAttributes) GetNodeTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NodeType, true
@@ -132,7 +132,7 @@ func (o *UiNodeAnchorAttributes) GetTitle() UiText {
 // GetTitleOk returns a tuple with the Title field value
 // and a boolean to check if the value has been set.
 func (o *UiNodeAnchorAttributes) GetTitleOk() (*UiText, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Title, true
@@ -195,5 +195,3 @@ func (v *NullableUiNodeAnchorAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-
