@@ -587,6 +587,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorGeneric'
           description: errorGeneric
+      security:
+      - oryAccessToken: []
       summary: Create a Recovery Code
       tags:
       - identity
@@ -627,6 +629,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorGeneric'
           description: errorGeneric
+      security:
+      - oryAccessToken: []
       summary: Create a Recovery Link
       tags:
       - identity
