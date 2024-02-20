@@ -1,27 +1,27 @@
-# \IdentityApi
+# \IdentityAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BatchPatchIdentities**](IdentityApi.md#BatchPatchIdentities) | **Patch** /admin/identities | Create and deletes multiple identities
-[**CreateIdentity**](IdentityApi.md#CreateIdentity) | **Post** /admin/identities | Create an Identity
-[**CreateRecoveryCodeForIdentity**](IdentityApi.md#CreateRecoveryCodeForIdentity) | **Post** /admin/recovery/code | Create a Recovery Code
-[**CreateRecoveryLinkForIdentity**](IdentityApi.md#CreateRecoveryLinkForIdentity) | **Post** /admin/recovery/link | Create a Recovery Link
-[**DeleteIdentity**](IdentityApi.md#DeleteIdentity) | **Delete** /admin/identities/{id} | Delete an Identity
-[**DeleteIdentityCredentials**](IdentityApi.md#DeleteIdentityCredentials) | **Delete** /admin/identities/{id}/credentials/{type} | Delete a credential for a specific identity
-[**DeleteIdentitySessions**](IdentityApi.md#DeleteIdentitySessions) | **Delete** /admin/identities/{id}/sessions | Delete &amp; Invalidate an Identity&#39;s Sessions
-[**DisableSession**](IdentityApi.md#DisableSession) | **Delete** /admin/sessions/{id} | Deactivate a Session
-[**ExtendSession**](IdentityApi.md#ExtendSession) | **Patch** /admin/sessions/{id}/extend | Extend a Session
-[**GetIdentity**](IdentityApi.md#GetIdentity) | **Get** /admin/identities/{id} | Get an Identity
-[**GetIdentitySchema**](IdentityApi.md#GetIdentitySchema) | **Get** /schemas/{id} | Get Identity JSON Schema
-[**GetSession**](IdentityApi.md#GetSession) | **Get** /admin/sessions/{id} | Get Session
-[**ListIdentities**](IdentityApi.md#ListIdentities) | **Get** /admin/identities | List Identities
-[**ListIdentitySchemas**](IdentityApi.md#ListIdentitySchemas) | **Get** /schemas | Get all Identity Schemas
-[**ListIdentitySessions**](IdentityApi.md#ListIdentitySessions) | **Get** /admin/identities/{id}/sessions | List an Identity&#39;s Sessions
-[**ListSessions**](IdentityApi.md#ListSessions) | **Get** /admin/sessions | List All Sessions
-[**PatchIdentity**](IdentityApi.md#PatchIdentity) | **Patch** /admin/identities/{id} | Patch an Identity
-[**UpdateIdentity**](IdentityApi.md#UpdateIdentity) | **Put** /admin/identities/{id} | Update an Identity
+[**BatchPatchIdentities**](IdentityAPI.md#BatchPatchIdentities) | **Patch** /admin/identities | Create and deletes multiple identities
+[**CreateIdentity**](IdentityAPI.md#CreateIdentity) | **Post** /admin/identities | Create an Identity
+[**CreateRecoveryCodeForIdentity**](IdentityAPI.md#CreateRecoveryCodeForIdentity) | **Post** /admin/recovery/code | Create a Recovery Code
+[**CreateRecoveryLinkForIdentity**](IdentityAPI.md#CreateRecoveryLinkForIdentity) | **Post** /admin/recovery/link | Create a Recovery Link
+[**DeleteIdentity**](IdentityAPI.md#DeleteIdentity) | **Delete** /admin/identities/{id} | Delete an Identity
+[**DeleteIdentityCredentials**](IdentityAPI.md#DeleteIdentityCredentials) | **Delete** /admin/identities/{id}/credentials/{type} | Delete a credential for a specific identity
+[**DeleteIdentitySessions**](IdentityAPI.md#DeleteIdentitySessions) | **Delete** /admin/identities/{id}/sessions | Delete &amp; Invalidate an Identity&#39;s Sessions
+[**DisableSession**](IdentityAPI.md#DisableSession) | **Delete** /admin/sessions/{id} | Deactivate a Session
+[**ExtendSession**](IdentityAPI.md#ExtendSession) | **Patch** /admin/sessions/{id}/extend | Extend a Session
+[**GetIdentity**](IdentityAPI.md#GetIdentity) | **Get** /admin/identities/{id} | Get an Identity
+[**GetIdentitySchema**](IdentityAPI.md#GetIdentitySchema) | **Get** /schemas/{id} | Get Identity JSON Schema
+[**GetSession**](IdentityAPI.md#GetSession) | **Get** /admin/sessions/{id} | Get Session
+[**ListIdentities**](IdentityAPI.md#ListIdentities) | **Get** /admin/identities | List Identities
+[**ListIdentitySchemas**](IdentityAPI.md#ListIdentitySchemas) | **Get** /schemas | Get all Identity Schemas
+[**ListIdentitySessions**](IdentityAPI.md#ListIdentitySessions) | **Get** /admin/identities/{id}/sessions | List an Identity&#39;s Sessions
+[**ListSessions**](IdentityAPI.md#ListSessions) | **Get** /admin/sessions | List All Sessions
+[**PatchIdentity**](IdentityAPI.md#PatchIdentity) | **Patch** /admin/identities/{id} | Patch an Identity
+[**UpdateIdentity**](IdentityAPI.md#UpdateIdentity) | **Put** /admin/identities/{id} | Update an Identity
 
 
 
@@ -42,7 +42,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -50,13 +50,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.BatchPatchIdentities(context.Background()).PatchIdentitiesBody(patchIdentitiesBody).Execute()
+    resp, r, err := apiClient.IdentityAPI.BatchPatchIdentities(context.Background()).PatchIdentitiesBody(patchIdentitiesBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.BatchPatchIdentities``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.BatchPatchIdentities``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `BatchPatchIdentities`: BatchPatchIdentitiesResponse
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.BatchPatchIdentities`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.BatchPatchIdentities`: %v\n", resp)
 }
 ```
 
@@ -108,7 +108,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -116,13 +116,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.CreateIdentity(context.Background()).CreateIdentityBody(createIdentityBody).Execute()
+    resp, r, err := apiClient.IdentityAPI.CreateIdentity(context.Background()).CreateIdentityBody(createIdentityBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.CreateIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.CreateIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateIdentity`: Identity
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.CreateIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.CreateIdentity`: %v\n", resp)
 }
 ```
 
@@ -174,7 +174,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -182,13 +182,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.CreateRecoveryCodeForIdentity(context.Background()).CreateRecoveryCodeForIdentityBody(createRecoveryCodeForIdentityBody).Execute()
+    resp, r, err := apiClient.IdentityAPI.CreateRecoveryCodeForIdentity(context.Background()).CreateRecoveryCodeForIdentityBody(createRecoveryCodeForIdentityBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.CreateRecoveryCodeForIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.CreateRecoveryCodeForIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateRecoveryCodeForIdentity`: RecoveryCodeForIdentity
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.CreateRecoveryCodeForIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.CreateRecoveryCodeForIdentity`: %v\n", resp)
 }
 ```
 
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ## CreateRecoveryLinkForIdentity
 
-> RecoveryLinkForIdentity CreateRecoveryLinkForIdentity(ctx).CreateRecoveryLinkForIdentityBody(createRecoveryLinkForIdentityBody).Execute()
+> RecoveryLinkForIdentity CreateRecoveryLinkForIdentity(ctx).ReturnTo(returnTo).CreateRecoveryLinkForIdentityBody(createRecoveryLinkForIdentityBody).Execute()
 
 Create a Recovery Link
 
@@ -240,21 +240,22 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
+    returnTo := "returnTo_example" // string |  (optional)
     createRecoveryLinkForIdentityBody := *openapiclient.NewCreateRecoveryLinkForIdentityBody("IdentityId_example") // CreateRecoveryLinkForIdentityBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.CreateRecoveryLinkForIdentity(context.Background()).CreateRecoveryLinkForIdentityBody(createRecoveryLinkForIdentityBody).Execute()
+    resp, r, err := apiClient.IdentityAPI.CreateRecoveryLinkForIdentity(context.Background()).ReturnTo(returnTo).CreateRecoveryLinkForIdentityBody(createRecoveryLinkForIdentityBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.CreateRecoveryLinkForIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.CreateRecoveryLinkForIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateRecoveryLinkForIdentity`: RecoveryLinkForIdentity
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.CreateRecoveryLinkForIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.CreateRecoveryLinkForIdentity`: %v\n", resp)
 }
 ```
 
@@ -269,6 +270,7 @@ Other parameters are passed through a pointer to a apiCreateRecoveryLinkForIdent
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **returnTo** | **string** |  | 
  **createRecoveryLinkForIdentityBody** | [**CreateRecoveryLinkForIdentityBody**](CreateRecoveryLinkForIdentityBody.md) |  | 
 
 ### Return type
@@ -306,7 +308,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -314,9 +316,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.DeleteIdentity(context.Background(), id).Execute()
+    r, err := apiClient.IdentityAPI.DeleteIdentity(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.DeleteIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.DeleteIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -374,18 +376,18 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
     id := "id_example" // string | ID is the identity's ID.
-    type_ := "type__example" // string | Type is the credential's Type. One of totp, webauthn, lookup
+    type_ := "type__example" // string | Type is the type of credentials to be deleted. password CredentialsTypePassword oidc CredentialsTypeOIDC totp CredentialsTypeTOTP lookup_secret CredentialsTypeLookup webauthn CredentialsTypeWebAuthn code CredentialsTypeCodeAuth link_recovery CredentialsTypeRecoveryLink  CredentialsTypeRecoveryLink is a special credential type linked to the link strategy (recovery flow).  It is not used within the credentials object itself. code_recovery CredentialsTypeRecoveryCode
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.DeleteIdentityCredentials(context.Background(), id, type_).Execute()
+    r, err := apiClient.IdentityAPI.DeleteIdentityCredentials(context.Background(), id, type_).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.DeleteIdentityCredentials``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.DeleteIdentityCredentials``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -398,7 +400,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **id** | **string** | ID is the identity&#39;s ID. | 
-**type_** | **string** | Type is the credential&#39;s Type. One of totp, webauthn, lookup | 
+**type_** | **string** | Type is the type of credentials to be deleted. password CredentialsTypePassword oidc CredentialsTypeOIDC totp CredentialsTypeTOTP lookup_secret CredentialsTypeLookup webauthn CredentialsTypeWebAuthn code CredentialsTypeCodeAuth link_recovery CredentialsTypeRecoveryLink  CredentialsTypeRecoveryLink is a special credential type linked to the link strategy (recovery flow).  It is not used within the credentials object itself. code_recovery CredentialsTypeRecoveryCode | 
 
 ### Other Parameters
 
@@ -445,7 +447,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -453,9 +455,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.DeleteIdentitySessions(context.Background(), id).Execute()
+    r, err := apiClient.IdentityAPI.DeleteIdentitySessions(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.DeleteIdentitySessions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.DeleteIdentitySessions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -513,7 +515,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -521,9 +523,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.DisableSession(context.Background(), id).Execute()
+    r, err := apiClient.IdentityAPI.DisableSession(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.DisableSession``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.DisableSession``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -581,7 +583,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -589,13 +591,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.ExtendSession(context.Background(), id).Execute()
+    resp, r, err := apiClient.IdentityAPI.ExtendSession(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.ExtendSession``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.ExtendSession``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ExtendSession`: Session
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.ExtendSession`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.ExtendSession`: %v\n", resp)
 }
 ```
 
@@ -651,7 +653,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -660,13 +662,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.GetIdentity(context.Background(), id).IncludeCredential(includeCredential).Execute()
+    resp, r, err := apiClient.IdentityAPI.GetIdentity(context.Background(), id).IncludeCredential(includeCredential).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.GetIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.GetIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetIdentity`: Identity
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.GetIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.GetIdentity`: %v\n", resp)
 }
 ```
 
@@ -723,7 +725,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -731,13 +733,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.GetIdentitySchema(context.Background(), id).Execute()
+    resp, r, err := apiClient.IdentityAPI.GetIdentitySchema(context.Background(), id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.GetIdentitySchema``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.GetIdentitySchema``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetIdentitySchema`: map[string]interface{}
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.GetIdentitySchema`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.GetIdentitySchema`: %v\n", resp)
 }
 ```
 
@@ -793,7 +795,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -802,13 +804,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.GetSession(context.Background(), id).Expand(expand).Execute()
+    resp, r, err := apiClient.IdentityAPI.GetSession(context.Background(), id).Expand(expand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.GetSession``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.GetSession``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSession`: Session
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.GetSession`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.GetSession`: %v\n", resp)
 }
 ```
 
@@ -850,7 +852,7 @@ Name | Type | Description  | Notes
 
 ## ListIdentities
 
-> []Identity ListIdentities(ctx).PerPage(perPage).Page(page).CredentialsIdentifier(credentialsIdentifier).Execute()
+> []Identity ListIdentities(ctx).PerPage(perPage).Page(page).PageSize(pageSize).PageToken(pageToken).Consistency(consistency).Ids(ids).CredentialsIdentifier(credentialsIdentifier).PreviewCredentialsIdentifierSimilar(previewCredentialsIdentifierSimilar).Execute()
 
 List Identities
 
@@ -865,23 +867,28 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
-    perPage := int64(789) // int64 | Items per Page  This is the number of items per page. (optional) (default to 250)
-    page := int64(789) // int64 | Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. (optional) (default to 1)
-    credentialsIdentifier := "credentialsIdentifier_example" // string | CredentialsIdentifier is the identifier (username, email) of the credentials to look up. (optional)
+    perPage := int64(789) // int64 | Deprecated Items per Page  DEPRECATED: Please use `page_token` instead. This parameter will be removed in the future.  This is the number of items per page. (optional) (default to 250)
+    page := int64(789) // int64 | Deprecated Pagination Page  DEPRECATED: Please use `page_token` instead. This parameter will be removed in the future.  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. The first page can be retrieved by omitting this parameter. Following page pointers will be returned in the `Link` header. (optional)
+    pageSize := int64(789) // int64 | Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) (default to 250)
+    pageToken := "pageToken_example" // string | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) (default to "1")
+    consistency := "consistency_example" // string | Read Consistency Level (preview)  The read consistency level determines the consistency guarantee for reads:  strong (slow): The read is guaranteed to return the most recent data committed at the start of the read. eventual (very fast): The result will return data that is about 4.8 seconds old.  The default consistency guarantee can be changed in the Ory Network Console or using the Ory CLI with `ory patch project --replace '/previews/default_read_consistency_level=\"strong\"'`.  Setting the default consistency level to `eventual` may cause regressions in the future as we add consistency controls to more APIs. Currently, the following APIs will be affected by this setting:  `GET /admin/identities`  This feature is in preview and only available in Ory Network.  ConsistencyLevelUnset  ConsistencyLevelUnset is the unset / default consistency level. strong ConsistencyLevelStrong  ConsistencyLevelStrong is the strong consistency level. eventual ConsistencyLevelEventual  ConsistencyLevelEventual is the eventual consistency level using follower read timestamps. (optional)
+    ids := []string{"Inner_example"} // []string | List of ids used to filter identities. If this list is empty, then no filter will be applied. (optional)
+    credentialsIdentifier := "credentialsIdentifier_example" // string | CredentialsIdentifier is the identifier (username, email) of the credentials to look up using exact match. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)
+    previewCredentialsIdentifierSimilar := "previewCredentialsIdentifierSimilar_example" // string | This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.ListIdentities(context.Background()).PerPage(perPage).Page(page).CredentialsIdentifier(credentialsIdentifier).Execute()
+    resp, r, err := apiClient.IdentityAPI.ListIdentities(context.Background()).PerPage(perPage).Page(page).PageSize(pageSize).PageToken(pageToken).Consistency(consistency).Ids(ids).CredentialsIdentifier(credentialsIdentifier).PreviewCredentialsIdentifierSimilar(previewCredentialsIdentifierSimilar).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.ListIdentities``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.ListIdentities``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListIdentities`: []Identity
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.ListIdentities`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.ListIdentities`: %v\n", resp)
 }
 ```
 
@@ -896,9 +903,14 @@ Other parameters are passed through a pointer to a apiListIdentitiesRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **perPage** | **int64** | Items per Page  This is the number of items per page. | [default to 250]
- **page** | **int64** | Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. | [default to 1]
- **credentialsIdentifier** | **string** | CredentialsIdentifier is the identifier (username, email) of the credentials to look up. | 
+ **perPage** | **int64** | Deprecated Items per Page  DEPRECATED: Please use &#x60;page_token&#x60; instead. This parameter will be removed in the future.  This is the number of items per page. | [default to 250]
+ **page** | **int64** | Deprecated Pagination Page  DEPRECATED: Please use &#x60;page_token&#x60; instead. This parameter will be removed in the future.  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. The first page can be retrieved by omitting this parameter. Following page pointers will be returned in the &#x60;Link&#x60; header. | 
+ **pageSize** | **int64** | Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [default to 250]
+ **pageToken** | **string** | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [default to &quot;1&quot;]
+ **consistency** | **string** | Read Consistency Level (preview)  The read consistency level determines the consistency guarantee for reads:  strong (slow): The read is guaranteed to return the most recent data committed at the start of the read. eventual (very fast): The result will return data that is about 4.8 seconds old.  The default consistency guarantee can be changed in the Ory Network Console or using the Ory CLI with &#x60;ory patch project --replace &#39;/previews/default_read_consistency_level&#x3D;\&quot;strong\&quot;&#39;&#x60;.  Setting the default consistency level to &#x60;eventual&#x60; may cause regressions in the future as we add consistency controls to more APIs. Currently, the following APIs will be affected by this setting:  &#x60;GET /admin/identities&#x60;  This feature is in preview and only available in Ory Network.  ConsistencyLevelUnset  ConsistencyLevelUnset is the unset / default consistency level. strong ConsistencyLevelStrong  ConsistencyLevelStrong is the strong consistency level. eventual ConsistencyLevelEventual  ConsistencyLevelEventual is the eventual consistency level using follower read timestamps. | 
+ **ids** | **[]string** | List of ids used to filter identities. If this list is empty, then no filter will be applied. | 
+ **credentialsIdentifier** | **string** | CredentialsIdentifier is the identifier (username, email) of the credentials to look up using exact match. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. | 
+ **previewCredentialsIdentifierSimilar** | **string** | This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. | 
 
 ### Return type
 
@@ -920,7 +932,7 @@ Name | Type | Description  | Notes
 
 ## ListIdentitySchemas
 
-> []IdentitySchemaContainer ListIdentitySchemas(ctx).PerPage(perPage).Page(page).Execute()
+> []IdentitySchemaContainer ListIdentitySchemas(ctx).PerPage(perPage).Page(page).PageSize(pageSize).PageToken(pageToken).Execute()
 
 Get all Identity Schemas
 
@@ -935,22 +947,24 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
-    perPage := int64(789) // int64 | Items per Page  This is the number of items per page. (optional) (default to 250)
-    page := int64(789) // int64 | Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. (optional) (default to 1)
+    perPage := int64(789) // int64 | Deprecated Items per Page  DEPRECATED: Please use `page_token` instead. This parameter will be removed in the future.  This is the number of items per page. (optional) (default to 250)
+    page := int64(789) // int64 | Deprecated Pagination Page  DEPRECATED: Please use `page_token` instead. This parameter will be removed in the future.  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. The first page can be retrieved by omitting this parameter. Following page pointers will be returned in the `Link` header. (optional)
+    pageSize := int64(789) // int64 | Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) (default to 250)
+    pageToken := "pageToken_example" // string | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) (default to "1")
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.ListIdentitySchemas(context.Background()).PerPage(perPage).Page(page).Execute()
+    resp, r, err := apiClient.IdentityAPI.ListIdentitySchemas(context.Background()).PerPage(perPage).Page(page).PageSize(pageSize).PageToken(pageToken).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.ListIdentitySchemas``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.ListIdentitySchemas``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListIdentitySchemas`: []IdentitySchemaContainer
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.ListIdentitySchemas`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.ListIdentitySchemas`: %v\n", resp)
 }
 ```
 
@@ -965,8 +979,10 @@ Other parameters are passed through a pointer to a apiListIdentitySchemasRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **perPage** | **int64** | Items per Page  This is the number of items per page. | [default to 250]
- **page** | **int64** | Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. | [default to 1]
+ **perPage** | **int64** | Deprecated Items per Page  DEPRECATED: Please use &#x60;page_token&#x60; instead. This parameter will be removed in the future.  This is the number of items per page. | [default to 250]
+ **page** | **int64** | Deprecated Pagination Page  DEPRECATED: Please use &#x60;page_token&#x60; instead. This parameter will be removed in the future.  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. The first page can be retrieved by omitting this parameter. Following page pointers will be returned in the &#x60;Link&#x60; header. | 
+ **pageSize** | **int64** | Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [default to 250]
+ **pageToken** | **string** | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [default to &quot;1&quot;]
 
 ### Return type
 
@@ -988,7 +1004,7 @@ No authorization required
 
 ## ListIdentitySessions
 
-> []Session ListIdentitySessions(ctx, id).PerPage(perPage).Page(page).Active(active).Execute()
+> []Session ListIdentitySessions(ctx, id).PerPage(perPage).Page(page).PageSize(pageSize).PageToken(pageToken).Active(active).Execute()
 
 List an Identity's Sessions
 
@@ -1003,24 +1019,26 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
     id := "id_example" // string | ID is the identity's ID.
-    perPage := int64(789) // int64 | Items per Page  This is the number of items per page. (optional) (default to 250)
-    page := int64(789) // int64 | Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. (optional) (default to 1)
+    perPage := int64(789) // int64 | Deprecated Items per Page  DEPRECATED: Please use `page_token` instead. This parameter will be removed in the future.  This is the number of items per page. (optional) (default to 250)
+    page := int64(789) // int64 | Deprecated Pagination Page  DEPRECATED: Please use `page_token` instead. This parameter will be removed in the future.  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. The first page can be retrieved by omitting this parameter. Following page pointers will be returned in the `Link` header. (optional)
+    pageSize := int64(789) // int64 | Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) (default to 250)
+    pageToken := "pageToken_example" // string | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) (default to "1")
     active := true // bool | Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.ListIdentitySessions(context.Background(), id).PerPage(perPage).Page(page).Active(active).Execute()
+    resp, r, err := apiClient.IdentityAPI.ListIdentitySessions(context.Background(), id).PerPage(perPage).Page(page).PageSize(pageSize).PageToken(pageToken).Active(active).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.ListIdentitySessions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.ListIdentitySessions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListIdentitySessions`: []Session
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.ListIdentitySessions`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.ListIdentitySessions`: %v\n", resp)
 }
 ```
 
@@ -1040,8 +1058,10 @@ Other parameters are passed through a pointer to a apiListIdentitySessionsReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **perPage** | **int64** | Items per Page  This is the number of items per page. | [default to 250]
- **page** | **int64** | Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. | [default to 1]
+ **perPage** | **int64** | Deprecated Items per Page  DEPRECATED: Please use &#x60;page_token&#x60; instead. This parameter will be removed in the future.  This is the number of items per page. | [default to 250]
+ **page** | **int64** | Deprecated Pagination Page  DEPRECATED: Please use &#x60;page_token&#x60; instead. This parameter will be removed in the future.  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. The first page can be retrieved by omitting this parameter. Following page pointers will be returned in the &#x60;Link&#x60; header. | 
+ **pageSize** | **int64** | Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [default to 250]
+ **pageToken** | **string** | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [default to &quot;1&quot;]
  **active** | **bool** | Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. | 
 
 ### Return type
@@ -1079,7 +1099,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1090,13 +1110,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.ListSessions(context.Background()).PageSize(pageSize).PageToken(pageToken).Active(active).Expand(expand).Execute()
+    resp, r, err := apiClient.IdentityAPI.ListSessions(context.Background()).PageSize(pageSize).PageToken(pageToken).Active(active).Expand(expand).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.ListSessions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.ListSessions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListSessions`: []Session
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.ListSessions`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.ListSessions`: %v\n", resp)
 }
 ```
 
@@ -1151,7 +1171,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1160,13 +1180,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.PatchIdentity(context.Background(), id).JsonPatch(jsonPatch).Execute()
+    resp, r, err := apiClient.IdentityAPI.PatchIdentity(context.Background(), id).JsonPatch(jsonPatch).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.PatchIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.PatchIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `PatchIdentity`: Identity
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.PatchIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.PatchIdentity`: %v\n", resp)
 }
 ```
 
@@ -1223,22 +1243,22 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
     id := "id_example" // string | ID must be set to the ID of identity you want to update
-    updateIdentityBody := *openapiclient.NewUpdateIdentityBody("SchemaId_example", openapiclient.identityState("active"), map[string]interface{}(123)) // UpdateIdentityBody |  (optional)
+    updateIdentityBody := *openapiclient.NewUpdateIdentityBody("SchemaId_example", "State_example", map[string]interface{}(123)) // UpdateIdentityBody |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.IdentityApi.UpdateIdentity(context.Background(), id).UpdateIdentityBody(updateIdentityBody).Execute()
+    resp, r, err := apiClient.IdentityAPI.UpdateIdentity(context.Background(), id).UpdateIdentityBody(updateIdentityBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `IdentityApi.UpdateIdentity``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `IdentityAPI.UpdateIdentity``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateIdentity`: Identity
-    fmt.Fprintf(os.Stdout, "Response from `IdentityApi.UpdateIdentity`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `IdentityAPI.UpdateIdentity`: %v\n", resp)
 }
 ```
 

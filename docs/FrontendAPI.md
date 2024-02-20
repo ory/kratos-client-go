@@ -1,45 +1,45 @@
-# \FrontendApi
+# \FrontendAPI
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateBrowserLoginFlow**](FrontendApi.md#CreateBrowserLoginFlow) | **Get** /self-service/login/browser | Create Login Flow for Browsers
-[**CreateBrowserLogoutFlow**](FrontendApi.md#CreateBrowserLogoutFlow) | **Get** /self-service/logout/browser | Create a Logout URL for Browsers
-[**CreateBrowserRecoveryFlow**](FrontendApi.md#CreateBrowserRecoveryFlow) | **Get** /self-service/recovery/browser | Create Recovery Flow for Browsers
-[**CreateBrowserRegistrationFlow**](FrontendApi.md#CreateBrowserRegistrationFlow) | **Get** /self-service/registration/browser | Create Registration Flow for Browsers
-[**CreateBrowserSettingsFlow**](FrontendApi.md#CreateBrowserSettingsFlow) | **Get** /self-service/settings/browser | Create Settings Flow for Browsers
-[**CreateBrowserVerificationFlow**](FrontendApi.md#CreateBrowserVerificationFlow) | **Get** /self-service/verification/browser | Create Verification Flow for Browser Clients
-[**CreateNativeLoginFlow**](FrontendApi.md#CreateNativeLoginFlow) | **Get** /self-service/login/api | Create Login Flow for Native Apps
-[**CreateNativeRecoveryFlow**](FrontendApi.md#CreateNativeRecoveryFlow) | **Get** /self-service/recovery/api | Create Recovery Flow for Native Apps
-[**CreateNativeRegistrationFlow**](FrontendApi.md#CreateNativeRegistrationFlow) | **Get** /self-service/registration/api | Create Registration Flow for Native Apps
-[**CreateNativeSettingsFlow**](FrontendApi.md#CreateNativeSettingsFlow) | **Get** /self-service/settings/api | Create Settings Flow for Native Apps
-[**CreateNativeVerificationFlow**](FrontendApi.md#CreateNativeVerificationFlow) | **Get** /self-service/verification/api | Create Verification Flow for Native Apps
-[**DisableMyOtherSessions**](FrontendApi.md#DisableMyOtherSessions) | **Delete** /sessions | Disable my other sessions
-[**DisableMySession**](FrontendApi.md#DisableMySession) | **Delete** /sessions/{id} | Disable one of my sessions
-[**ExchangeSessionToken**](FrontendApi.md#ExchangeSessionToken) | **Get** /sessions/token-exchange | Exchange Session Token
-[**GetFlowError**](FrontendApi.md#GetFlowError) | **Get** /self-service/errors | Get User-Flow Errors
-[**GetLoginFlow**](FrontendApi.md#GetLoginFlow) | **Get** /self-service/login/flows | Get Login Flow
-[**GetRecoveryFlow**](FrontendApi.md#GetRecoveryFlow) | **Get** /self-service/recovery/flows | Get Recovery Flow
-[**GetRegistrationFlow**](FrontendApi.md#GetRegistrationFlow) | **Get** /self-service/registration/flows | Get Registration Flow
-[**GetSettingsFlow**](FrontendApi.md#GetSettingsFlow) | **Get** /self-service/settings/flows | Get Settings Flow
-[**GetVerificationFlow**](FrontendApi.md#GetVerificationFlow) | **Get** /self-service/verification/flows | Get Verification Flow
-[**GetWebAuthnJavaScript**](FrontendApi.md#GetWebAuthnJavaScript) | **Get** /.well-known/ory/webauthn.js | Get WebAuthn JavaScript
-[**ListMySessions**](FrontendApi.md#ListMySessions) | **Get** /sessions | Get My Active Sessions
-[**PerformNativeLogout**](FrontendApi.md#PerformNativeLogout) | **Delete** /self-service/logout/api | Perform Logout for Native Apps
-[**ToSession**](FrontendApi.md#ToSession) | **Get** /sessions/whoami | Check Who the Current HTTP Session Belongs To
-[**UpdateLoginFlow**](FrontendApi.md#UpdateLoginFlow) | **Post** /self-service/login | Submit a Login Flow
-[**UpdateLogoutFlow**](FrontendApi.md#UpdateLogoutFlow) | **Get** /self-service/logout | Update Logout Flow
-[**UpdateRecoveryFlow**](FrontendApi.md#UpdateRecoveryFlow) | **Post** /self-service/recovery | Complete Recovery Flow
-[**UpdateRegistrationFlow**](FrontendApi.md#UpdateRegistrationFlow) | **Post** /self-service/registration | Update Registration Flow
-[**UpdateSettingsFlow**](FrontendApi.md#UpdateSettingsFlow) | **Post** /self-service/settings | Complete Settings Flow
-[**UpdateVerificationFlow**](FrontendApi.md#UpdateVerificationFlow) | **Post** /self-service/verification | Complete Verification Flow
+[**CreateBrowserLoginFlow**](FrontendAPI.md#CreateBrowserLoginFlow) | **Get** /self-service/login/browser | Create Login Flow for Browsers
+[**CreateBrowserLogoutFlow**](FrontendAPI.md#CreateBrowserLogoutFlow) | **Get** /self-service/logout/browser | Create a Logout URL for Browsers
+[**CreateBrowserRecoveryFlow**](FrontendAPI.md#CreateBrowserRecoveryFlow) | **Get** /self-service/recovery/browser | Create Recovery Flow for Browsers
+[**CreateBrowserRegistrationFlow**](FrontendAPI.md#CreateBrowserRegistrationFlow) | **Get** /self-service/registration/browser | Create Registration Flow for Browsers
+[**CreateBrowserSettingsFlow**](FrontendAPI.md#CreateBrowserSettingsFlow) | **Get** /self-service/settings/browser | Create Settings Flow for Browsers
+[**CreateBrowserVerificationFlow**](FrontendAPI.md#CreateBrowserVerificationFlow) | **Get** /self-service/verification/browser | Create Verification Flow for Browser Clients
+[**CreateNativeLoginFlow**](FrontendAPI.md#CreateNativeLoginFlow) | **Get** /self-service/login/api | Create Login Flow for Native Apps
+[**CreateNativeRecoveryFlow**](FrontendAPI.md#CreateNativeRecoveryFlow) | **Get** /self-service/recovery/api | Create Recovery Flow for Native Apps
+[**CreateNativeRegistrationFlow**](FrontendAPI.md#CreateNativeRegistrationFlow) | **Get** /self-service/registration/api | Create Registration Flow for Native Apps
+[**CreateNativeSettingsFlow**](FrontendAPI.md#CreateNativeSettingsFlow) | **Get** /self-service/settings/api | Create Settings Flow for Native Apps
+[**CreateNativeVerificationFlow**](FrontendAPI.md#CreateNativeVerificationFlow) | **Get** /self-service/verification/api | Create Verification Flow for Native Apps
+[**DisableMyOtherSessions**](FrontendAPI.md#DisableMyOtherSessions) | **Delete** /sessions | Disable my other sessions
+[**DisableMySession**](FrontendAPI.md#DisableMySession) | **Delete** /sessions/{id} | Disable one of my sessions
+[**ExchangeSessionToken**](FrontendAPI.md#ExchangeSessionToken) | **Get** /sessions/token-exchange | Exchange Session Token
+[**GetFlowError**](FrontendAPI.md#GetFlowError) | **Get** /self-service/errors | Get User-Flow Errors
+[**GetLoginFlow**](FrontendAPI.md#GetLoginFlow) | **Get** /self-service/login/flows | Get Login Flow
+[**GetRecoveryFlow**](FrontendAPI.md#GetRecoveryFlow) | **Get** /self-service/recovery/flows | Get Recovery Flow
+[**GetRegistrationFlow**](FrontendAPI.md#GetRegistrationFlow) | **Get** /self-service/registration/flows | Get Registration Flow
+[**GetSettingsFlow**](FrontendAPI.md#GetSettingsFlow) | **Get** /self-service/settings/flows | Get Settings Flow
+[**GetVerificationFlow**](FrontendAPI.md#GetVerificationFlow) | **Get** /self-service/verification/flows | Get Verification Flow
+[**GetWebAuthnJavaScript**](FrontendAPI.md#GetWebAuthnJavaScript) | **Get** /.well-known/ory/webauthn.js | Get WebAuthn JavaScript
+[**ListMySessions**](FrontendAPI.md#ListMySessions) | **Get** /sessions | Get My Active Sessions
+[**PerformNativeLogout**](FrontendAPI.md#PerformNativeLogout) | **Delete** /self-service/logout/api | Perform Logout for Native Apps
+[**ToSession**](FrontendAPI.md#ToSession) | **Get** /sessions/whoami | Check Who the Current HTTP Session Belongs To
+[**UpdateLoginFlow**](FrontendAPI.md#UpdateLoginFlow) | **Post** /self-service/login | Submit a Login Flow
+[**UpdateLogoutFlow**](FrontendAPI.md#UpdateLogoutFlow) | **Get** /self-service/logout | Update Logout Flow
+[**UpdateRecoveryFlow**](FrontendAPI.md#UpdateRecoveryFlow) | **Post** /self-service/recovery | Update Recovery Flow
+[**UpdateRegistrationFlow**](FrontendAPI.md#UpdateRegistrationFlow) | **Post** /self-service/registration | Update Registration Flow
+[**UpdateSettingsFlow**](FrontendAPI.md#UpdateSettingsFlow) | **Post** /self-service/settings | Complete Settings Flow
+[**UpdateVerificationFlow**](FrontendAPI.md#UpdateVerificationFlow) | **Post** /self-service/verification | Complete Verification Flow
 
 
 
 ## CreateBrowserLoginFlow
 
-> LoginFlow CreateBrowserLoginFlow(ctx).Refresh(refresh).Aal(aal).ReturnTo(returnTo).Cookie(cookie).LoginChallenge(loginChallenge).Execute()
+> LoginFlow CreateBrowserLoginFlow(ctx).Refresh(refresh).Aal(aal).ReturnTo(returnTo).Cookie(cookie).LoginChallenge(loginChallenge).Organization(organization).Execute()
 
 Create Login Flow for Browsers
 
@@ -54,7 +54,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -63,16 +63,17 @@ func main() {
     returnTo := "returnTo_example" // string | The URL to return the browser to after the flow was completed. (optional)
     cookie := "cookie_example" // string | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)
     loginChallenge := "loginChallenge_example" // string | An optional Hydra login challenge. If present, Kratos will cooperate with Ory Hydra to act as an OAuth2 identity provider.  The value for this parameter comes from `login_challenge` URL Query parameter sent to your application (e.g. `/login?login_challenge=abcde`). (optional)
+    organization := "organization_example" // string | An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateBrowserLoginFlow(context.Background()).Refresh(refresh).Aal(aal).ReturnTo(returnTo).Cookie(cookie).LoginChallenge(loginChallenge).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateBrowserLoginFlow(context.Background()).Refresh(refresh).Aal(aal).ReturnTo(returnTo).Cookie(cookie).LoginChallenge(loginChallenge).Organization(organization).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateBrowserLoginFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateBrowserLoginFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateBrowserLoginFlow`: LoginFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateBrowserLoginFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateBrowserLoginFlow`: %v\n", resp)
 }
 ```
 
@@ -92,6 +93,7 @@ Name | Type | Description  | Notes
  **returnTo** | **string** | The URL to return the browser to after the flow was completed. | 
  **cookie** | **string** | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. | 
  **loginChallenge** | **string** | An optional Hydra login challenge. If present, Kratos will cooperate with Ory Hydra to act as an OAuth2 identity provider.  The value for this parameter comes from &#x60;login_challenge&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?login_challenge&#x3D;abcde&#x60;). | 
+ **organization** | **string** | An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. | 
 
 ### Return type
 
@@ -128,7 +130,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -137,13 +139,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateBrowserLogoutFlow(context.Background()).Cookie(cookie).ReturnTo(returnTo).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateBrowserLogoutFlow(context.Background()).Cookie(cookie).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateBrowserLogoutFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateBrowserLogoutFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateBrowserLogoutFlow`: LogoutFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateBrowserLogoutFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateBrowserLogoutFlow`: %v\n", resp)
 }
 ```
 
@@ -196,7 +198,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -204,13 +206,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateBrowserRecoveryFlow(context.Background()).ReturnTo(returnTo).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateBrowserRecoveryFlow(context.Background()).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateBrowserRecoveryFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateBrowserRecoveryFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateBrowserRecoveryFlow`: RecoveryFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateBrowserRecoveryFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateBrowserRecoveryFlow`: %v\n", resp)
 }
 ```
 
@@ -247,7 +249,7 @@ No authorization required
 
 ## CreateBrowserRegistrationFlow
 
-> RegistrationFlow CreateBrowserRegistrationFlow(ctx).ReturnTo(returnTo).LoginChallenge(loginChallenge).AfterVerificationReturnTo(afterVerificationReturnTo).Execute()
+> RegistrationFlow CreateBrowserRegistrationFlow(ctx).ReturnTo(returnTo).LoginChallenge(loginChallenge).AfterVerificationReturnTo(afterVerificationReturnTo).Organization(organization).Execute()
 
 Create Registration Flow for Browsers
 
@@ -262,23 +264,24 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
     returnTo := "returnTo_example" // string | The URL to return the browser to after the flow was completed. (optional)
     loginChallenge := "loginChallenge_example" // string | Ory OAuth 2.0 Login Challenge.  If set will cooperate with Ory OAuth2 and OpenID to act as an OAuth2 server / OpenID Provider.  The value for this parameter comes from `login_challenge` URL Query parameter sent to your application (e.g. `/registration?login_challenge=abcde`).  This feature is compatible with Ory Hydra when not running on the Ory Network. (optional)
     afterVerificationReturnTo := "afterVerificationReturnTo_example" // string | The URL to return the browser to after the verification flow was completed.  After the registration flow is completed, the user will be sent a verification email. Upon completing the verification flow, this URL will be used to override the default `selfservice.flows.verification.after.default_redirect_to` value. (optional)
+    organization := "organization_example" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateBrowserRegistrationFlow(context.Background()).ReturnTo(returnTo).LoginChallenge(loginChallenge).AfterVerificationReturnTo(afterVerificationReturnTo).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateBrowserRegistrationFlow(context.Background()).ReturnTo(returnTo).LoginChallenge(loginChallenge).AfterVerificationReturnTo(afterVerificationReturnTo).Organization(organization).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateBrowserRegistrationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateBrowserRegistrationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateBrowserRegistrationFlow`: RegistrationFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateBrowserRegistrationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateBrowserRegistrationFlow`: %v\n", resp)
 }
 ```
 
@@ -296,6 +299,7 @@ Name | Type | Description  | Notes
  **returnTo** | **string** | The URL to return the browser to after the flow was completed. | 
  **loginChallenge** | **string** | Ory OAuth 2.0 Login Challenge.  If set will cooperate with Ory OAuth2 and OpenID to act as an OAuth2 server / OpenID Provider.  The value for this parameter comes from &#x60;login_challenge&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?login_challenge&#x3D;abcde&#x60;).  This feature is compatible with Ory Hydra when not running on the Ory Network. | 
  **afterVerificationReturnTo** | **string** | The URL to return the browser to after the verification flow was completed.  After the registration flow is completed, the user will be sent a verification email. Upon completing the verification flow, this URL will be used to override the default &#x60;selfservice.flows.verification.after.default_redirect_to&#x60; value. | 
+ **organization** | **string** |  | 
 
 ### Return type
 
@@ -332,7 +336,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -341,13 +345,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateBrowserSettingsFlow(context.Background()).ReturnTo(returnTo).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateBrowserSettingsFlow(context.Background()).ReturnTo(returnTo).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateBrowserSettingsFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateBrowserSettingsFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateBrowserSettingsFlow`: SettingsFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateBrowserSettingsFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateBrowserSettingsFlow`: %v\n", resp)
 }
 ```
 
@@ -400,7 +404,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -408,13 +412,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateBrowserVerificationFlow(context.Background()).ReturnTo(returnTo).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateBrowserVerificationFlow(context.Background()).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateBrowserVerificationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateBrowserVerificationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateBrowserVerificationFlow`: VerificationFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateBrowserVerificationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateBrowserVerificationFlow`: %v\n", resp)
 }
 ```
 
@@ -451,7 +455,7 @@ No authorization required
 
 ## CreateNativeLoginFlow
 
-> LoginFlow CreateNativeLoginFlow(ctx).Refresh(refresh).Aal(aal).XSessionToken(xSessionToken).ReturnSessionTokenExchangeCode(returnSessionTokenExchangeCode).ReturnTo(returnTo).Execute()
+> LoginFlow CreateNativeLoginFlow(ctx).Refresh(refresh).Aal(aal).XSessionToken(xSessionToken).ReturnSessionTokenExchangeCode(returnSessionTokenExchangeCode).ReturnTo(returnTo).Via(via).Execute()
 
 Create Login Flow for Native Apps
 
@@ -466,7 +470,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -475,16 +479,17 @@ func main() {
     xSessionToken := "xSessionToken_example" // string | The Session Token of the Identity performing the settings flow. (optional)
     returnSessionTokenExchangeCode := true // bool | EnableSessionTokenExchangeCode requests the login flow to include a code that can be used to retrieve the session token after the login flow has been completed. (optional)
     returnTo := "returnTo_example" // string | The URL to return the browser to after the flow was completed. (optional)
+    via := "via_example" // string | Via should contain the identity's credential the code should be sent to. Only relevant in aal2 flows. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateNativeLoginFlow(context.Background()).Refresh(refresh).Aal(aal).XSessionToken(xSessionToken).ReturnSessionTokenExchangeCode(returnSessionTokenExchangeCode).ReturnTo(returnTo).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateNativeLoginFlow(context.Background()).Refresh(refresh).Aal(aal).XSessionToken(xSessionToken).ReturnSessionTokenExchangeCode(returnSessionTokenExchangeCode).ReturnTo(returnTo).Via(via).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateNativeLoginFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateNativeLoginFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNativeLoginFlow`: LoginFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateNativeLoginFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateNativeLoginFlow`: %v\n", resp)
 }
 ```
 
@@ -504,6 +509,7 @@ Name | Type | Description  | Notes
  **xSessionToken** | **string** | The Session Token of the Identity performing the settings flow. | 
  **returnSessionTokenExchangeCode** | **bool** | EnableSessionTokenExchangeCode requests the login flow to include a code that can be used to retrieve the session token after the login flow has been completed. | 
  **returnTo** | **string** | The URL to return the browser to after the flow was completed. | 
+ **via** | **string** | Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. | 
 
 ### Return type
 
@@ -540,20 +546,20 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateNativeRecoveryFlow(context.Background()).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateNativeRecoveryFlow(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateNativeRecoveryFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateNativeRecoveryFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNativeRecoveryFlow`: RecoveryFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateNativeRecoveryFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateNativeRecoveryFlow`: %v\n", resp)
 }
 ```
 
@@ -601,7 +607,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -610,13 +616,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateNativeRegistrationFlow(context.Background()).ReturnSessionTokenExchangeCode(returnSessionTokenExchangeCode).ReturnTo(returnTo).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateNativeRegistrationFlow(context.Background()).ReturnSessionTokenExchangeCode(returnSessionTokenExchangeCode).ReturnTo(returnTo).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateNativeRegistrationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateNativeRegistrationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNativeRegistrationFlow`: RegistrationFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateNativeRegistrationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateNativeRegistrationFlow`: %v\n", resp)
 }
 ```
 
@@ -669,7 +675,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -677,13 +683,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateNativeSettingsFlow(context.Background()).XSessionToken(xSessionToken).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateNativeSettingsFlow(context.Background()).XSessionToken(xSessionToken).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateNativeSettingsFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateNativeSettingsFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNativeSettingsFlow`: SettingsFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateNativeSettingsFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateNativeSettingsFlow`: %v\n", resp)
 }
 ```
 
@@ -735,20 +741,20 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.CreateNativeVerificationFlow(context.Background()).Execute()
+    resp, r, err := apiClient.FrontendAPI.CreateNativeVerificationFlow(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.CreateNativeVerificationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.CreateNativeVerificationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `CreateNativeVerificationFlow`: VerificationFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.CreateNativeVerificationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.CreateNativeVerificationFlow`: %v\n", resp)
 }
 ```
 
@@ -796,7 +802,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -805,13 +811,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.DisableMyOtherSessions(context.Background()).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.DisableMyOtherSessions(context.Background()).XSessionToken(xSessionToken).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.DisableMyOtherSessions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.DisableMyOtherSessions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `DisableMyOtherSessions`: DeleteMySessionsCount
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.DisableMyOtherSessions`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.DisableMyOtherSessions`: %v\n", resp)
 }
 ```
 
@@ -864,7 +870,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -874,9 +880,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.DisableMySession(context.Background(), id).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    r, err := apiClient.FrontendAPI.DisableMySession(context.Background(), id).XSessionToken(xSessionToken).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.DisableMySession``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.DisableMySession``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -934,7 +940,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -943,13 +949,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.ExchangeSessionToken(context.Background()).InitCode(initCode).ReturnToCode(returnToCode).Execute()
+    resp, r, err := apiClient.FrontendAPI.ExchangeSessionToken(context.Background()).InitCode(initCode).ReturnToCode(returnToCode).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.ExchangeSessionToken``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.ExchangeSessionToken``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ExchangeSessionToken`: SuccessfulNativeLogin
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.ExchangeSessionToken`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.ExchangeSessionToken`: %v\n", resp)
 }
 ```
 
@@ -1002,7 +1008,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1010,13 +1016,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.GetFlowError(context.Background()).Id(id).Execute()
+    resp, r, err := apiClient.FrontendAPI.GetFlowError(context.Background()).Id(id).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.GetFlowError``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.GetFlowError``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetFlowError`: FlowError
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.GetFlowError`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.GetFlowError`: %v\n", resp)
 }
 ```
 
@@ -1068,7 +1074,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1077,13 +1083,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.GetLoginFlow(context.Background()).Id(id).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.GetLoginFlow(context.Background()).Id(id).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.GetLoginFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.GetLoginFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetLoginFlow`: LoginFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.GetLoginFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.GetLoginFlow`: %v\n", resp)
 }
 ```
 
@@ -1136,7 +1142,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1145,13 +1151,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.GetRecoveryFlow(context.Background()).Id(id).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.GetRecoveryFlow(context.Background()).Id(id).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.GetRecoveryFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.GetRecoveryFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetRecoveryFlow`: RecoveryFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.GetRecoveryFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.GetRecoveryFlow`: %v\n", resp)
 }
 ```
 
@@ -1204,7 +1210,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1213,13 +1219,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.GetRegistrationFlow(context.Background()).Id(id).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.GetRegistrationFlow(context.Background()).Id(id).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.GetRegistrationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.GetRegistrationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetRegistrationFlow`: RegistrationFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.GetRegistrationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.GetRegistrationFlow`: %v\n", resp)
 }
 ```
 
@@ -1272,7 +1278,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1282,13 +1288,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.GetSettingsFlow(context.Background()).Id(id).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.GetSettingsFlow(context.Background()).Id(id).XSessionToken(xSessionToken).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.GetSettingsFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.GetSettingsFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetSettingsFlow`: SettingsFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.GetSettingsFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.GetSettingsFlow`: %v\n", resp)
 }
 ```
 
@@ -1342,7 +1348,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1351,13 +1357,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.GetVerificationFlow(context.Background()).Id(id).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.GetVerificationFlow(context.Background()).Id(id).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.GetVerificationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.GetVerificationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetVerificationFlow`: VerificationFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.GetVerificationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.GetVerificationFlow`: %v\n", resp)
 }
 ```
 
@@ -1410,20 +1416,20 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.GetWebAuthnJavaScript(context.Background()).Execute()
+    resp, r, err := apiClient.FrontendAPI.GetWebAuthnJavaScript(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.GetWebAuthnJavaScript``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.GetWebAuthnJavaScript``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `GetWebAuthnJavaScript`: string
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.GetWebAuthnJavaScript`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.GetWebAuthnJavaScript`: %v\n", resp)
 }
 ```
 
@@ -1456,7 +1462,7 @@ No authorization required
 
 ## ListMySessions
 
-> []Session ListMySessions(ctx).PerPage(perPage).Page(page).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+> []Session ListMySessions(ctx).PerPage(perPage).Page(page).PageSize(pageSize).PageToken(pageToken).XSessionToken(xSessionToken).Cookie(cookie).Execute()
 
 Get My Active Sessions
 
@@ -1471,24 +1477,26 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
-    perPage := int64(789) // int64 | Items per Page  This is the number of items per page. (optional) (default to 250)
-    page := int64(789) // int64 | Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. (optional) (default to 1)
+    perPage := int64(789) // int64 | Deprecated Items per Page  DEPRECATED: Please use `page_token` instead. This parameter will be removed in the future.  This is the number of items per page. (optional) (default to 250)
+    page := int64(789) // int64 | Deprecated Pagination Page  DEPRECATED: Please use `page_token` instead. This parameter will be removed in the future.  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. The first page can be retrieved by omitting this parameter. Following page pointers will be returned in the `Link` header. (optional)
+    pageSize := int64(789) // int64 | Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) (default to 250)
+    pageToken := "pageToken_example" // string | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional) (default to "1")
     xSessionToken := "xSessionToken_example" // string | Set the Session Token when calling from non-browser clients. A session token has a format of `MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj`. (optional)
     cookie := "cookie_example" // string | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: `ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==`.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.ListMySessions(context.Background()).PerPage(perPage).Page(page).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.ListMySessions(context.Background()).PerPage(perPage).Page(page).PageSize(pageSize).PageToken(pageToken).XSessionToken(xSessionToken).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.ListMySessions``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.ListMySessions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ListMySessions`: []Session
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.ListMySessions`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.ListMySessions`: %v\n", resp)
 }
 ```
 
@@ -1503,8 +1511,10 @@ Other parameters are passed through a pointer to a apiListMySessionsRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **perPage** | **int64** | Items per Page  This is the number of items per page. | [default to 250]
- **page** | **int64** | Pagination Page  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. | [default to 1]
+ **perPage** | **int64** | Deprecated Items per Page  DEPRECATED: Please use &#x60;page_token&#x60; instead. This parameter will be removed in the future.  This is the number of items per page. | [default to 250]
+ **page** | **int64** | Deprecated Pagination Page  DEPRECATED: Please use &#x60;page_token&#x60; instead. This parameter will be removed in the future.  This value is currently an integer, but it is not sequential. The value is not the page number, but a reference. The next page can be any number and some numbers might return an empty list.  For example, page 2 might not follow after page 1. And even if page 3 and 5 exist, but page 4 might not exist. The first page can be retrieved by omitting this parameter. Following page pointers will be returned in the &#x60;Link&#x60; header. | 
+ **pageSize** | **int64** | Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [default to 250]
+ **pageToken** | **string** | Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). | [default to &quot;1&quot;]
  **xSessionToken** | **string** | Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. | 
  **cookie** | **string** | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. | 
 
@@ -1543,7 +1553,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1551,9 +1561,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.PerformNativeLogout(context.Background()).PerformNativeLogoutBody(performNativeLogoutBody).Execute()
+    r, err := apiClient.FrontendAPI.PerformNativeLogout(context.Background()).PerformNativeLogoutBody(performNativeLogoutBody).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.PerformNativeLogout``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.PerformNativeLogout``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1592,7 +1602,7 @@ No authorization required
 
 ## ToSession
 
-> Session ToSession(ctx).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+> Session ToSession(ctx).XSessionToken(xSessionToken).Cookie(cookie).TokenizeAs(tokenizeAs).Execute()
 
 Check Who the Current HTTP Session Belongs To
 
@@ -1607,22 +1617,23 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
     xSessionToken := "MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj" // string | Set the Session Token when calling from non-browser clients. A session token has a format of `MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj`. (optional)
     cookie := "ory_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==" // string | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: `ory_kratos_session=a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f==`.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)
+    tokenizeAs := "tokenizeAs_example" // string | Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.ToSession(context.Background()).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.ToSession(context.Background()).XSessionToken(xSessionToken).Cookie(cookie).TokenizeAs(tokenizeAs).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.ToSession``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.ToSession``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `ToSession`: Session
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.ToSession`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.ToSession`: %v\n", resp)
 }
 ```
 
@@ -1639,6 +1650,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **xSessionToken** | **string** | Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. | 
  **cookie** | **string** | Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. | 
+ **tokenizeAs** | **string** | Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). | 
 
 ### Return type
 
@@ -1675,24 +1687,24 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
     flow := "flow_example" // string | The Login Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/login?flow=abcde`).
-    updateLoginFlowBody := openapiclient.updateLoginFlowBody{UpdateLoginFlowWithLookupSecretMethod: openapiclient.NewUpdateLoginFlowWithLookupSecretMethod("LookupSecret_example", "Method_example")} // UpdateLoginFlowBody | 
+    updateLoginFlowBody := openapiclient.updateLoginFlowBody{UpdateLoginFlowWithCodeMethod: openapiclient.NewUpdateLoginFlowWithCodeMethod("CsrfToken_example", "Method_example")} // UpdateLoginFlowBody | 
     xSessionToken := "xSessionToken_example" // string | The Session Token of the Identity performing the settings flow. (optional)
     cookie := "cookie_example" // string | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.UpdateLoginFlow(context.Background()).Flow(flow).UpdateLoginFlowBody(updateLoginFlowBody).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.UpdateLoginFlow(context.Background()).Flow(flow).UpdateLoginFlowBody(updateLoginFlowBody).XSessionToken(xSessionToken).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.UpdateLoginFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.UpdateLoginFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateLoginFlow`: SuccessfulNativeLogin
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.UpdateLoginFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.UpdateLoginFlow`: %v\n", resp)
 }
 ```
 
@@ -1747,7 +1759,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1757,9 +1769,9 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.UpdateLogoutFlow(context.Background()).Token(token).ReturnTo(returnTo).Cookie(cookie).Execute()
+    r, err := apiClient.FrontendAPI.UpdateLogoutFlow(context.Background()).Token(token).ReturnTo(returnTo).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.UpdateLogoutFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.UpdateLogoutFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
 }
@@ -1802,7 +1814,7 @@ No authorization required
 
 > RecoveryFlow UpdateRecoveryFlow(ctx).Flow(flow).UpdateRecoveryFlowBody(updateRecoveryFlowBody).Token(token).Cookie(cookie).Execute()
 
-Complete Recovery Flow
+Update Recovery Flow
 
 
 
@@ -1815,7 +1827,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1826,13 +1838,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.UpdateRecoveryFlow(context.Background()).Flow(flow).UpdateRecoveryFlowBody(updateRecoveryFlowBody).Token(token).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.UpdateRecoveryFlow(context.Background()).Flow(flow).UpdateRecoveryFlowBody(updateRecoveryFlowBody).Token(token).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.UpdateRecoveryFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.UpdateRecoveryFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateRecoveryFlow`: RecoveryFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.UpdateRecoveryFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.UpdateRecoveryFlow`: %v\n", resp)
 }
 ```
 
@@ -1887,23 +1899,23 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
     flow := "flow_example" // string | The Registration Flow ID  The value for this parameter comes from `flow` URL Query parameter sent to your application (e.g. `/registration?flow=abcde`).
-    updateRegistrationFlowBody := openapiclient.updateRegistrationFlowBody{UpdateRegistrationFlowWithOidcMethod: openapiclient.NewUpdateRegistrationFlowWithOidcMethod("Method_example", "Provider_example")} // UpdateRegistrationFlowBody | 
+    updateRegistrationFlowBody := openapiclient.updateRegistrationFlowBody{UpdateRegistrationFlowWithCodeMethod: openapiclient.NewUpdateRegistrationFlowWithCodeMethod("Method_example", map[string]interface{}(123))} // UpdateRegistrationFlowBody | 
     cookie := "cookie_example" // string | HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.UpdateRegistrationFlow(context.Background()).Flow(flow).UpdateRegistrationFlowBody(updateRegistrationFlowBody).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.UpdateRegistrationFlow(context.Background()).Flow(flow).UpdateRegistrationFlowBody(updateRegistrationFlowBody).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.UpdateRegistrationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.UpdateRegistrationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateRegistrationFlow`: SuccessfulNativeRegistration
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.UpdateRegistrationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.UpdateRegistrationFlow`: %v\n", resp)
 }
 ```
 
@@ -1957,7 +1969,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -1968,13 +1980,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.UpdateSettingsFlow(context.Background()).Flow(flow).UpdateSettingsFlowBody(updateSettingsFlowBody).XSessionToken(xSessionToken).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.UpdateSettingsFlow(context.Background()).Flow(flow).UpdateSettingsFlowBody(updateSettingsFlowBody).XSessionToken(xSessionToken).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.UpdateSettingsFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.UpdateSettingsFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateSettingsFlow`: SettingsFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.UpdateSettingsFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.UpdateSettingsFlow`: %v\n", resp)
 }
 ```
 
@@ -2029,7 +2041,7 @@ import (
     "context"
     "fmt"
     "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/ory/kratos-client-go"
 )
 
 func main() {
@@ -2040,13 +2052,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.FrontendApi.UpdateVerificationFlow(context.Background()).Flow(flow).UpdateVerificationFlowBody(updateVerificationFlowBody).Token(token).Cookie(cookie).Execute()
+    resp, r, err := apiClient.FrontendAPI.UpdateVerificationFlow(context.Background()).Flow(flow).UpdateVerificationFlowBody(updateVerificationFlowBody).Token(token).Cookie(cookie).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `FrontendApi.UpdateVerificationFlow``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `FrontendAPI.UpdateVerificationFlow``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     // response from `UpdateVerificationFlow`: VerificationFlow
-    fmt.Fprintf(os.Stdout, "Response from `FrontendApi.UpdateVerificationFlow`: %v\n", resp)
+    fmt.Fprintf(os.Stdout, "Response from `FrontendAPI.UpdateVerificationFlow`: %v\n", resp)
 }
 ```
 
