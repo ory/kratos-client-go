@@ -3,7 +3,7 @@ Ory Identities API
 
 This is the API specification for Ory Identities with features such as registration, login, recovery, account verification, profile settings, password reset, identity management, session management, email and sms delivery, and more. 
 
-API version: v1.3.8
+API version: v25.4.0
 Contact: office@ory.sh
 */
 
@@ -27,6 +27,8 @@ type UpdateFedcmFlowBody struct {
 	Nonce *string `json:"nonce,omitempty"`
 	// Token contains the result of `navigator.credentials.get`.
 	Token string `json:"token"`
+	// Transient data to pass along to any webhooks.
+	TransientPayload map[string]interface{} `json:"transient_payload,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -131,6 +133,38 @@ func (o *UpdateFedcmFlowBody) SetToken(v string) {
 	o.Token = v
 }
 
+// GetTransientPayload returns the TransientPayload field value if set, zero value otherwise.
+func (o *UpdateFedcmFlowBody) GetTransientPayload() map[string]interface{} {
+	if o == nil || IsNil(o.TransientPayload) {
+		var ret map[string]interface{}
+		return ret
+	}
+	return o.TransientPayload
+}
+
+// GetTransientPayloadOk returns a tuple with the TransientPayload field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *UpdateFedcmFlowBody) GetTransientPayloadOk() (map[string]interface{}, bool) {
+	if o == nil || IsNil(o.TransientPayload) {
+		return map[string]interface{}{}, false
+	}
+	return o.TransientPayload, true
+}
+
+// HasTransientPayload returns a boolean if a field has been set.
+func (o *UpdateFedcmFlowBody) HasTransientPayload() bool {
+	if o != nil && !IsNil(o.TransientPayload) {
+		return true
+	}
+
+	return false
+}
+
+// SetTransientPayload gets a reference to the given map[string]interface{} and assigns it to the TransientPayload field.
+func (o *UpdateFedcmFlowBody) SetTransientPayload(v map[string]interface{}) {
+	o.TransientPayload = v
+}
+
 func (o UpdateFedcmFlowBody) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -146,6 +180,9 @@ func (o UpdateFedcmFlowBody) ToMap() (map[string]interface{}, error) {
 		toSerialize["nonce"] = o.Nonce
 	}
 	toSerialize["token"] = o.Token
+	if !IsNil(o.TransientPayload) {
+		toSerialize["transient_payload"] = o.TransientPayload
+	}
 
 	for key, value := range o.AdditionalProperties {
 		toSerialize[key] = value
@@ -193,6 +230,7 @@ func (o *UpdateFedcmFlowBody) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "csrf_token")
 		delete(additionalProperties, "nonce")
 		delete(additionalProperties, "token")
+		delete(additionalProperties, "transient_payload")
 		o.AdditionalProperties = additionalProperties
 	}
 

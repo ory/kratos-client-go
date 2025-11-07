@@ -3,7 +3,7 @@ Ory Identities API
 
 This is the API specification for Ory Identities with features such as registration, login, recovery, account verification, profile settings, password reset, identity management, session management, email and sms delivery, and more. 
 
-API version: v1.3.8
+API version: v25.4.0
 Contact: office@ory.sh
 */
 
@@ -23,6 +23,7 @@ type UpdateRegistrationFlowBody struct {
 	UpdateRegistrationFlowWithPasskeyMethod *UpdateRegistrationFlowWithPasskeyMethod
 	UpdateRegistrationFlowWithPasswordMethod *UpdateRegistrationFlowWithPasswordMethod
 	UpdateRegistrationFlowWithProfileMethod *UpdateRegistrationFlowWithProfileMethod
+	UpdateRegistrationFlowWithSamlMethod *UpdateRegistrationFlowWithSamlMethod
 	UpdateRegistrationFlowWithWebAuthnMethod *UpdateRegistrationFlowWithWebAuthnMethod
 }
 
@@ -58,6 +59,13 @@ func UpdateRegistrationFlowWithPasswordMethodAsUpdateRegistrationFlowBody(v *Upd
 func UpdateRegistrationFlowWithProfileMethodAsUpdateRegistrationFlowBody(v *UpdateRegistrationFlowWithProfileMethod) UpdateRegistrationFlowBody {
 	return UpdateRegistrationFlowBody{
 		UpdateRegistrationFlowWithProfileMethod: v,
+	}
+}
+
+// UpdateRegistrationFlowWithSamlMethodAsUpdateRegistrationFlowBody is a convenience function that returns UpdateRegistrationFlowWithSamlMethod wrapped in UpdateRegistrationFlowBody
+func UpdateRegistrationFlowWithSamlMethodAsUpdateRegistrationFlowBody(v *UpdateRegistrationFlowWithSamlMethod) UpdateRegistrationFlowBody {
+	return UpdateRegistrationFlowBody{
+		UpdateRegistrationFlowWithSamlMethod: v,
 	}
 }
 
@@ -139,6 +147,18 @@ func (dst *UpdateRegistrationFlowBody) UnmarshalJSON(data []byte) error {
 		}
 	}
 
+	// check if the discriminator value is 'saml'
+	if jsonDict["method"] == "saml" {
+		// try to unmarshal JSON data into UpdateRegistrationFlowWithSamlMethod
+		err = json.Unmarshal(data, &dst.UpdateRegistrationFlowWithSamlMethod)
+		if err == nil {
+			return nil // data stored in dst.UpdateRegistrationFlowWithSamlMethod, return on the first match
+		} else {
+			dst.UpdateRegistrationFlowWithSamlMethod = nil
+			return fmt.Errorf("failed to unmarshal UpdateRegistrationFlowBody as UpdateRegistrationFlowWithSamlMethod: %s", err.Error())
+		}
+	}
+
 	// check if the discriminator value is 'webauthn'
 	if jsonDict["method"] == "webauthn" {
 		// try to unmarshal JSON data into UpdateRegistrationFlowWithWebAuthnMethod
@@ -211,6 +231,18 @@ func (dst *UpdateRegistrationFlowBody) UnmarshalJSON(data []byte) error {
 		}
 	}
 
+	// check if the discriminator value is 'updateRegistrationFlowWithSamlMethod'
+	if jsonDict["method"] == "updateRegistrationFlowWithSamlMethod" {
+		// try to unmarshal JSON data into UpdateRegistrationFlowWithSamlMethod
+		err = json.Unmarshal(data, &dst.UpdateRegistrationFlowWithSamlMethod)
+		if err == nil {
+			return nil // data stored in dst.UpdateRegistrationFlowWithSamlMethod, return on the first match
+		} else {
+			dst.UpdateRegistrationFlowWithSamlMethod = nil
+			return fmt.Errorf("failed to unmarshal UpdateRegistrationFlowBody as UpdateRegistrationFlowWithSamlMethod: %s", err.Error())
+		}
+	}
+
 	// check if the discriminator value is 'updateRegistrationFlowWithWebAuthnMethod'
 	if jsonDict["method"] == "updateRegistrationFlowWithWebAuthnMethod" {
 		// try to unmarshal JSON data into UpdateRegistrationFlowWithWebAuthnMethod
@@ -248,6 +280,10 @@ func (src UpdateRegistrationFlowBody) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.UpdateRegistrationFlowWithProfileMethod)
 	}
 
+	if src.UpdateRegistrationFlowWithSamlMethod != nil {
+		return json.Marshal(&src.UpdateRegistrationFlowWithSamlMethod)
+	}
+
 	if src.UpdateRegistrationFlowWithWebAuthnMethod != nil {
 		return json.Marshal(&src.UpdateRegistrationFlowWithWebAuthnMethod)
 	}
@@ -280,8 +316,46 @@ func (obj *UpdateRegistrationFlowBody) GetActualInstance() (interface{}) {
 		return obj.UpdateRegistrationFlowWithProfileMethod
 	}
 
+	if obj.UpdateRegistrationFlowWithSamlMethod != nil {
+		return obj.UpdateRegistrationFlowWithSamlMethod
+	}
+
 	if obj.UpdateRegistrationFlowWithWebAuthnMethod != nil {
 		return obj.UpdateRegistrationFlowWithWebAuthnMethod
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj UpdateRegistrationFlowBody) GetActualInstanceValue() (interface{}) {
+	if obj.UpdateRegistrationFlowWithCodeMethod != nil {
+		return *obj.UpdateRegistrationFlowWithCodeMethod
+	}
+
+	if obj.UpdateRegistrationFlowWithOidcMethod != nil {
+		return *obj.UpdateRegistrationFlowWithOidcMethod
+	}
+
+	if obj.UpdateRegistrationFlowWithPasskeyMethod != nil {
+		return *obj.UpdateRegistrationFlowWithPasskeyMethod
+	}
+
+	if obj.UpdateRegistrationFlowWithPasswordMethod != nil {
+		return *obj.UpdateRegistrationFlowWithPasswordMethod
+	}
+
+	if obj.UpdateRegistrationFlowWithProfileMethod != nil {
+		return *obj.UpdateRegistrationFlowWithProfileMethod
+	}
+
+	if obj.UpdateRegistrationFlowWithSamlMethod != nil {
+		return *obj.UpdateRegistrationFlowWithSamlMethod
+	}
+
+	if obj.UpdateRegistrationFlowWithWebAuthnMethod != nil {
+		return *obj.UpdateRegistrationFlowWithWebAuthnMethod
 	}
 
 	// all schemas are nil

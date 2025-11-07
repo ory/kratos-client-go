@@ -3,7 +3,7 @@ Ory Identities API
 
 This is the API specification for Ory Identities with features such as registration, login, recovery, account verification, profile settings, password reset, identity management, session management, email and sms delivery, and more. 
 
-API version: v1.3.8
+API version: v25.4.0
 Contact: office@ory.sh
 */
 
@@ -24,6 +24,7 @@ type UpdateLoginFlowBody struct {
 	UpdateLoginFlowWithOidcMethod *UpdateLoginFlowWithOidcMethod
 	UpdateLoginFlowWithPasskeyMethod *UpdateLoginFlowWithPasskeyMethod
 	UpdateLoginFlowWithPasswordMethod *UpdateLoginFlowWithPasswordMethod
+	UpdateLoginFlowWithSamlMethod *UpdateLoginFlowWithSamlMethod
 	UpdateLoginFlowWithTotpMethod *UpdateLoginFlowWithTotpMethod
 	UpdateLoginFlowWithWebAuthnMethod *UpdateLoginFlowWithWebAuthnMethod
 }
@@ -67,6 +68,13 @@ func UpdateLoginFlowWithPasskeyMethodAsUpdateLoginFlowBody(v *UpdateLoginFlowWit
 func UpdateLoginFlowWithPasswordMethodAsUpdateLoginFlowBody(v *UpdateLoginFlowWithPasswordMethod) UpdateLoginFlowBody {
 	return UpdateLoginFlowBody{
 		UpdateLoginFlowWithPasswordMethod: v,
+	}
+}
+
+// UpdateLoginFlowWithSamlMethodAsUpdateLoginFlowBody is a convenience function that returns UpdateLoginFlowWithSamlMethod wrapped in UpdateLoginFlowBody
+func UpdateLoginFlowWithSamlMethodAsUpdateLoginFlowBody(v *UpdateLoginFlowWithSamlMethod) UpdateLoginFlowBody {
+	return UpdateLoginFlowBody{
+		UpdateLoginFlowWithSamlMethod: v,
 	}
 }
 
@@ -167,6 +175,18 @@ func (dst *UpdateLoginFlowBody) UnmarshalJSON(data []byte) error {
 		}
 	}
 
+	// check if the discriminator value is 'saml'
+	if jsonDict["method"] == "saml" {
+		// try to unmarshal JSON data into UpdateLoginFlowWithSamlMethod
+		err = json.Unmarshal(data, &dst.UpdateLoginFlowWithSamlMethod)
+		if err == nil {
+			return nil // data stored in dst.UpdateLoginFlowWithSamlMethod, return on the first match
+		} else {
+			dst.UpdateLoginFlowWithSamlMethod = nil
+			return fmt.Errorf("failed to unmarshal UpdateLoginFlowBody as UpdateLoginFlowWithSamlMethod: %s", err.Error())
+		}
+	}
+
 	// check if the discriminator value is 'totp'
 	if jsonDict["method"] == "totp" {
 		// try to unmarshal JSON data into UpdateLoginFlowWithTotpMethod
@@ -263,6 +283,18 @@ func (dst *UpdateLoginFlowBody) UnmarshalJSON(data []byte) error {
 		}
 	}
 
+	// check if the discriminator value is 'updateLoginFlowWithSamlMethod'
+	if jsonDict["method"] == "updateLoginFlowWithSamlMethod" {
+		// try to unmarshal JSON data into UpdateLoginFlowWithSamlMethod
+		err = json.Unmarshal(data, &dst.UpdateLoginFlowWithSamlMethod)
+		if err == nil {
+			return nil // data stored in dst.UpdateLoginFlowWithSamlMethod, return on the first match
+		} else {
+			dst.UpdateLoginFlowWithSamlMethod = nil
+			return fmt.Errorf("failed to unmarshal UpdateLoginFlowBody as UpdateLoginFlowWithSamlMethod: %s", err.Error())
+		}
+	}
+
 	// check if the discriminator value is 'updateLoginFlowWithTotpMethod'
 	if jsonDict["method"] == "updateLoginFlowWithTotpMethod" {
 		// try to unmarshal JSON data into UpdateLoginFlowWithTotpMethod
@@ -316,6 +348,10 @@ func (src UpdateLoginFlowBody) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.UpdateLoginFlowWithPasswordMethod)
 	}
 
+	if src.UpdateLoginFlowWithSamlMethod != nil {
+		return json.Marshal(&src.UpdateLoginFlowWithSamlMethod)
+	}
+
 	if src.UpdateLoginFlowWithTotpMethod != nil {
 		return json.Marshal(&src.UpdateLoginFlowWithTotpMethod)
 	}
@@ -356,12 +392,58 @@ func (obj *UpdateLoginFlowBody) GetActualInstance() (interface{}) {
 		return obj.UpdateLoginFlowWithPasswordMethod
 	}
 
+	if obj.UpdateLoginFlowWithSamlMethod != nil {
+		return obj.UpdateLoginFlowWithSamlMethod
+	}
+
 	if obj.UpdateLoginFlowWithTotpMethod != nil {
 		return obj.UpdateLoginFlowWithTotpMethod
 	}
 
 	if obj.UpdateLoginFlowWithWebAuthnMethod != nil {
 		return obj.UpdateLoginFlowWithWebAuthnMethod
+	}
+
+	// all schemas are nil
+	return nil
+}
+
+// Get the actual instance value
+func (obj UpdateLoginFlowBody) GetActualInstanceValue() (interface{}) {
+	if obj.UpdateLoginFlowWithCodeMethod != nil {
+		return *obj.UpdateLoginFlowWithCodeMethod
+	}
+
+	if obj.UpdateLoginFlowWithIdentifierFirstMethod != nil {
+		return *obj.UpdateLoginFlowWithIdentifierFirstMethod
+	}
+
+	if obj.UpdateLoginFlowWithLookupSecretMethod != nil {
+		return *obj.UpdateLoginFlowWithLookupSecretMethod
+	}
+
+	if obj.UpdateLoginFlowWithOidcMethod != nil {
+		return *obj.UpdateLoginFlowWithOidcMethod
+	}
+
+	if obj.UpdateLoginFlowWithPasskeyMethod != nil {
+		return *obj.UpdateLoginFlowWithPasskeyMethod
+	}
+
+	if obj.UpdateLoginFlowWithPasswordMethod != nil {
+		return *obj.UpdateLoginFlowWithPasswordMethod
+	}
+
+	if obj.UpdateLoginFlowWithSamlMethod != nil {
+		return *obj.UpdateLoginFlowWithSamlMethod
+	}
+
+	if obj.UpdateLoginFlowWithTotpMethod != nil {
+		return *obj.UpdateLoginFlowWithTotpMethod
+	}
+
+	if obj.UpdateLoginFlowWithWebAuthnMethod != nil {
+		return *obj.UpdateLoginFlowWithWebAuthnMethod
 	}
 
 	// all schemas are nil
